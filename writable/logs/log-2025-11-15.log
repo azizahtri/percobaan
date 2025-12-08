@@ -1,0 +1,123 @@
+CRITICAL - 2025-11-15 00:29:06 --> Undefined variable $subcriteria
+in APPPATH\Views\admin\values\edit.php on line 57.
+ 1 APPPATH\Views\admin\values\edit.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subcriteria', 'APPPATH\\Views\\admin\\values\\edit.php', 57)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\values\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/values/edit', [], true)
+ 5 APPPATH\Controllers\ValuesController.php(96): view('admin/values/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->edit('127')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 00:29:06 --> unlink(C:\xampp\htdocs\percobaan\writable\debugbar/debugbar_1763181848.778549.json): No such file or directory
+in SYSTEMPATH\Debug\Toolbar\Collectors\History.php on line 76.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp\\htdocs\\percobaan\\writable\\debugbar/debugbar_1763181848.778549.json): No such file or directory', 'SYSTEMPATH\\Debug\\Toolbar\\Collectors\\History.php', 76)
+ 2 SYSTEMPATH\Debug\Toolbar\Collectors\History.php(76): unlink('ROOTPATH\\writable\\debugbar/debugbar_1763181848.778549.json')
+ 3 SYSTEMPATH\Debug\Toolbar.php(500): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles('1763188140.990273', 20)
+ 4 SYSTEMPATH\Debug\Toolbar.php(477): CodeIgniter\Debug\Toolbar->format([...], 'html')
+ 5 APPPATH\Config\Events.php(46): CodeIgniter\Debug\Toolbar->respond()
+ 6 SYSTEMPATH\Events\Events.php(149): CodeIgniter\Events\Events::Config\{closure}()
+ 7 SYSTEMPATH\CodeIgniter.php(328): CodeIgniter\Events\Events::trigger('pre_system')
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 00:33:47 --> Undefined array key "type"
+in APPPATH\Views\admin\values\create.php on line 16.
+ 1 APPPATH\Views\admin\values\create.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "type"', 'APPPATH\\Views\\admin\\values\\create.php', 16)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\values\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/values/create', [], true)
+ 5 APPPATH\Controllers\ValuesController.php(56): view('admin/values/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 00:34:52 --> Undefined array key "type"
+in APPPATH\Views\admin\values\create.php on line 16.
+ 1 APPPATH\Views\admin\values\create.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "type"', 'APPPATH\\Views\\admin\\values\\create.php', 16)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\values\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/values/create', [], true)
+ 5 APPPATH\Controllers\ValuesController.php(56): view('admin/values/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 00:41:26 --> Undefined variable $subcriteria
+in APPPATH\Views\admin\values\edit.php on line 56.
+ 1 APPPATH\Views\admin\values\edit.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subcriteria', 'APPPATH\\Views\\admin\\values\\edit.php', 56)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\values\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/values/edit', [], true)
+ 5 APPPATH\Controllers\ValuesController.php(95): view('admin/values/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->edit('127')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 00:41:32 --> Undefined variable $subcriteria
+in APPPATH\Views\admin\values\edit.php on line 56.
+ 1 APPPATH\Views\admin\values\edit.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subcriteria', 'APPPATH\\Views\\admin\\values\\edit.php', 56)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\values\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/values/edit', [], true)
+ 5 APPPATH\Controllers\ValuesController.php(95): view('admin/values/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->edit('127')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 01:00:38 --> Undefined variable $criteria
+in APPPATH\Controllers\LamaranController.php on line 63.
+ 1 APPPATH\Controllers\LamaranController.php(63): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $criteria', 'APPPATH\\Controllers\\LamaranController.php', 63)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 01:00:43 --> Undefined variable $criteria
+in APPPATH\Controllers\LamaranController.php on line 63.
+ 1 APPPATH\Controllers\LamaranController.php(63): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $criteria', 'APPPATH\\Controllers\\LamaranController.php', 63)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 01:01:20 --> Undefined variable $criteria
+in APPPATH\Controllers\LamaranController.php on line 64.
+ 1 APPPATH\Controllers\LamaranController.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $criteria', 'APPPATH\\Controllers\\LamaranController.php', 64)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 01:01:24 --> Undefined variable $criteria
+in APPPATH\Controllers\LamaranController.php on line 64.
+ 1 APPPATH\Controllers\LamaranController.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $criteria', 'APPPATH\\Controllers\\LamaranController.php', 64)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 01:40:52 --> Class "App\Controllers\CriteriaModel" not found
+in APPPATH\Controllers\LamaranController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 01:40:57 --> Class "App\Controllers\CriteriaModel" not found
+in APPPATH\Controllers\LamaranController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 01:47:26 --> Class "App\Controllers\SubcriteriaModel" not found
+in APPPATH\Controllers\LamaranController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\LamaranController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 01:47:31 --> Class "App\Controllers\SubcriteriaModel" not found
+in APPPATH\Controllers\LamaranController.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\LamaranController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-15 01:47:46 --> Class "App\Controllers\CriteriaModel" not found
+in APPPATH\Controllers\LamaranController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

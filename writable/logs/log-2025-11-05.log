@@ -1,0 +1,239 @@
+ERROR - 2025-11-05 03:44:53 --> mysqli_sql_exception: Unknown column 'updated_at' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `la...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `la...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `la...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `la...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\percobaan\app\Controllers\LamaranController.php(71): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\LamaranController->submit()
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2025-11-05 03:44:53 --> Unknown column 'updated_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `lamaran` (`id_lowongan`, `nama`, `email`, `no_hp`, `pesan`, `cv`, `created_at`, `updated_at`) VALUES (\'1\', \'Azizah Tri Kusumadewi\', \'azizahtrikusuma.13@gmail.com\', \'081385398213\', \'1234567\', \'1762335892_3f6e4cf1f3fafda4036b.pdf\', \'2025-11-05 03:44:52\', \'2025-11-05 03:44:52\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lamaran` (`id_lowongan`, `nama`, `email`, `no_hp`, `pesan`, `cv`, `created_at`, `updated_at`) VALUES (\'1\', \'Azizah Tri Kusumadewi\', \'azizahtrikusuma.13@gmail.com\', \'081385398213\', \'1234567\', \'1762335892_3f6e4cf1f3fafda4036b.pdf\', \'2025-11-05 03:44:52\', \'2025-11-05 03:44:52\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lamaran` (`id_lowongan`, `nama`, `email`, `no_hp`, `pesan`, `cv`, `created_at`, `updated_at`) VALUES (\'1\', \'Azizah Tri Kusumadewi\', \'azizahtrikusuma.13@gmail.com\', \'081385398213\', \'1234567\', \'1762335892_3f6e4cf1f3fafda4036b.pdf\', \'2025-11-05 03:44:52\', \'2025-11-05 03:44:52\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lamaran` (`id_lowongan`, `nama`, `email`, `no_hp`, `pesan`, `cv`, `created_at`, `updated_at`) VALUES (:id_lowongan:, :nama:, :email:, :no_hp:, :pesan:, :cv:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\LamaranController.php(71): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->submit()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-05 03:59:17 --> mysqli_sql_exception: Unknown column 'users.name' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lamaran...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lamaran...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lamaran...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lamaran...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\LamaranController.php(29): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-11-05 03:59:17 --> Unknown column 'users.name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\LamaranController.php(29): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 04:00:14 --> Undefined variable $lamaran
+in APPPATH\Controllers\LamaranController.php on line 26.
+ 1 APPPATH\Controllers\LamaranController.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $lamaran', 'APPPATH\\Controllers\\LamaranController.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 04:42:53 --> Invalid file: admin/layout/main.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/main.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('admin/layout/main', [], true)
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 4 APPPATH\Controllers\AdminController.php(14): view('admin/dashboard', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AdminController->dashboard()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 04:43:10 --> Invalid file: admin/layout/sidebar.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/sidebar.php')
+ 2 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/sidebar', null, true)
+ 3 APPPATH\Views\admin\layouts\main.php(21): CodeIgniter\View\View->include('admin/layout/sidebar')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\layouts\\main.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('admin/layouts/main', [], true)
+ 7 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 8 APPPATH\Controllers\CriteriaController.php(21): view('admin/criteria/index', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 04:44:00 --> Invalid file: admin/layout/sidebar.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/sidebar.php')
+ 2 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/sidebar', null, true)
+ 3 APPPATH\Views\admin\layouts\main.php(21): CodeIgniter\View\View->include('admin/layout/sidebar')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\layouts\\main.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('admin/layouts/main', [], true)
+ 7 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 8 APPPATH\Controllers\CriteriaController.php(21): view('admin/criteria/index', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 04:44:01 --> Invalid file: admin/layout/sidebar.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/sidebar.php')
+ 2 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layout/sidebar', null, true)
+ 3 APPPATH\Views\admin\layouts\main.php(21): CodeIgniter\View\View->include('admin/layout/sidebar')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\layouts\\main.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('admin/layouts/main', [], true)
+ 7 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 8 APPPATH\Controllers\CriteriaController.php(21): view('admin/criteria/index', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 04:48:29 --> Invalid file: admin/layout/main.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/layout/main.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('admin/layout/main', [], true)
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 4 APPPATH\Controllers\AdminController.php(14): view('admin/dashboard', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AdminController->dashboard()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 20:23:15 --> syntax error, unexpected double-quoted string ">", expecting "," or ";"
+in APPPATH\Views\admin\layouts\sidebar.php on line 19.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('admin/layouts/sidebar', null, true)
+ 3 APPPATH\Views\admin\layouts\main.php(21): CodeIgniter\View\View->include('admin/layouts/sidebar')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\layouts\\main.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('admin/layouts/main', [], true)
+ 7 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 8 APPPATH\Controllers\AdminController.php(14): view('admin/dashboard', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AdminController->dashboard()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 22:14:45 --> Undefined variable $lamaran
+in APPPATH\Controllers\LamaranController.php on line 26.
+ 1 APPPATH\Controllers\LamaranController.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $lamaran', 'APPPATH\\Controllers\\LamaranController.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 22:26:02 --> Undefined array key "alternative_name"
+in APPPATH\Views\admin\values\index.php on line 29.
+ 1 APPPATH\Views\admin\values\index.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "alternative_name"', 'APPPATH\\Views\\admin\\values\\index.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\values\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/values/index', [], true)
+ 5 APPPATH\Controllers\ValuesController.php(33): view('admin/values/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 22:26:13 --> Undefined array key "score"
+in APPPATH\Views\admin\spk\result.php on line 23.
+ 1 APPPATH\Views\admin\spk\result.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "score"', 'APPPATH\\Views\\admin\\spk\\result.php', 23)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\spk\\result.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/spk/result', [], true)
+ 5 APPPATH\Controllers\SpkController.php(37): view('admin/spk/result', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SpkController->result()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 22:32:40 --> Undefined array key "alternative_name"
+in APPPATH\Views\admin\values\index.php on line 29.
+ 1 APPPATH\Views\admin\values\index.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "alternative_name"', 'APPPATH\\Views\\admin\\values\\index.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\values\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/values/index', [], true)
+ 5 APPPATH\Controllers\ValuesController.php(33): view('admin/values/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 22:32:51 --> Undefined array key "alternative_name"
+in APPPATH\Views\admin\values\index.php on line 29.
+ 1 APPPATH\Views\admin\values\index.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "alternative_name"', 'APPPATH\\Views\\admin\\values\\index.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\values\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/values/index', [], true)
+ 5 APPPATH\Controllers\ValuesController.php(33): view('admin/values/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 22:41:17 --> Undefined variable $c
+in APPPATH\Views\admin\values\index.php on line 40.
+ 1 APPPATH\Views\admin\values\index.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $c', 'APPPATH\\Views\\admin\\values\\index.php', 40)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\values\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/values/index', [], true)
+ 5 APPPATH\Controllers\ValuesController.php(33): view('admin/values/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 22:42:02 --> Undefined variable $c
+in APPPATH\Views\admin\values\index.php on line 40.
+ 1 APPPATH\Views\admin\values\index.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $c', 'APPPATH\\Views\\admin\\values\\index.php', 40)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\values\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/values/index', [], true)
+ 5 APPPATH\Controllers\ValuesController.php(33): view('admin/values/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-05 22:49:51 --> Undefined array key "score"
+in APPPATH\Views\admin\spk\result.php on line 28.
+ 1 APPPATH\Views\admin\spk\result.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "score"', 'APPPATH\\Views\\admin\\spk\\result.php', 28)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\spk\\result.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/spk/result', [], true)
+ 5 APPPATH\Controllers\SpkController.php(37): view('admin/spk/result', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SpkController->result()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

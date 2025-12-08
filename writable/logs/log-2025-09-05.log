@@ -1,0 +1,335 @@
+CRITICAL - 2025-09-05 05:24:42 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:26:48 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:28:14 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:28:15 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:28:16 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:28:16 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:28:16 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:28:16 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:28:16 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:20 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:21 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:21 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:22 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:22 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:34 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:45 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:45 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:45 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:45 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:46 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:29:46 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2025-09-05 05:33:16 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 224.
+ 1 SYSTEMPATH\CodeIgniter.php(224): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(182): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+ERROR - 2025-09-05 00:49:37 --> mysqli_sql_exception: Table 'latihan.values' doesn't exist in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\ValuesController.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-09-05 00:49:37 --> Table 'latihan.values' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ValuesController.php(19): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-05 01:17:39 --> mysqli_sql_exception: Unknown table 'latihan.values' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\ValuesController.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-09-05 01:17:39 --> Unknown table 'latihan.values'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ValuesController.php(19): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-05 01:18:31 --> mysqli_sql_exception: Table 'latihan.nilai' doesn't exist in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\ValuesController.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-09-05 01:18:31 --> Table 'latihan.nilai' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ValuesController.php(19): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-05 01:18:53 --> mysqli_sql_exception: Table 'latihan.nilai' doesn't exist in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\ValuesController.php(19): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-09-05 01:18:53 --> Table 'latihan.nilai' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`.*, `alternatives`.`name` as `alt_name`, `criteria`.`name` as `crit_name`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id`=`values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id`=`values`.`criteria_id`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ValuesController.php(19): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-05 01:45:44 --> Class "App\Models\SubcriteriaModel" not found
+in APPPATH\Controllers\SubcriteriaController.php on line 9.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SubcriteriaController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SubcriteriaController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-05 02:04:53 --> Undefined array key "w_norm"
+in APPPATH\Views\spk\index.php on line 29.
+ 1 APPPATH\Views\spk\index.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "w_norm"', 'APPPATH\\Views\\spk\\index.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\spk\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('spk/index', [], true)
+ 5 APPPATH\Controllers\Spk.php(63): view('spk/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Spk->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-05 02:22:11 --> syntax error, unexpected end of file, expecting identifier or variable or "{" or "$"
+in APPPATH\Views\spk\index.php on line 88.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('spk/index', [], true)
+ 3 APPPATH\Controllers\Spk.php(60): view('spk/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Spk->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-05 02:40:48 --> mysqli_sql_exception: Table 'latihan.alternative_values' doesn't exist in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `av`.*, ...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `av`.*, ...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `av`.*, ...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `av`.*, ...', Array, false)
+#4 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(75): App\Models\SpkModel->getAllValues()
+#6 C:\xampp\htdocs\percobaan\app\Controllers\Spk.php(11): App\Models\SpkModel->calculateWP()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\Spk->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-09-05 02:40:48 --> Table 'latihan.alternative_values' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `av`.*, `a`.`name` as `alt_name`, `c`.`name` as `crit_name`, `c`.`type` as `crit_type`, `c`.`weight`
+FROM `alternative_values` `av`
+JOIN `alternatives` `a` ON `a`.`id` = `av`.`alt_id`
+JOIN `criteria` `c` ON `c`.`id` = `av`.`crit_id`
+ORDER BY `av`.`alt_id` ASC, `av`.`crit_id` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `av`.*, `a`.`name` as `alt_name`, `c`.`name` as `crit_name`, `c`.`type` as `crit_type`, `c`.`weight`
+FROM `alternative_values` `av`
+JOIN `alternatives` `a` ON `a`.`id` = `av`.`alt_id`
+JOIN `criteria` `c` ON `c`.`id` = `av`.`crit_id`
+ORDER BY `av`.`alt_id` ASC, `av`.`crit_id` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `av`.*, `a`.`name` as `alt_name`, `c`.`name` as `crit_name`, `c`.`type` as `crit_type`, `c`.`weight`
+FROM `alternative_values` `av`
+JOIN `alternatives` `a` ON `a`.`id` = `av`.`alt_id`
+JOIN `criteria` `c` ON `c`.`id` = `av`.`crit_id`
+ORDER BY `av`.`alt_id` ASC, `av`.`crit_id` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `av`.*, `a`.`name` as `alt_name`, `c`.`name` as `crit_name`, `c`.`type` as `crit_type`, `c`.`weight`
+FROM `alternative_values` `av`
+JOIN `alternatives` `a` ON `a`.`id` = `av`.`alt_id`
+JOIN `criteria` `c` ON `c`.`id` = `av`.`crit_id`
+ORDER BY `av`.`alt_id` ASC, `av`.`crit_id` ASC', [], false)
+ 5 APPPATH\Models\SpkModel.php(46): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Models\SpkModel.php(75): App\Models\SpkModel->getAllValues()
+ 7 APPPATH\Controllers\Spk.php(11): App\Models\SpkModel->calculateWP()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Spk->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

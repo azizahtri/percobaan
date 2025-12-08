@@ -1,0 +1,432 @@
+CRITICAL - 2025-11-25 00:34:26 --> Invalid file: admin/pekerjaan/index.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/pekerjaan/index.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/pekerjaan/index', [], true)
+ 3 APPPATH\Controllers\PekerjaanController.php(20): view('admin/pekerjaan/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\PekerjaanController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PekerjaanController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 00:34:51 --> Invalid file: admin/pekerjaan/index.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/pekerjaan/index.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/pekerjaan/index', [], true)
+ 3 APPPATH\Controllers\PekerjaanController.php(20): view('admin/pekerjaan/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\PekerjaanController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PekerjaanController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 01:36:24 --> Undefined variable $field_id
+in APPPATH\Views\admin\criteria\index.php on line 46.
+ 1 APPPATH\Views\admin\criteria\index.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $field_id', 'APPPATH\\Views\\admin\\criteria\\index.php', 46)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 01:36:40 --> Cannot access offset of type string on string
+in APPPATH\Views\admin\criteria\index.php on line 46.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 4 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 01:36:49 --> Undefined constant "id"
+in APPPATH\Views\admin\criteria\index.php on line 46.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 4 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-25 01:58:00 --> mysqli_sql_exception: Table 'latihan.lamaran' doesn't exist in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lamaran...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lamaran...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lamaran...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lamaran...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\LamaranController.php(28): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-11-25 01:58:00 --> Table 'latihan.lamaran' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lamaran`.*, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+LEFT JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`id_lowongan`
+ORDER BY `lamaran`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lamaran`.*, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+LEFT JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`id_lowongan`
+ORDER BY `lamaran`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lamaran`.*, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+LEFT JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`id_lowongan`
+ORDER BY `lamaran`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lamaran`.*, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+LEFT JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`id_lowongan`
+ORDER BY `lamaran`.`id` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\LamaranController.php(28): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:14:48 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\CriteriaController.php(173): CodeIgniter\Model->update('3', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->savestandar()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:16:17 --> CodeIgniter\Model::insert(): Argument #2 ($returnID) must be of type bool, array given, called in C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php on line 173
+in SYSTEMPATH\Model.php on line 653.
+ 1 APPPATH\Controllers\CriteriaController.php(173): CodeIgniter\Model->insert('3', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->savestandar()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:16:58 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\CriteriaController.php(173): CodeIgniter\Model->update('3', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->savestandar()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:30:00 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\CriteriaController.php(182): CodeIgniter\Model->update('3', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->savestandar()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:30:04 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\CriteriaController.php(182): CodeIgniter\Model->update('3', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->savestandar()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:30:56 --> syntax error, unexpected end of file, expecting "elseif" or "else" or "endif"
+in APPPATH\Views\admin\criteria\standar.php on line 121.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/standar', [], true)
+ 3 APPPATH\Controllers\CriteriaController.php(129): view('admin/criteria/standar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->standar()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:32:41 --> syntax error, unexpected end of file, expecting "elseif" or "else" or "endif"
+in APPPATH\Views\admin\criteria\standar.php on line 121.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/standar', [], true)
+ 3 APPPATH\Controllers\CriteriaController.php(129): view('admin/criteria/standar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->standar()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:32:53 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\CriteriaController.php(173): CodeIgniter\Model->update('3', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->savestandar()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:33:47 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\CriteriaController.php(173): CodeIgniter\Model->update('3', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->savestandar()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:47:52 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\CriteriaController.php(191): CodeIgniter\Model->update('3', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->savestandar()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:56:29 --> Undefined array key "spk_minimal"
+in APPPATH\Views\admin\criteria\standar.php on line 42.
+ 1 APPPATH\Views\admin\criteria\standar.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "spk_minimal"', 'APPPATH\\Views\\admin\\criteria\\standar.php', 42)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\standar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/standar', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(129): view('admin/criteria/standar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->standar()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 02:57:05 --> Undefined array key "spk_minimal"
+in APPPATH\Views\admin\criteria\standar.php on line 44.
+ 1 APPPATH\Views\admin\criteria\standar.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "spk_minimal"', 'APPPATH\\Views\\admin\\criteria\\standar.php', 44)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\standar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/standar', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(129): view('admin/criteria/standar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->standar()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 03:04:01 --> Undefined array key "spk_minimal"
+in APPPATH\Views\admin\pekerjaan\edit.php on line 19.
+ 1 APPPATH\Views\admin\pekerjaan\edit.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "spk_minimal"', 'APPPATH\\Views\\admin\\pekerjaan\\edit.php', 19)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\pekerjaan\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/pekerjaan/edit', [], true)
+ 5 APPPATH\Controllers\PekerjaanController.php(43): view('admin/pekerjaan/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\PekerjaanController->edit('3')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PekerjaanController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 03:37:32 --> Undefined variable $c
+in APPPATH\Views\admin\criteria\index.php on line 43.
+ 1 APPPATH\Views\admin\criteria\index.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $c', 'APPPATH\\Views\\admin\\criteria\\index.php', 43)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 03:38:19 --> Undefined variable $c
+in APPPATH\Views\admin\criteria\index.php on line 42.
+ 1 APPPATH\Views\admin\criteria\index.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $c', 'APPPATH\\Views\\admin\\criteria\\index.php', 42)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 03:38:21 --> Undefined variable $c
+in APPPATH\Views\admin\criteria\index.php on line 42.
+ 1 APPPATH\Views\admin\criteria\index.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $c', 'APPPATH\\Views\\admin\\criteria\\index.php', 42)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 03:39:33 --> Undefined variable $nilai
+in APPPATH\Views\admin\criteria\index.php on line 43.
+ 1 APPPATH\Views\admin\criteria\index.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $nilai', 'APPPATH\\Views\\admin\\criteria\\index.php', 43)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 04:32:49 --> Class "App\Models\PelamarModel" not found
+in APPPATH\Controllers\DataController.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 04:33:26 --> Class "App\Models\DataModel" not found
+in APPPATH\Controllers\DataController.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 04:36:00 --> Class "App\Models\DataModel" not found
+in APPPATH\Controllers\DataController.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 04:38:26 --> Class "App\Models\DataModel" not found
+in APPPATH\Controllers\DataController.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 04:53:01 --> Class "App\Models\DataModel" not found
+in APPPATH\Controllers\DataController.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 04:53:13 --> Class "App\Models\DataModel" not found
+in APPPATH\Controllers\DataController.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 04:58:51 --> Undefined variable $data
+in APPPATH\Views\admin\data\index.php on line 30.
+ 1 APPPATH\Views\admin\data\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\admin\\data\\index.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/index', [], true)
+ 5 APPPATH\Controllers\DataController.php(17): view('admin/data/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 04:59:59 --> Undefined variable $data
+in APPPATH\Views\admin\data\index.php on line 30.
+ 1 APPPATH\Views\admin\data\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\admin\\data\\index.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/index', [], true)
+ 5 APPPATH\Controllers\DataController.php(17): view('admin/data/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 05:00:28 --> Undefined variable $data
+in APPPATH\Views\admin\data\index.php on line 30.
+ 1 APPPATH\Views\admin\data\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\admin\\data\\index.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/index', [], true)
+ 5 APPPATH\Controllers\DataController.php(17): view('admin/data/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 05:02:09 --> Undefined variable $data
+in APPPATH\Views\admin\data\index.php on line 30.
+ 1 APPPATH\Views\admin\data\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\admin\\data\\index.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/index', [], true)
+ 5 APPPATH\Controllers\DataController.php(17): view('admin/data/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 05:02:10 --> Undefined variable $data
+in APPPATH\Views\admin\data\index.php on line 30.
+ 1 APPPATH\Views\admin\data\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\admin\\data\\index.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/index', [], true)
+ 5 APPPATH\Controllers\DataController.php(17): view('admin/data/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 05:09:55 --> Undefined variable $lamaran
+in APPPATH\Views\admin\data\detail.php on line 12.
+ 1 APPPATH\Views\admin\data\detail.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $lamaran', 'APPPATH\\Views\\admin\\data\\detail.php', 12)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/detail', [], true)
+ 5 APPPATH\Controllers\DataController.php(26): view('admin/data/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 05:10:49 --> Undefined variable $data
+in APPPATH\Views\admin\data\detail.php on line 12.
+ 1 APPPATH\Views\admin\data\detail.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\admin\\data\\detail.php', 12)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/detail', [], true)
+ 5 APPPATH\Controllers\DataController.php(26): view('admin/data/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 05:11:12 --> Undefined array key "job_title"
+in APPPATH\Views\admin\data\detail.php on line 15.
+ 1 APPPATH\Views\admin\data\detail.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "job_title"', 'APPPATH\\Views\\admin\\data\\detail.php', 15)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/detail', [], true)
+ 5 APPPATH\Controllers\DataController.php(26): view('admin/data/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 05:11:13 --> Undefined array key "job_title"
+in APPPATH\Views\admin\data\detail.php on line 15.
+ 1 APPPATH\Views\admin\data\detail.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "job_title"', 'APPPATH\\Views\\admin\\data\\detail.php', 15)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/detail', [], true)
+ 5 APPPATH\Controllers\DataController.php(26): view('admin/data/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 05:12:04 --> Undefined array key "judul_lowongan"
+in APPPATH\Views\admin\data\detail.php on line 15.
+ 1 APPPATH\Views\admin\data\detail.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "judul_lowongan"', 'APPPATH\\Views\\admin\\data\\detail.php', 15)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/detail', [], true)
+ 5 APPPATH\Controllers\DataController.php(26): view('admin/data/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 05:12:35 --> Undefined array key "judul_lowongan"
+in APPPATH\Views\admin\data\detail.php on line 15.
+ 1 APPPATH\Views\admin\data\detail.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "judul_lowongan"', 'APPPATH\\Views\\admin\\data\\detail.php', 15)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/detail', [], true)
+ 5 APPPATH\Controllers\DataController.php(26): view('admin/data/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 05:22:04 --> Undefined array key "judul_lowongan"
+in APPPATH\Views\admin\data\detail.php on line 17.
+ 1 APPPATH\Views\admin\data\detail.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "judul_lowongan"', 'APPPATH\\Views\\admin\\data\\detail.php', 17)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/detail', [], true)
+ 5 APPPATH\Controllers\DataController.php(26): view('admin/data/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-25 06:56:02 --> Undefined variable $data
+in APPPATH\Views\admin\data\index.php on line 30.
+ 1 APPPATH\Views\admin\data\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\admin\\data\\index.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/index', [], true)
+ 5 APPPATH\Controllers\DataController.php(32): view('admin/data/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

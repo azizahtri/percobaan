@@ -1,0 +1,33 @@
+CRITICAL - 2025-12-03 00:06:33 --> Undefined variable $c
+in APPPATH\Views\admin\criteria\standar.php on line 30.
+ 1 APPPATH\Views\admin\criteria\standar.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $c', 'APPPATH\\Views\\admin\\criteria\\standar.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\standar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/standar', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(181): view('admin/criteria/standar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->standar()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-03 23:19:24 --> Undefined variable $divisiList
+in APPPATH\Views\admin\formulir\index.php on line 36.
+ 1 APPPATH\Views\admin\formulir\index.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $divisiList', 'APPPATH\\Views\\admin\\formulir\\index.php', 36)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\formulir\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/formulir/index', [], true)
+ 5 APPPATH\Controllers\FormulirController.php(23): view('admin/formulir/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\FormulirController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FormulirController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-03 23:20:18 --> Undefined variable $pekerjaan
+in APPPATH\Views\admin\lowongan\index.php on line 136.
+ 1 APPPATH\Views\admin\lowongan\index.php(136): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pekerjaan', 'APPPATH\\Views\\admin\\lowongan\\index.php', 136)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lowongan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lowongan/index', [], true)
+ 5 APPPATH\Controllers\LowonganController.php(62): view('admin/lowongan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

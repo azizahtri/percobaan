@@ -1,0 +1,43 @@
+ERROR - 2025-10-30 03:23:07 --> mysqli_sql_exception: Unknown column 'users.name' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lamaran...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lamaran...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lamaran...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lamaran...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\LamaranController.php(29): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-10-30 03:23:07 --> Unknown column 'users.name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\LamaranController.php(29): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

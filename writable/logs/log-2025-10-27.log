@@ -1,0 +1,82 @@
+CRITICAL - 2025-10-27 01:39:27 --> Class "App\Models\LowonganModel" not found
+in APPPATH\Controllers\LandingController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\LandingController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-27 01:41:20 --> Class "App\Models\LowonganModel" not found
+in APPPATH\Controllers\LandingController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\LandingController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-27 01:41:29 --> Class "App\Models\LowonganModel" not found
+in APPPATH\Controllers\LandingController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\LandingController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-27 21:48:51 --> Class "App\Models\LowonganModel" not found
+in APPPATH\Controllers\LandingController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\LandingController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-27 21:48:52 --> Class "App\Models\LowonganModel" not found
+in APPPATH\Controllers\LandingController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\LandingController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-27 22:02:53 --> Invalid file: landing/partials/hero.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('landing/partials/hero.php')
+ 2 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('landing/partials/hero', null, true)
+ 3 APPPATH\Views\landing\index.php(4): CodeIgniter\View\View->include('landing/partials/hero')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\landing\\index.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('landing/index', [], true)
+ 7 APPPATH\Controllers\LandingController.php(16): view('landing/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LandingController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-27 22:29:36 --> Invalid file: landing/partials/hero.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('landing/partials/hero.php')
+ 2 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('landing/partials/hero', null, true)
+ 3 APPPATH\Views\landing\index.php(4): CodeIgniter\View\View->include('landing/partials/hero')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\landing\\index.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('landing/index', [], true)
+ 7 APPPATH\Controllers\LandingController.php(16): view('landing/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LandingController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-27 22:31:48 --> Invalid file: landing/partials/hero.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('landing/partials/hero.php')
+ 2 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('landing/partials/hero', null, true)
+ 3 APPPATH\Views\landing\index.php(4): CodeIgniter\View\View->include('landing/partials/hero')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\landing\\index.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('landing/index', [], true)
+ 7 APPPATH\Controllers\LandingController.php(16): view('landing/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LandingController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-27 22:53:02 --> Invalid file: landing/partials/hero.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('landing/partials/hero.php')
+ 2 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('landing/partials/hero', null, true)
+ 3 APPPATH\Views\landing\index.php(4): CodeIgniter\View\View->include('landing/partials/hero')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\landing\\index.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('landing/index', [], true)
+ 7 APPPATH\Controllers\LandingController.php(16): view('landing/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LandingController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

@@ -1,0 +1,191 @@
+CRITICAL - 2025-11-12 00:24:06 --> Undefined array key "id_kriteria"
+in APPPATH\Views\admin\lamaran\detail.php on line 26.
+ 1 APPPATH\Views\admin\lamaran\detail.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kriteria"', 'APPPATH\\Views\\admin\\lamaran\\detail.php', 26)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lamaran\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lamaran/detail', [], true)
+ 5 APPPATH\Controllers\LamaranController.php(76): view('admin/lamaran/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 00:24:26 --> Undefined array key "criteria"
+in APPPATH\Views\admin\lamaran\detail.php on line 25.
+ 1 APPPATH\Views\admin\lamaran\detail.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "criteria"', 'APPPATH\\Views\\admin\\lamaran\\detail.php', 25)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lamaran\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lamaran/detail', [], true)
+ 5 APPPATH\Controllers\LamaranController.php(76): view('admin/lamaran/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 00:25:02 --> Undefined array key "id_kriteria"
+in APPPATH\Views\admin\lamaran\detail.php on line 26.
+ 1 APPPATH\Views\admin\lamaran\detail.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kriteria"', 'APPPATH\\Views\\admin\\lamaran\\detail.php', 26)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lamaran\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lamaran/detail', [], true)
+ 5 APPPATH\Controllers\LamaranController.php(76): view('admin/lamaran/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 00:25:05 --> Undefined array key "id_kriteria"
+in APPPATH\Views\admin\lamaran\detail.php on line 26.
+ 1 APPPATH\Views\admin\lamaran\detail.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kriteria"', 'APPPATH\\Views\\admin\\lamaran\\detail.php', 26)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lamaran\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lamaran/detail', [], true)
+ 5 APPPATH\Controllers\LamaranController.php(76): view('admin/lamaran/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 00:26:21 --> Undefined array key "criteria"
+in APPPATH\Views\admin\lamaran\detail.php on line 25.
+ 1 APPPATH\Views\admin\lamaran\detail.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "criteria"', 'APPPATH\\Views\\admin\\lamaran\\detail.php', 25)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lamaran\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lamaran/detail', [], true)
+ 5 APPPATH\Controllers\LamaranController.php(76): view('admin/lamaran/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 00:26:32 --> Undefined array key "id"
+in APPPATH\Views\admin\lamaran\detail.php on line 26.
+ 1 APPPATH\Views\admin\lamaran\detail.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'APPPATH\\Views\\admin\\lamaran\\detail.php', 26)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lamaran\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lamaran/detail', [], true)
+ 5 APPPATH\Controllers\LamaranController.php(76): view('admin/lamaran/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 00:44:06 --> syntax error, unexpected token "else", expecting end of file
+in APPPATH\Views\admin\lamaran\detail.php on line 81.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lamaran/detail', [], true)
+ 3 APPPATH\Controllers\LamaranController.php(76): view('admin/lamaran/detail', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->detail('1')
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 01:05:37 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\LamaranController.php(111): CodeIgniter\Model->update('1', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->hitungSPK('1')
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 01:06:23 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\LamaranController.php(111): CodeIgniter\Model->update('1', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->hitungSPK('1')
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 01:09:31 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\LamaranController.php(107): CodeIgniter\Model->update('1', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->hitungSPK('1')
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 01:09:38 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\LamaranController.php(107): CodeIgniter\Model->update('1', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->hitungSPK('1')
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 01:10:44 --> There is no data to update.
+in SYSTEMPATH\BaseModel.php on line 867.
+ 1 SYSTEMPATH\BaseModel.php(867): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(693): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\LamaranController.php(107): CodeIgniter\Model->update('1', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->hitungSPK('1')
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-12 01:39:05 --> mysqli_sql_exception: Unknown column 'nilai.subcriteria_id' in 'on clause' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `nilai`....', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `nilai`....')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `nilai`....')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `nilai`....', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\ValuesController.php(34): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-11-12 01:39:05 --> Unknown column 'nilai.subcriteria_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `nilai`.*, `alternatives`.`name` AS `nama_alternatif`, `criteria`.`name` AS `nama_kriteria`, `subcriteria`.`description` AS `description`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id` = `nilai`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `nilai`.`criteria_id`
+JOIN `subcriteria` ON `subcriteria`.`id` = `nilai`.`subcriteria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `nilai`.*, `alternatives`.`name` AS `nama_alternatif`, `criteria`.`name` AS `nama_kriteria`, `subcriteria`.`description` AS `description`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id` = `nilai`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `nilai`.`criteria_id`
+JOIN `subcriteria` ON `subcriteria`.`id` = `nilai`.`subcriteria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `nilai`.*, `alternatives`.`name` AS `nama_alternatif`, `criteria`.`name` AS `nama_kriteria`, `subcriteria`.`description` AS `description`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id` = `nilai`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `nilai`.`criteria_id`
+JOIN `subcriteria` ON `subcriteria`.`id` = `nilai`.`subcriteria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `nilai`.*, `alternatives`.`name` AS `nama_alternatif`, `criteria`.`name` AS `nama_kriteria`, `subcriteria`.`description` AS `description`
+FROM `nilai`
+JOIN `alternatives` ON `alternatives`.`id` = `nilai`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `nilai`.`criteria_id`
+JOIN `subcriteria` ON `subcriteria`.`id` = `nilai`.`subcriteria_id`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\ValuesController.php(34): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 01:58:39 --> Call to undefined method App\Models\ValuesModel::leftJoin
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\ValuesController.php(33): CodeIgniter\Model->__call('leftJoin', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 02:13:15 --> Call to undefined method App\Models\ValuesModel::leftJoin
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\ValuesController.php(33): CodeIgniter\Model->__call('leftJoin', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 02:13:34 --> Call to undefined method App\Models\ValuesModel::leftJoin
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\ValuesController.php(33): CodeIgniter\Model->__call('leftJoin', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-12 02:13:43 --> Call to undefined method App\Models\ValuesModel::leftJoin
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\ValuesController.php(33): CodeIgniter\Model->__call('leftJoin', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

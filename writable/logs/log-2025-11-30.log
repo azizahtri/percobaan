@@ -1,0 +1,461 @@
+CRITICAL - 2025-11-30 21:59:12 --> Undefined array key "nama_pekerjaan"
+in APPPATH\Views\admin\criteria\index.php on line 30.
+ 1 APPPATH\Views\admin\criteria\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_pekerjaan"', 'APPPATH\\Views\\admin\\criteria\\index.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 22:02:09 --> Undefined array key "nama_pekerjaan"
+in APPPATH\Views\admin\criteria\index.php on line 30.
+ 1 APPPATH\Views\admin\criteria\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_pekerjaan"', 'APPPATH\\Views\\admin\\criteria\\index.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 22:02:11 --> Undefined array key "nama_pekerjaan"
+in APPPATH\Views\admin\criteria\index.php on line 30.
+ 1 APPPATH\Views\admin\criteria\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_pekerjaan"', 'APPPATH\\Views\\admin\\criteria\\index.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 22:03:01 --> Undefined array key "nama_pekerjaan"
+in APPPATH\Views\admin\criteria\index.php on line 30.
+ 1 APPPATH\Views\admin\criteria\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_pekerjaan"', 'APPPATH\\Views\\admin\\criteria\\index.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 22:03:02 --> Undefined array key "nama_pekerjaan"
+in APPPATH\Views\admin\criteria\index.php on line 30.
+ 1 APPPATH\Views\admin\criteria\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_pekerjaan"', 'APPPATH\\Views\\admin\\criteria\\index.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-30 22:03:30 --> mysqli_sql_exception: Unknown column 'field_id' in 'where clause' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php(23): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-11-30 22:03:30 --> Unknown column 'field_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `criteria`
+WHERE `field_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `criteria`
+WHERE `field_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `criteria`
+WHERE `field_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `criteria`
+WHERE `field_id` = :field_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\CriteriaController.php(23): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 22:05:56 --> Undefined array key "nama_pekerjaan"
+in APPPATH\Views\admin\lowongan\index.php on line 38.
+ 1 APPPATH\Views\admin\lowongan\index.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_pekerjaan"', 'APPPATH\\Views\\admin\\lowongan\\index.php', 38)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lowongan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lowongan/index', [], true)
+ 5 APPPATH\Controllers\LowonganController.php(54): view('admin/lowongan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:02:14 --> Undefined array key "nama_pekerjaan"
+in APPPATH\Views\admin\lowongan\index.php on line 38.
+ 1 APPPATH\Views\admin\lowongan\index.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_pekerjaan"', 'APPPATH\\Views\\admin\\lowongan\\index.php', 38)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lowongan\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lowongan/index', [], true)
+ 5 APPPATH\Controllers\LowonganController.php(54): view('admin/lowongan/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:03:10 --> Undefined array key "nama_pekerjaan"
+in APPPATH\Views\admin\spk\index.php on line 27.
+ 1 APPPATH\Views\admin\spk\index.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_pekerjaan"', 'APPPATH\\Views\\admin\\spk\\index.php', 27)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\spk\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/spk/index', [], true)
+ 5 APPPATH\Controllers\SpkController.php(56): view('admin/spk/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SpkController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-30 23:03:31 --> mysqli_sql_exception: Unknown column 'field_id' in 'where clause' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\SpkController.php(26): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\SpkController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-11-30 23:03:31 --> Unknown column 'field_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `lowongan`
+WHERE `field_id` = \'2\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `lowongan`
+WHERE `field_id` = \'2\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `lowongan`
+WHERE `field_id` = \'2\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `lowongan`
+WHERE `field_id` = :field_id:', [...], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\SpkController.php(26): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SpkController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:04:24 --> Undefined array key "nama_pekerjaan"
+in APPPATH\Views\admin\criteria\create.php on line 19.
+ 1 APPPATH\Views\admin\criteria\create.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_pekerjaan"', 'APPPATH\\Views\\admin\\criteria\\create.php', 19)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/create', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(48): view('admin/criteria/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:06:04 --> Undefined array key "nama_pekerjaan"
+in APPPATH\Views\admin\criteria\standar.php on line 22.
+ 1 APPPATH\Views\admin\criteria\standar.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_pekerjaan"', 'APPPATH\\Views\\admin\\criteria\\standar.php', 22)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\standar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/standar', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(128): view('admin/criteria/standar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->standar()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-30 23:19:37 --> mysqli_sql_exception: Column 'pekerjaan_id' cannot be null in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2025-11-30 23:19:37 --> Column 'pekerjaan_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`) VALUES (NULL, \'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`) VALUES (NULL, \'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`) VALUES (NULL, \'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`) VALUES (:pekerjaan_id:, :bobot:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-30 23:20:23 --> mysqli_sql_exception: Column 'pekerjaan_id' cannot be null in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2025-11-30 23:20:23 --> Column 'pekerjaan_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (NULL, \'4\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (NULL, \'4\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (NULL, \'4\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (:pekerjaan_id:, :bobot:, :tipe:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-30 23:20:53 --> mysqli_sql_exception: Column 'pekerjaan_id' cannot be null in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2025-11-30 23:20:53 --> Column 'pekerjaan_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (NULL, \'4\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (NULL, \'4\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (NULL, \'4\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (:pekerjaan_id:, :bobot:, :tipe:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-30 23:21:12 --> mysqli_sql_exception: Column 'tipe' cannot be null in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2025-11-30 23:21:12 --> Column 'tipe' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (NULL, \'4\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (NULL, \'4\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (NULL, \'4\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `criteria` (`pekerjaan_id`, `bobot`, `tipe`) VALUES (:pekerjaan_id:, :bobot:, :tipe:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:23:11 --> syntax error, unexpected namespaced name "App\Controllers"
+in APPPATH\Controllers\CriteriaController.php on line 2.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\CriteriaController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\CriteriaController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\CriteriaController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\CriteriaController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(469): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:23:19 --> syntax error, unexpected namespaced name "App\Controllers"
+in APPPATH\Controllers\CriteriaController.php on line 2.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\CriteriaController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\CriteriaController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\CriteriaController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\CriteriaController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(469): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:23:22 --> syntax error, unexpected namespaced name "App\Controllers"
+in APPPATH\Controllers\CriteriaController.php on line 2.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\CriteriaController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\CriteriaController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\CriteriaController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\CriteriaController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(469): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:23:41 --> Undefined variable $selectedFieldName
+in APPPATH\Views\admin\criteria\index.php on line 80.
+ 1 APPPATH\Views\admin\criteria\index.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectedFieldName', 'APPPATH\\Views\\admin\\criteria\\index.php', 80)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-30 23:30:28 --> mysqli_sql_exception: Column 'kode' cannot be null in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2025-11-30 23:30:28 --> Column 'kode' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (NULL, NULL, \'4\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (NULL, NULL, \'4\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (NULL, NULL, \'4\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (:pekerjaan_id:, :kode:, :bobot:, :tipe:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-30 23:32:21 --> mysqli_sql_exception: Column 'tipe' cannot be null in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2025-11-30 23:32:21 --> Column 'tipe' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (NULL, \'C1\', \'4\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (NULL, \'C1\', \'4\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (NULL, \'C1\', \'4\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (:pekerjaan_id:, :kode:, :bobot:, :tipe:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-11-30 23:32:35 --> mysqli_sql_exception: Column 'tipe' cannot be null in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2025-11-30 23:32:35 --> Column 'tipe' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (NULL, \'C1\', \'4\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (NULL, \'C1\', \'4\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (NULL, \'C1\', \'4\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `bobot`, `tipe`) VALUES (:pekerjaan_id:, :kode:, :bobot:, :tipe:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\CriteriaController.php(59): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:32:41 --> Undefined array key "code"
+in APPPATH\Views\admin\criteria\index.php on line 116.
+ 1 APPPATH\Views\admin\criteria\index.php(116): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "code"', 'APPPATH\\Views\\admin\\criteria\\index.php', 116)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:33:29 --> Undefined array key "field_id"
+in APPPATH\Controllers\SubcriteriaController.php on line 31.
+ 1 APPPATH\Controllers\SubcriteriaController.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "field_id"', 'APPPATH\\Controllers\\SubcriteriaController.php', 31)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SubcriteriaController->index('1')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SubcriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:33:57 --> Undefined array key "field_id"
+in APPPATH\Views\admin\criteria\edit.php on line 16.
+ 1 APPPATH\Views\admin\criteria\edit.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "field_id"', 'APPPATH\\Views\\admin\\criteria\\edit.php', 16)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/edit', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(77): view('admin/criteria/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-11-30 23:34:54 --> Undefined array key "nama_pekerjaan"
+in APPPATH\Views\admin\criteria\edit.php on line 17.
+ 1 APPPATH\Views\admin\criteria\edit.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_pekerjaan"', 'APPPATH\\Views\\admin\\criteria\\edit.php', 17)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/edit', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(77): view('admin/criteria/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

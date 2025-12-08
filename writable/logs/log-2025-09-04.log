@@ -1,0 +1,162 @@
+ERROR - 2025-09-04 22:53:57 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'root', 'latihan', 3306, '', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\app\Controllers\Spk.php(18): App\Models\SpkModel->getCriteria()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\Spk->index()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(21): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\percobaan\app\Controllers\Spk.php(18): App\Models\SpkModel->getCriteria()
+#5 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\Spk->index()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-09-04 22:53:57 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `criteria`
+ORDER BY `id` ASC', [], false)
+ 3 APPPATH\Models\SpkModel.php(21): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Spk.php(18): App\Models\SpkModel->getCriteria()
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Spk->index()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-04 22:54:38 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'root', 'latihan', 3306, '', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\app\Controllers\Spk.php(18): App\Models\SpkModel->getCriteria()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\Spk->index()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(21): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\percobaan\app\Controllers\Spk.php(18): App\Models\SpkModel->getCriteria()
+#5 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\Spk->index()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-09-04 22:54:38 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `criteria`
+ORDER BY `id` ASC', [], false)
+ 3 APPPATH\Models\SpkModel.php(21): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Spk.php(18): App\Models\SpkModel->getCriteria()
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Spk->index()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-04 22:54:39 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'root', 'latihan', 3306, '', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\app\Controllers\Spk.php(18): App\Models\SpkModel->getCriteria()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\Spk->index()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(21): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\percobaan\app\Controllers\Spk.php(18): App\Models\SpkModel->getCriteria()
+#5 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\Spk->index()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-09-04 22:54:39 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `criteria`
+ORDER BY `id` ASC', [], false)
+ 3 APPPATH\Models\SpkModel.php(21): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Spk.php(18): App\Models\SpkModel->getCriteria()
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Spk->index()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Spk))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-04 23:04:28 --> Invalid file: alternatives/index.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('alternatives/index.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('alternatives/index', [], true)
+ 3 APPPATH\Controllers\AlternativesController.php(9): view('alternatives/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AlternativesController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-04 23:04:34 --> Invalid file: values/index.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('values/index.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('values/index', [], true)
+ 3 APPPATH\Controllers\ValuesController.php(11): view('values/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-04 23:17:24 --> Invalid file: criteria/create.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('criteria/create.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('criteria/create', [], true)
+ 3 APPPATH\Controllers\CriteriaController.php(13): view('criteria/create')
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->create()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-04 23:21:18 --> Invalid file: alternatives/index.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('alternatives/index.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('alternatives/index', [], true)
+ 3 APPPATH\Controllers\AlternativesController.php(9): view('alternatives/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AlternativesController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-04 23:21:21 --> Invalid file: values/index.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('values/index.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('values/index', [], true)
+ 3 APPPATH\Controllers\ValuesController.php(11): view('values/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\ValuesController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ValuesController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

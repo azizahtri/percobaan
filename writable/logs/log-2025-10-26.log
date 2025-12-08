@@ -1,0 +1,249 @@
+CRITICAL - 2025-10-26 21:18:56 --> Call to undefined function set_value()
+in APPPATH\Views\auth\register.php on line 24.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('auth/register', [], true)
+ 4 APPPATH\Controllers\AuthController.php(37): view('auth/register', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AuthController->register()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 21:19:01 --> Call to undefined function set_value()
+in APPPATH\Views\auth\register.php on line 24.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('auth/register', [], true)
+ 4 APPPATH\Controllers\AuthController.php(37): view('auth/register', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AuthController->register()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 21:19:24 --> Call to undefined function set_value()
+in APPPATH\Views\auth\register.php on line 24.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('auth/register', [], true)
+ 4 APPPATH\Controllers\AuthController.php(37): view('auth/register', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AuthController->register()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 21:20:22 --> Call to undefined function set_value()
+in APPPATH\Views\auth\register.php on line 24.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('auth/register', [], true)
+ 4 APPPATH\Controllers\AuthController.php(37): view('auth/register', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AuthController->register()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 21:23:49 --> Class "App\Models\UserModel" not found
+in APPPATH\Controllers\AuthController.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\AuthController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 21:23:55 --> Class "App\Models\UserModel" not found
+in APPPATH\Controllers\AuthController.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\AuthController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-26 21:49:14 --> mysqli_sql_exception: Unknown column 'password' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\percobaan\system\BaseModel.php(659): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\percobaan\app\Controllers\AuthController.php(77): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\AuthController->attemptRegister()
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#11 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2025-10-26 21:49:14 --> Unknown column 'password' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `users` (`username`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES (\'tri\', \'azizahtrikusumadewi@gmail.com\', \'azizah134\', \'user\', \'2025-10-26 21:49:14\', \'2025-10-26 21:49:14\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`username`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES (\'tri\', \'azizahtrikusumadewi@gmail.com\', \'azizah134\', \'user\', \'2025-10-26 21:49:14\', \'2025-10-26 21:49:14\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`username`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES (\'tri\', \'azizahtrikusumadewi@gmail.com\', \'azizah134\', \'user\', \'2025-10-26 21:49:14\', \'2025-10-26 21:49:14\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES (:username:, :email:, :password:, :role:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(659): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\AuthController.php(77): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AuthController->attemptRegister()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:13:05 --> Undefined variable $current_uri
+in APPPATH\Views\layouts\sidebar.php on line 56.
+ 1 APPPATH\Views\layouts\sidebar.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $current_uri', 'APPPATH\\Views\\layouts\\sidebar.php', 56)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layouts\\sidebar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('layouts/sidebar', null, true)
+ 5 APPPATH\Views\layouts\main.php(20): CodeIgniter\View\View->include('layouts/sidebar')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layouts\\main.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('layouts/main', [], true)
+ 9 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('home/dashboard', [], true)
+10 APPPATH\Controllers\Home.php(13): view('home/dashboard', [...])
+11 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+12 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+13 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:15:30 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:15:38 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:15:42 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:16:41 --> Undefined variable $current_uri
+in APPPATH\Views\layouts\sidebar.php on line 60.
+ 1 APPPATH\Views\layouts\sidebar.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $current_uri', 'APPPATH\\Views\\layouts\\sidebar.php', 60)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layouts\\sidebar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('layouts/sidebar', null, true)
+ 5 APPPATH\Views\layouts\main.php(20): CodeIgniter\View\View->include('layouts/sidebar')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layouts\\main.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('layouts/main', [], true)
+ 9 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('criteria/index', [], true)
+10 APPPATH\Controllers\CriteriaController.php(21): view('criteria/index', [...])
+11 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+12 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+13 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:18:19 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:18:52 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:19:38 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:22:14 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:23:00 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:23:04 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:24:05 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:24:39 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:27:22 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:30:30 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:30:31 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:30:33 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:30:36 --> authGuard filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authGuard')
+ 2 SYSTEMPATH\CodeIgniter.php(446): CodeIgniter\Filters\Filters->enableFilter('authGuard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:36:12 --> CodeIgniter\CodeIgniter::Config\{closure}(): Argument #1 ($routes) must be of type Config\RouteCollection, CodeIgniter\Router\RouteCollection given, called in C:\xampp\htdocs\percobaan\system\Router\RouteCollection.php on line 645
+in APPPATH\Config\Routes.php on line 55.
+ 1 SYSTEMPATH\Router\RouteCollection.php(645): CodeIgniter\CodeIgniter::Config\{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 2 APPPATH\Config\Routes.php(102): CodeIgniter\Router\RouteCollection->group('ROOTPATH\\public', [...], Object(Closure))
+ 3 SYSTEMPATH\CodeIgniter.php(789): require('APPPATH\\Config\\Routes.php')
+ 4 SYSTEMPATH\CodeIgniter.php(430): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:38:29 --> CodeIgniter\CodeIgniter::Config\{closure}(): Argument #1 ($routes) must be of type Config\RouteCollection, CodeIgniter\Router\RouteCollection given, called in C:\xampp\htdocs\percobaan\system\Router\RouteCollection.php on line 645
+in APPPATH\Config\Routes.php on line 55.
+ 1 SYSTEMPATH\Router\RouteCollection.php(645): CodeIgniter\CodeIgniter::Config\{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 2 APPPATH\Config\Routes.php(108): CodeIgniter\Router\RouteCollection->group('ROOTPATH\\public', [...], Object(Closure))
+ 3 SYSTEMPATH\CodeIgniter.php(789): require('APPPATH\\Config\\Routes.php')
+ 4 SYSTEMPATH\CodeIgniter.php(430): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 22:38:31 --> CodeIgniter\CodeIgniter::Config\{closure}(): Argument #1 ($routes) must be of type Config\RouteCollection, CodeIgniter\Router\RouteCollection given, called in C:\xampp\htdocs\percobaan\system\Router\RouteCollection.php on line 645
+in APPPATH\Config\Routes.php on line 55.
+ 1 SYSTEMPATH\Router\RouteCollection.php(645): CodeIgniter\CodeIgniter::Config\{closure}(Object(CodeIgniter\Router\RouteCollection))
+ 2 APPPATH\Config\Routes.php(108): CodeIgniter\Router\RouteCollection->group('ROOTPATH\\public', [...], Object(Closure))
+ 3 SYSTEMPATH\CodeIgniter.php(789): require('APPPATH\\Config\\Routes.php')
+ 4 SYSTEMPATH\CodeIgniter.php(430): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 23:18:59 --> Undefined variable $rules
+in APPPATH\Controllers\AuthController.php on line 74.
+ 1 APPPATH\Controllers\AuthController.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $rules', 'APPPATH\\Controllers\\AuthController.php', 74)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AuthController->attemptLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-26 23:19:50 --> Undefined variable $rules
+in APPPATH\Controllers\AuthController.php on line 74.
+ 1 APPPATH\Controllers\AuthController.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $rules', 'APPPATH\\Controllers\\AuthController.php', 74)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AuthController->attemptLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

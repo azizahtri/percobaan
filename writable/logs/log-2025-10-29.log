@@ -1,0 +1,497 @@
+CRITICAL - 2025-10-29 01:41:49 --> Invalid file: landing/partials/hero.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('landing/partials/hero.php')
+ 2 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('landing/partials/hero', null, true)
+ 3 APPPATH\Views\landing\index.php(4): CodeIgniter\View\View->include('landing/partials/hero')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\landing\\index.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('landing/index', [], true)
+ 7 APPPATH\Controllers\LandingController.php(16): view('landing/index', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LandingController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-29 01:50:31 --> mysqli_sql_exception: Duplicate entry 'C8' for key 'code' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php(36): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2025-10-29 01:50:31 --> Duplicate entry 'C8' for key 'code'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `criteria` (`code`, `name`, `weight`, `type`) VALUES (\'C8\', \'Penampilan\', \'1\', \'benefit\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `criteria` (`code`, `name`, `weight`, `type`) VALUES (\'C8\', \'Penampilan\', \'1\', \'benefit\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `criteria` (`code`, `name`, `weight`, `type`) VALUES (\'C8\', \'Penampilan\', \'1\', \'benefit\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `criteria` (`code`, `name`, `weight`, `type`) VALUES (:code:, :name:, :weight:, :type:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\CriteriaController.php(36): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-29 01:50:49 --> mysqli_sql_exception: Duplicate entry 'C9' for key 'code' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php(36): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2025-10-29 01:50:49 --> Duplicate entry 'C9' for key 'code'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `criteria` (`code`, `name`, `weight`, `type`) VALUES (\'C9\', \'Pendidikan Terakhir\', \'1\', \'benefit\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `criteria` (`code`, `name`, `weight`, `type`) VALUES (\'C9\', \'Pendidikan Terakhir\', \'1\', \'benefit\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `criteria` (`code`, `name`, `weight`, `type`) VALUES (\'C9\', \'Pendidikan Terakhir\', \'1\', \'benefit\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `criteria` (`code`, `name`, `weight`, `type`) VALUES (:code:, :name:, :weight:, :type:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\CriteriaController.php(36): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 02:01:51 --> Class "App\Models\AlternativesModel" not found
+in APPPATH\Controllers\AlternativesController.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\AlternativesController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 02:02:15 --> Undefined array key "nama_alternatif"
+in APPPATH\Views\admin\alternatives\index.php on line 27.
+ 1 APPPATH\Views\admin\alternatives\index.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_alternatif"', 'APPPATH\\Views\\admin\\alternatives\\index.php', 27)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\alternatives\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/alternatives/index', [], true)
+ 5 APPPATH\Controllers\AlternativesController.php(23): view('admin/alternatives/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AlternativesController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 02:04:48 --> Undefined array key "nama_alternatif"
+in APPPATH\Views\admin\alternatives\index.php on line 26.
+ 1 APPPATH\Views\admin\alternatives\index.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_alternatif"', 'APPPATH\\Views\\admin\\alternatives\\index.php', 26)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\alternatives\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/alternatives/index', [], true)
+ 5 APPPATH\Controllers\AlternativesController.php(23): view('admin/alternatives/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AlternativesController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 02:04:54 --> Undefined array key "nama_alternatif"
+in APPPATH\Views\admin\alternatives\index.php on line 26.
+ 1 APPPATH\Views\admin\alternatives\index.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_alternatif"', 'APPPATH\\Views\\admin\\alternatives\\index.php', 26)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\alternatives\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/alternatives/index', [], true)
+ 5 APPPATH\Controllers\AlternativesController.php(23): view('admin/alternatives/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AlternativesController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 02:10:38 --> Invalid file: layouts/admin_template.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layouts/admin_template.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('layouts/admin_template', [], true)
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/alternatives/index', [], true)
+ 4 APPPATH\Controllers\AlternativesController.php(23): view('admin/alternatives/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AlternativesController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 02:12:13 --> Invalid file: layouts/admin_template.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layouts/admin_template.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('layouts/admin_template', [], true)
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/alternatives/create', [], true)
+ 4 APPPATH\Controllers\AlternativesController.php(28): view('admin/alternatives/create', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AlternativesController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 02:12:36 --> There is no data to insert.
+in SYSTEMPATH\BaseModel.php on line 729.
+ 1 SYSTEMPATH\BaseModel.php(729): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+ 2 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([], false)
+ 3 SYSTEMPATH\BaseModel.php(659): CodeIgniter\Model->insert([...], false)
+ 4 APPPATH\Controllers\AlternativesController.php(36): CodeIgniter\BaseModel->save([...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AlternativesController->store()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-29 03:23:30 --> mysqli_sql_exception: Table 'latihan.values' doesn't exist in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`...', Array, false)
+#4 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\app\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\SpkController->result()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-10-29 03:23:30 --> Table 'latihan.values' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', [], false)
+ 5 APPPATH\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SpkController->result()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-29 03:23:48 --> mysqli_sql_exception: Table 'latihan.values' doesn't exist in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`...', Array, false)
+#4 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\app\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\SpkController->result()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-10-29 03:23:48 --> Table 'latihan.values' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', [], false)
+ 5 APPPATH\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SpkController->result()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-29 03:26:49 --> mysqli_sql_exception: Not unique table/alias: 'alternatives' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`...', Array, false)
+#4 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\app\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\SpkController->result()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-10-29 03:26:49 --> Not unique table/alias: 'alternatives'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', [], false)
+ 5 APPPATH\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SpkController->result()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-29 03:27:15 --> mysqli_sql_exception: Table 'latihan.alternative_values' doesn't exist in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`...', Array, false)
+#4 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\app\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\SpkController->result()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-10-29 03:27:15 --> Table 'latihan.alternative_values' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternative_values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternative_values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternative_values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternative_values`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', [], false)
+ 5 APPPATH\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SpkController->result()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-29 03:28:30 --> mysqli_sql_exception: Not unique table/alias: 'alternatives' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`...', Array, false)
+#4 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\app\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\SpkController->result()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-10-29 03:28:30 --> Not unique table/alias: 'alternatives'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', [], false)
+ 5 APPPATH\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SpkController->result()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-29 03:33:24 --> mysqli_sql_exception: Not unique table/alias: 'alternatives' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`...', Array, false)
+#4 C:\xampp\htdocs\percobaan\app\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\app\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+#6 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\SpkController->result()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-10-29 03:33:24 --> Not unique table/alias: 'alternatives'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `values`.`alternative_id`, `alternatives`.`name` AS `alt_name`, `criteria`.`id` AS `crit_id`, `criteria`.`weight`, `criteria`.`type`, `values`.`value`
+FROM `alternatives`
+JOIN `alternatives` ON `alternatives`.`id` = `values`.`alternative_id`
+JOIN `criteria` ON `criteria`.`id` = `values`.`criteria_id`', [], false)
+ 5 APPPATH\Models\SpkModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\SpkController.php(25): App\Models\SpkModel->calculateWP()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SpkController->result()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpkController))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 03:45:30 --> Invalid file: layouts/main.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layouts/main.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('layouts/main', [], true)
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lowongan/create', [], true)
+ 4 APPPATH\Controllers\LowonganController.php(28): view('admin/lowongan/create', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 03:46:07 --> Invalid file: layouts/main.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layouts/main.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('layouts/main', [], true)
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lowongan/create', [], true)
+ 4 APPPATH\Controllers\LowonganController.php(28): view('admin/lowongan/create', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 20:50:28 --> Undefined array key "name"
+in APPPATH\Controllers\AuthController.php on line 47.
+ 1 APPPATH\Controllers\AuthController.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'APPPATH\\Controllers\\AuthController.php', 47)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AuthController->doLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-29 20:56:52 --> mysqli_sql_exception: Unknown column 'users.name' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lamaran...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lamaran...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lamaran...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lamaran...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\LamaranController.php(29): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-10-29 20:56:52 --> Unknown column 'users.name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\LamaranController.php(29): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 21:04:09 --> Class "/writable/sessions" not found
+in SYSTEMPATH\Config\Services.php on line 658.
+ 1 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session(Object(Config\App), false)
+ 2 SYSTEMPATH\Config\BaseService.php(194): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 3 SYSTEMPATH\Config\Services.php(637): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 4 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session()
+ 5 APPPATH\Controllers\BaseController.php(50): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 6 SYSTEMPATH\CodeIgniter.php(890): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 7 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-29 21:04:19 --> Class "/writable/session" not found
+in SYSTEMPATH\Config\Services.php on line 658.
+ 1 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session(Object(Config\App), false)
+ 2 SYSTEMPATH\Config\BaseService.php(194): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 3 SYSTEMPATH\Config\Services.php(637): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 4 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session()
+ 5 APPPATH\Controllers\BaseController.php(50): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 6 SYSTEMPATH\CodeIgniter.php(890): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 7 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-29 22:45:32 --> mysqli_sql_exception: Unknown column 'users.name' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lamaran...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lamaran...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lamaran...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lamaran...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\LamaranController.php(29): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-10-29 22:45:32 --> Unknown column 'users.name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lamaran`.*, `users`.`name` AS `user_name`, `lowongan`.`judul_lowongan` AS `job_title`
+FROM `lamaran`
+JOIN `users` ON `users`.`id` = `lamaran`.`user_id`
+JOIN `lowongan` ON `lowongan`.`id` = `lamaran`.`lowongan_id`
+ORDER BY `lamaran`.`id` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\LamaranController.php(29): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LamaranController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LamaranController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

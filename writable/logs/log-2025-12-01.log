@@ -1,0 +1,455 @@
+CRITICAL - 2025-12-01 00:13:19 --> Undefined variable $selected
+in APPPATH\Views\admin\criteria\create.php on line 17.
+ 1 APPPATH\Views\admin\criteria\create.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selected', 'APPPATH\\Views\\admin\\criteria\\create.php', 17)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/create', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(48): view('admin/criteria/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 00:13:57 --> Undefined variable $pekerjaanList
+in APPPATH\Views\admin\criteria\create.php on line 14.
+ 1 APPPATH\Views\admin\criteria\create.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pekerjaanList', 'APPPATH\\Views\\admin\\criteria\\create.php', 14)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/create', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(48): view('admin/criteria/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 00:17:14 --> Undefined array key "field_id"
+in APPPATH\Controllers\SubcriteriaController.php on line 31.
+ 1 APPPATH\Controllers\SubcriteriaController.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "field_id"', 'APPPATH\\Controllers\\SubcriteriaController.php', 31)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SubcriteriaController->index('1')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SubcriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 00:24:13 --> Undefined variable $criteria
+in APPPATH\Views\admin\criteria\create.php on line 8.
+ 1 APPPATH\Views\admin\criteria\create.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $criteria', 'APPPATH\\Views\\admin\\criteria\\create.php', 8)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/create', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(49): view('admin/criteria/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 00:25:15 --> Undefined variable $criteria
+in APPPATH\Views\admin\criteria\create.php on line 8.
+ 1 APPPATH\Views\admin\criteria\create.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $criteria', 'APPPATH\\Views\\admin\\criteria\\create.php', 8)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/create', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(49): view('admin/criteria/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 01:01:02 --> Undefined array key "field_id"
+in APPPATH\Controllers\SubcriteriaController.php on line 31.
+ 1 APPPATH\Controllers\SubcriteriaController.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "field_id"', 'APPPATH\\Controllers\\SubcriteriaController.php', 31)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SubcriteriaController->index('2')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SubcriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 01:04:23 --> Undefined array key "field_id"
+in APPPATH\Controllers\SubcriteriaController.php on line 31.
+ 1 APPPATH\Controllers\SubcriteriaController.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "field_id"', 'APPPATH\\Controllers\\SubcriteriaController.php', 31)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SubcriteriaController->index('1')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SubcriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 01:05:32 --> Undefined array key "name"
+in APPPATH\Views\admin\subcriteria\create.php on line 9.
+ 1 APPPATH\Views\admin\subcriteria\create.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'APPPATH\\Views\\admin\\subcriteria\\create.php', 9)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\subcriteria\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/subcriteria/create', [], true)
+ 5 APPPATH\Controllers\SubcriteriaController.php(54): view('admin/subcriteria/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SubcriteriaController->create('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SubcriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 01:15:25 --> Undefined array key "name"
+in APPPATH\Views\admin\subcriteria\create.php on line 9.
+ 1 APPPATH\Views\admin\subcriteria\create.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'APPPATH\\Views\\admin\\subcriteria\\create.php', 9)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\subcriteria\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/subcriteria/create', [], true)
+ 5 APPPATH\Controllers\SubcriteriaController.php(54): view('admin/subcriteria/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SubcriteriaController->create('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SubcriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 01:16:34 --> Undefined array key "type"
+in APPPATH\Views\admin\subcriteria\edit.php on line 30.
+ 1 APPPATH\Views\admin\subcriteria\edit.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "type"', 'APPPATH\\Views\\admin\\subcriteria\\edit.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\subcriteria\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/subcriteria/edit', [], true)
+ 5 APPPATH\Controllers\SubcriteriaController.php(87): view('admin/subcriteria/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\SubcriteriaController->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SubcriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 02:21:37 --> Invalid file: admin/pekerjaan/detail.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/pekerjaan/detail.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/pekerjaan/detail', [], true)
+ 3 APPPATH\Controllers\PekerjaanController.php(51): view('admin/pekerjaan/detail', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\PekerjaanController->detailDivisi('Finance')
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PekerjaanController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 03:28:35 --> Undefined array key "jabatan"
+in APPPATH\Views\admin\criteria\index.php on line 130.
+ 1 APPPATH\Views\admin\criteria\index.php(130): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "jabatan"', 'APPPATH\\Views\\admin\\criteria\\index.php', 130)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(36): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 03:29:51 --> Undefined array key "name"
+in APPPATH\Views\admin\criteria\standar.php on line 97.
+ 1 APPPATH\Views\admin\criteria\standar.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'APPPATH\\Views\\admin\\criteria\\standar.php', 97)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\standar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/standar', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(138): view('admin/criteria/standar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->standar()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-12-01 03:31:04 --> mysqli_sql_exception: Unknown column 'pekerjaan.jabatan' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lowonga...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lowonga...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lowonga...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lowonga...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\LowonganController.php(48): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\LowonganController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-12-01 03:31:04 --> Unknown column 'pekerjaan.jabatan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\LowonganController.php(48): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 03:32:29 --> Undefined array key "jabatan"
+in APPPATH\Views\admin\lowongan\create.php on line 19.
+ 1 APPPATH\Views\admin\lowongan\create.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "jabatan"', 'APPPATH\\Views\\admin\\lowongan\\create.php', 19)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lowongan\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lowongan/create', [], true)
+ 5 APPPATH\Controllers\LowonganController.php(62): view('admin/lowongan/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 03:45:58 --> Undefined array key "jabatan"
+in APPPATH\Views\admin\pekerjaan\detail.php on line 69.
+ 1 APPPATH\Views\admin\pekerjaan\detail.php(69): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "jabatan"', 'APPPATH\\Views\\admin\\pekerjaan\\detail.php', 69)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\pekerjaan\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/pekerjaan/detail', [], true)
+ 5 APPPATH\Controllers\PekerjaanController.php(51): view('admin/pekerjaan/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\PekerjaanController->detailDivisi('Finance')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PekerjaanController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-12-01 05:21:56 --> mysqli_sql_exception: Unknown column 'pekerjaan.jabatan' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `alterna...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `alterna...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `alterna...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `alterna...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\AlternativesController.php(30): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\AlternativesController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-12-01 05:21:56 --> Unknown column 'pekerjaan.jabatan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `alternatives`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`
+FROM `alternatives`
+LEFT JOIN `pekerjaan` ON `pekerjaan`.`id` = `alternatives`.`pekerjaan_id`
+ORDER BY `alternatives`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `alternatives`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`
+FROM `alternatives`
+LEFT JOIN `pekerjaan` ON `pekerjaan`.`id` = `alternatives`.`pekerjaan_id`
+ORDER BY `alternatives`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `alternatives`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`
+FROM `alternatives`
+LEFT JOIN `pekerjaan` ON `pekerjaan`.`id` = `alternatives`.`pekerjaan_id`
+ORDER BY `alternatives`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `alternatives`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`
+FROM `alternatives`
+LEFT JOIN `pekerjaan` ON `pekerjaan`.`id` = `alternatives`.`pekerjaan_id`
+ORDER BY `alternatives`.`id` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AlternativesController.php(30): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AlternativesController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-12-01 05:26:54 --> mysqli_sql_exception: Unknown column 'pekerjaan.jabatan' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `alterna...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `alterna...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `alterna...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `alterna...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\AlternativesController.php(30): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\AlternativesController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-12-01 05:26:54 --> Unknown column 'pekerjaan.jabatan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `alternatives`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`
+FROM `alternatives`
+LEFT JOIN `pekerjaan` ON `pekerjaan`.`id` = `alternatives`.`pekerjaan_id`
+ORDER BY `alternatives`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `alternatives`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`
+FROM `alternatives`
+LEFT JOIN `pekerjaan` ON `pekerjaan`.`id` = `alternatives`.`pekerjaan_id`
+ORDER BY `alternatives`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `alternatives`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`
+FROM `alternatives`
+LEFT JOIN `pekerjaan` ON `pekerjaan`.`id` = `alternatives`.`pekerjaan_id`
+ORDER BY `alternatives`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `alternatives`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`
+FROM `alternatives`
+LEFT JOIN `pekerjaan` ON `pekerjaan`.`id` = `alternatives`.`pekerjaan_id`
+ORDER BY `alternatives`.`id` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\AlternativesController.php(30): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\AlternativesController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AlternativesController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 20:26:41 --> Undefined array key "jabatan"
+in APPPATH\Views\admin\criteria\index.php on line 105.
+ 1 APPPATH\Views\admin\criteria\index.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "jabatan"', 'APPPATH\\Views\\admin\\criteria\\index.php', 105)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(49): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 21:26:31 --> Undefined variable $fieldId
+in APPPATH\Controllers\CriteriaController.php on line 133.
+ 1 APPPATH\Controllers\CriteriaController.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $fieldId', 'APPPATH\\Controllers\\CriteriaController.php', 133)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->standar()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 21:26:57 --> Undefined variable $pekerjaan_id
+in APPPATH\Controllers\CriteriaController.php on line 133.
+ 1 APPPATH\Controllers\CriteriaController.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pekerjaan_id', 'APPPATH\\Controllers\\CriteriaController.php', 133)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->standar()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 21:46:33 --> Undefined array key "jabatan"
+in APPPATH\Views\admin\lowongan\create.php on line 19.
+ 1 APPPATH\Views\admin\lowongan\create.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "jabatan"', 'APPPATH\\Views\\admin\\lowongan\\create.php', 19)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lowongan\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lowongan/create', [], true)
+ 5 APPPATH\Controllers\LowonganController.php(62): view('admin/lowongan/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 21:51:18 --> Undefined variable $jobNameFromDivisiLookup
+in APPPATH\Views\admin\criteria\index.php on line 175.
+ 1 APPPATH\Views\admin\criteria\index.php(175): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jobNameFromDivisiLookup', 'APPPATH\\Views\\admin\\criteria\\index.php', 175)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/index', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(49): view('admin/criteria/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-12-01 22:33:49 --> mysqli_sql_exception: Column 'nama' cannot be null in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `cr...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cr...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cr...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cr...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(749): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\percobaan\system\Model.php(667): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\percobaan\app\Controllers\CriteriaController.php(90): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+#10 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2025-12-01 22:33:49 --> Column 'nama' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `nama`, `bobot`, `tipe`) VALUES (\'2\', \'C1\', NULL, \'2\', \'Benefit\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `nama`, `bobot`, `tipe`) VALUES (\'2\', \'C1\', NULL, \'2\', \'Benefit\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `nama`, `bobot`, `tipe`) VALUES (\'2\', \'C1\', NULL, \'2\', \'Benefit\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `criteria` (`pekerjaan_id`, `kode`, `nama`, `bobot`, `tipe`) VALUES (:pekerjaan_id:, :kode:, :nama:, :bobot:, :tipe:)', [...], false)
+ 5 SYSTEMPATH\Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(749): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(667): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\CriteriaController.php(90): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->store()
+10 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-12-01 23:17:29 --> mysqli_sql_exception: Unknown column 'pekerjaan.jabatan' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lowonga...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lowonga...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lowonga...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lowonga...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\LowonganController.php(43): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\LowonganController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-12-01 23:17:29 --> Unknown column 'pekerjaan.jabatan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\LowonganController.php(43): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-12-01 23:21:24 --> mysqli_sql_exception: Unknown column 'pekerjaan.jabatan' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lowonga...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lowonga...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lowonga...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lowonga...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\LowonganController.php(43): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\LowonganController->index()
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-12-01 23:21:24 --> Unknown column 'pekerjaan.jabatan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `lowongan`.*, `pekerjaan`.`divisi`, `pekerjaan`.`jabatan`, COUNT(data.id) as jumlah_pelamar
+FROM `lowongan`
+JOIN `pekerjaan` ON `pekerjaan`.`id` = `lowongan`.`pekerjaan_id`
+LEFT JOIN `data` ON `data`.`id_lowongan` = `lowongan`.`id`
+GROUP BY `lowongan`.`id`
+ORDER BY `lowongan`.`id` DESC', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\LowonganController.php(43): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-01 23:51:25 --> syntax error, unexpected token ")"
+in APPPATH\Views\admin\lowongan\index.php on line 79.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lowongan/index', [], true)
+ 3 APPPATH\Controllers\LowonganController.php(49): view('admin/lowongan/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
