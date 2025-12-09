@@ -1,0 +1,229 @@
+/* =========================================
+   CUSTOM ADMIN THEME - CARTENZ BLUE
+   ========================================= */
+
+/* --- 1. CORE VARIABLES & OVERRIDES --- */
+:root {
+    --bs-primary: #1F3BB3;        /* Biru Utama */
+    --bs-primary-rgb: 31, 59, 179;
+    --cartenz-blue: #1F3BB3; 
+    --cartenz-dark: #0d1b54; 
+    --cartenz-light: #f4f5f7;
+}
+
+/* Background & Text Colors */
+.bg-primary { background-color: var(--bs-primary) !important; }
+.text-primary { color: var(--bs-primary) !important; }
+
+/* Buttons Primary */
+.btn-primary {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+.btn-primary:hover {
+    background-color: var(--cartenz-dark) !important;
+    border-color: var(--cartenz-dark) !important;
+}
+
+/* Buttons Outline */
+.btn-outline-primary {
+    color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+.btn-outline-primary:hover {
+    background-color: var(--bs-primary) !important;
+    color: #fff !important;
+}
+
+/* Sidebar Active State Override */
+.sidebar .nav .nav-item.active > .nav-link {
+    background: var(--bs-primary) !important;
+}
+.sidebar .nav .nav-item.active > .nav-link i,
+.sidebar .nav .nav-item.active > .nav-link .menu-title,
+.sidebar .nav .nav-item.active > .nav-link .menu-arrow {
+    color: #ffffff !important;
+}
+.sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link {
+    background: var(--bs-primary) !important;
+    color: #fff !important;
+}
+
+/* Navbar & Components */
+.navbar.navbar-primary .navbar-menu-wrapper {
+    background: var(--bs-primary) !important;
+}
+.form-check .form-check-label input[type="checkbox"]:checked + .input-helper:before {
+    background: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+/* --- 2. ADVANCED DATATABLES STYLING (HEADER FIX) --- */
+
+/* --- 2. DATATABLES FIX (RESPONSIVE & CLEAN) --- */
+
+/* Wrapper */
+.dataTables_wrapper {
+    padding: 15px 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Fix Header: Beri ruang untuk panah sorting */
+table.dataTable thead th {
+    background-color: #f8f9fa;
+    color: #444 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e3e6f0 !important;
+    vertical-align: middle !important;
+    
+    /* PENTING: Padding kanan besar (30px) untuk tempat panah */
+    padding: 15px 30px 15px 15px !important;
+    white-space: nowrap; /* Teks satu baris */
+    position: relative;
+}
+
+/* Fix Panah Sorting agar tidak menumpuk */
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc:after {
+    bottom: 50% !important;
+    transform: translateY(50%); /* Posisi vertikal tengah */
+    right: 10px !important;     /* Jarak dari kanan */
+    font-size: 0.8em !important;
+}
+
+/* Body Table: Kembalikan ukuran normal */
+table.dataTable tbody td {
+    padding: 12px 15px !important; /* Padding nyaman */
+    color: #555;
+    font-size: 0.9rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Hapus border collapse agar border-radius bekerja (Opsional) */
+table.dataTable {
+    border-collapse: separate !important;
+    border-spacing: 0;
+    margin-bottom: 1rem !important;
+    /* JANGAN PAKAI width: 100% !important DI SINI, biarkan JS yg atur */
+}
+
+/* Search Box & Length Menu */
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #d1d3e2;
+    border-radius: 50px;
+    padding: 6px 15px;
+    outline: none;
+    margin-left: 5px;
+}
+.dataTables_wrapper .dataTables_length select {
+    border: 1px solid #d1d3e2;
+    border-radius: 10px;
+    padding: 5px 25px 5px 10px;
+    margin: 0 5px;
+}
+
+/* Pagination Bulat */
+.page-item .page-link {
+    border-radius: 50% !important;
+    margin: 0 3px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    border: 1px solid transparent;
+    font-weight: bold;
+}
+.page-item.active .page-link {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 8px rgba(31, 59, 179, 0.3);
+}
+
+/* --- 3. SCROLL TO TOP BUTTON --- */
+#myBtn {
+      display: none; 
+      position: fixed; 
+      bottom: 30px;           /* Jarak dari bawah */
+      
+      /* --- LOGIKA TENGAH --- */
+      left: 50%;              /* Pindah ke titik 50% layar */
+      transform: translateX(-50%); /* Geser balik 50% dari lebar tombol agar pas di tengah */
+      /* --------------------- */
+
+      z-index: 9999; 
+      border: none; 
+      outline: none; 
+      background-color: var(--bs-primary); 
+      color: white; 
+      cursor: pointer; 
+      width: 45px; 
+      height: 45px; 
+      border-radius: 50%; 
+      font-size: 20px; 
+      box-shadow: 0 4px 12px rgba(31, 59, 179, 0.4); 
+      transition: all 0.3s ease;
+  }
+
+  #myBtn:hover {
+      background-color: var(--cartenz-dark);
+      transform: translateX(-50%) translateY(-5px); /* Tetap di tengah saat hover naik */
+  }
+
+/* --- BUTTON ACTION STYLING (Bulat & Rapi) --- */
+.btn-action {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    
+    /* Gunakan Flexbox untuk Centering Mutlak */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    border-radius: 50% !important;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    line-height: 1 !important; /* Reset line-height */
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Styling Ikon di Dalam Tombol */
+.btn-action i {
+    font-size: 16px !important; /* Ukuran ikon pas */
+    line-height: 1 !important;
+    margin: 0 !important;      /* Hapus margin bawaan template */
+    padding: 0 !important;     /* Hapus padding bawaan template */
+    display: block !important; /* Pastikan block agar flexbox parent bekerja */
+    width: auto !important;    /* Reset width */
+    height: auto !important;   /* Reset height */
+}
+
+/* Warna Spesifik */
+.btn-action-edit {
+    background-color: #ffc107 !important; /* Kuning */
+    color: #fff !important;
+}
+.btn-action-delete {
+    background-color: #dc3545 !important; /* Merah */
+    color: #fff !important;
+}
+.btn-action-detail {
+    background-color: #0dcaf0 !important; /* Biru Muda Info */
+    color: #fff !important;
+}

@@ -108,7 +108,7 @@
             <div id="<?= $collapseId ?>" class="collapse <?= $showClass ?>" data-bs-parent="#accordionRanking">
                 <div class="card-body p-0">
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle text-center mb-0">
+                        <table class="table table-hover align-middle text-center mb-0 datatable">
                             <thead class="bg-light text-secondary small text-uppercase">
                                 <tr>
                                     <th width="5%">Rank</th>

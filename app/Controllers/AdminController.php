@@ -55,4 +55,20 @@ class AdminController extends BaseController
 
         return view('admin/dashboard', $data);
     }
+
+    // File: app/Controllers/Admin/DashboardController.php
+
+    public function countPelamar()
+    {
+        $pelamarModel = new \App\Models\PelamarModel();
+        
+        // Hitung pelamar yang masih diproses (belum masuk history/arsip)
+        // Sesuaikan logika 'is_history' = 0 atau status = 'proses' sesuai database Anda
+        $count = $pelamarModel->where('is_history', 0)->countAllResults();
+
+        return $this->response->setJSON([
+            'status' => 'success',
+            'count'  => $count
+        ]);
+    }
 }

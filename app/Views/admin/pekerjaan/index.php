@@ -6,11 +6,11 @@
   <div class="alert alert-info border-0 shadow-sm d-flex align-items-start mb-4">
     <div class="fs-4 me-3 mt-1"><i class="mdi mdi-domain"></i></div>
       <div>
-        <h5 class="alert-heading fw-bold mb-1">Data Pekerjaan</h5>
-          <p class="mb-0 small">Berikut adalah daftar Divisi yang tersedia. Klik tombol <b>"Lihat Posisi"</b> untuk mengelola posisi pekerjaan di dalam divisi tersebut.</p>
+        <h5 class="alert-heading fw-bold mb-1">Data Pekerjaan & Divisi</h5>
+          <p class="mb-2 small">Berikut adalah daftar Divisi yang tersedia di perusahaan Anda.</p>
         <ul class="small mb-0 ps-3">
-          <li>Silahkan Klik tombol <b>"Tambah Divisi"</b> untuk menambah Divisi pada perusahaan. Dan setidaknya ada 1 <b> Posisi </b> yang terisi.</li>
-          <li>Klik tombol <b>"Tambah Posisi"</b> pada halaman detail setiap Divisi, untuk menambahkan posisi apa saja yang akan dibutuhkan.</li>
+          <li>Klik <strong>"Tambah Divisi"</strong> untuk membuat divisi baru (Wajib input minimal 1 posisi).</li>
+          <li>Klik tombol <strong>"Lihat Posisi"</strong> (ikon mata) untuk mengelola daftar jabatan di dalam divisi tersebut.</li>
         </ul>
       </div>
   </div>
@@ -18,138 +18,138 @@
   <div class="card shadow-sm border-0">
     <div class="card-body">
       
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4 class="card-title mb-0 fw-bold">Daftar Divisi</h4>
+      <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-bottom">
+          <h6 class="mb-0 fw-bold text-dark">Daftar Divisi</h6>
+          
+          <button type="button" class="btn btn-primary btn-sm rounded-pill px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#modalAddDivisi">
+              <i class="mdi mdi-plus-circle me-1"></i> Tambah Divisi
+          </button>
+      </div>
         
-        <button type="button" class="btn btn-success btn-sm px-3" data-bs-toggle="modal" data-bs-target="#modalAddDivisi">
-            <i class="mdi mdi-plus-circle me-1"></i> Tambah Divisi
-        </button>
-      </div>
+        <?php if (session()->getFlashdata('success')): ?>
+          <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="mdi mdi-check-circle me-2"></i> <?= session()->getFlashdata('success') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        <?php endif; ?>
 
-      <?php if (session()->getFlashdata('success')): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <i class="mdi mdi-check-circle me-2"></i> <?= session()->getFlashdata('success') ?>
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-      <?php endif; ?>
-
-      <div class="table-responsive">
-        <table class="table table-hover align-middle text-center">
-          <thead class="table-light">
-            <tr>
-              <th width="10%">No</th>
-              <th class="text-start">Nama Divisi</th>
-              <th>Jumlah Posisi</th>
-              <th width="20%">Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php if (!empty($divisi)): ?>
-              <?php foreach ($divisi as $key => $d): ?>
-                <tr>
-                  <td><?= $key + 1 ?></td>
-                  <td class="text-start fw-bold text-primary fs-5">
-                      <i class="mdi mdi-folder-outline me-2"></i><?= esc($d['divisi']) ?>
-                      
-                      <button type="button" class="btn btn-sm btn-link text-warning p-0 ms-2" 
-                              data-bs-toggle="modal" 
-                              data-bs-target="#modalEditDivisi"
-                              onclick="editDivisi('<?= esc($d['divisi']) ?>')"
-                              title="Ganti Nama Divisi">
-                          <i class="mdi mdi-pencil"></i>
-                      </button>
-                  </td>
-                  <td>
-                      <span class="badge bg-secondary rounded-pill px-3">
-                        <?= $d['total_posisi'] ?> Posisi
-                      </span>
-                  </td>
-                  <td>
-                    <a href="<?= base_url('admin/pekerjaan/detail/' . urlencode($d['divisi'])) ?>" 
-                       class="btn btn-info btn-sm text-white px-3">
-                        <i class="mdi mdi-format-list-bulleted me-1"></i> Lihat Posisi
-                    </a>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
-            <?php else: ?>
+        <div class="table-responsive">
+          <table class="table table-hover align-middle text-center datatable" style="width:100%">
+            <thead class="bg-light text-secondary text-uppercase small">
               <tr>
-                <td colspan="4" class="text-center text-muted py-5">
-                    <i class="mdi mdi-folder-remove" style="font-size: 3rem;"></i>
-                    <p class="mt-2">Belum ada data divisi.</p>
-                </td>
+                <th class="text-center">No</th>
+                <th class="text-start">Nama Divisi</th>
+                <th class="text-center">Jumlah Posisi</th>
+                <th class="text-center">Aksi</th>
               </tr>
-            <?php endif; ?>
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              <?php if (!empty($divisi)): ?>
+                <?php foreach ($divisi as $key => $d): ?>
+                  <tr>
+                    <td><?= $key + 1 ?></td>
+                    <td class="text-start">
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-sm bg-light rounded-circle me-3 d-flex align-items-center justify-content-center text-primary">
+                                <i class="mdi mdi-folder-outline fs-5"></i>
+                            </div>
+                            <span class="fw-bold text-dark fs-6"><?= esc($d['divisi']) ?></span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="badge bg-secondary rounded-pill px-3 py-2 border">
+                          <?= $d['total_posisi'] ?> Posisi Terdaftar
+                        </span>
+                    </td>
+                    <td class="text-center">
+                      <div class="d-flex justify-content-center gap-2">
+                          
+                          <button type="button" class="btn btn-action btn-action-edit" 
+                                  data-bs-toggle="modal" 
+                                  data-bs-target="#modalEditDivisi"
+                                  onclick="editDivisi('<?= esc($d['divisi']) ?>')"
+                                  title="Edit Nama Divisi">
+                              <i class="mdi mdi-pencil"></i>
+                          </button>
+
+                          <a href="<?= base_url('admin/pekerjaan/detail/' . urlencode($d['divisi'])) ?>" 
+                            class="btn btn-action btn-action-detail"
+                            title="Lihat Daftar Posisi">
+                              <i class="mdi mdi-eye"></i>
+                          </a>
+
+                      </div>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              <?php endif; ?>
+            </tbody>
+          </table>
+        </div>
 
     </div>
   </div>
 </div>
 
-<!-- Tambah Divisi Modal -->
 <div class="modal fade" id="modalAddDivisi" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-success text-white">
-        <h5 class="modal-title fw-bold"><i class="mdi mdi-folder-plus me-1"></i> Buat Divisi Baru</h5>
+    <div class="modal-content border-0 shadow-lg">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title fw-bold"><i class="mdi mdi-folder-plus me-2"></i> Buat Divisi Baru</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
       
       <form action="<?= base_url('admin/pekerjaan/store') ?>" method="post">
-          <div class="modal-body">
-            
+          <div class="modal-body p-4">
             <div class="mb-3">
-                <label class="form-label fw-bold">Nama Divisi</label>
-                <input type="text" name="divisi" class="form-control" placeholder="Contoh: Marketing, Produksi" required>
+                <label class="form-label fw-bold text-secondary">Nama Divisi</label>
+                <input type="text" name="divisi" class="form-control" placeholder="Contoh: Marketing, IT, Finance" required>
             </div>
 
             <div class="mb-3">
-                <label class="form-label fw-bold">Posisi Pertama</label>
-                <input type="text" name="posisi" class="form-control" placeholder="Contoh: Manager, Staff" required>
-                <div class="form-text text-muted small">
-                    Sebuah divisi harus memiliki minimal satu posisi pekerjaan.
+                <label class="form-label fw-bold text-secondary">Posisi Awal (Wajib)</label>
+                <input type="text" name="posisi" class="form-control" placeholder="Contoh: Manager, Staff Admin" required>
+                <div class="form-text text-muted small mt-2">
+                    <i class="mdi mdi-information-outline"></i> Sebuah divisi baru harus memiliki minimal satu posisi pekerjaan awal.
                 </div>
             </div>
-
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-            <button type="submit" class="btn btn-success px-4">Simpan</button>
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary px-4 fw-bold">Simpan Divisi</button>
           </div>
       </form>
     </div>
   </div>
 </div>
 
-<!-- Edit Divisi Modal -->
 <div class="modal fade" id="modalEditDivisi" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+    <div class="modal-content border-0 shadow-lg">
       <div class="modal-header bg-warning">
-        <h5 class="modal-title text-white fw-bold"><i class="mdi mdi-pencil me-1"></i> Edit Nama Divisi</h5>
+        <h5 class="modal-title text-white fw-bold"><i class="mdi mdi-pencil me-2"></i> Edit Nama Divisi</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <form action="<?= base_url('admin/pekerjaan/updateDivisi') ?>" method="post">
-          <div class="modal-body">
+          <div class="modal-body p-4">
             <input type="hidden" name="old_divisi" id="old_divisi">
             
             <div class="mb-3">
-                <label class="form-label fw-bold">Nama Divisi Baru</label>
+                <label class="form-label fw-bold text-secondary">Nama Divisi Baru</label>
                 <input type="text" name="divisi" id="new_divisi" class="form-control" required>
             </div>
             
-            <div class="alert alert-info small d-flex align-items-center">
-                <i class="mdi mdi-information fs-4 me-2"></i>
+            <div class="alert alert-info small d-flex align-items-center mb-0 border-0 bg-info-subtle text-info-emphasis">
+                <i class="mdi mdi-alert-circle-outline fs-4 me-3"></i>
                 <div>
-                    Mengubah nama ini akan otomatis memperbarui nama divisi pada semua posisi yang ada di dalamnya.
+                    <strong>Perhatian:</strong><br>
+                    Mengubah nama ini akan otomatis memperbarui nama divisi pada <u>semua posisi pekerjaan</u> yang ada di dalamnya.
                 </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-            <button type="submit" class="btn btn-warning text-white px-4">Simpan Perubahan</button>
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-warning text-white px-4 fw-bold">Simpan Perubahan</button>
           </div>
       </form>
     </div>

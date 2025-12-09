@@ -40,6 +40,7 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     // --- DASHBOARD ---
     $routes->get('/', 'AdminController::dashboard');
     $routes->get('dashboard', 'AdminController::dashboard');
+    $routes->get('api/count-pelamar', 'Admin\DashboardController::countPelamar');
     
     // --------------------------------------------------------
     // MASTER DATA: PEKERJAAN (DIVISI & POSISI)
@@ -93,6 +94,8 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->post('alternatives/store', 'AlternativesController::store');
     $routes->get('alternatives/detail/(:num)', 'AlternativesController::detail/$1');
     $routes->get('alternatives/delete/(:num)', 'AlternativesController::delete/$1');
+    $routes->get('alternatives/penilaian/(:num)', 'AlternativesController::penilaian/$1');
+    $routes->post('alternatives/hitung/(:num)', 'AlternativesController::hitung/$1');
 
 
     // --------------------------------------------------------

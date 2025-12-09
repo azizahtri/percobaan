@@ -24,14 +24,14 @@
       <?php endif; ?>
 
       <div class="table-responsive">
-        <table class="table table-striped table-bordered align-middle text-center">
-          <thead class="table-light">
+        <table class="table table-hover align-middle text-center datatable" style="width:100%">
+          <thead class="bg-light text-secondary small text-uppercase">
             <tr>
-              <th>No</th>
-              <th>Deskripsi</th>
-              <th>Skor</th>
-              <th>Tipe</th>
-              <th>Aksi</th>
+              <th class="text-center">No</th>
+              <th class="text-center">Deskripsi</th>
+              <th class="text-center">Skor</th>
+              <th class="text-center">Tipe</th>
+              <th class="text-center">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -46,12 +46,15 @@
                       <?= ucfirst($sub['tipe']) ?>
                     </span>
                   </td>
-                  <td>
-                    <a href="<?= base_url('admin/subcriteria/edit/' . $sub['id']) ?>" class="btn btn-sm btn-warning">
-                      <i class="mdi mdi-pencil"></i> Edit
+                  <td class="text-center">
+                    <div class="d-flex justify-content-center gap-2">
+                    <a href="<?= base_url('admin/subcriteria/edit/' . $sub['id']) ?>" 
+                      class="btn btn-action btn-action-edit">
+                      <i class="mdi mdi-pencil"></i>
                     </a>
-                    <a href="<?= base_url('admin/subcriteria/delete/' . $sub['id']) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus subkriteria ini?')">
-                      <i class="mdi mdi-delete"></i> Hapus
+                    <a href="<?= base_url('admin/subcriteria/delete/' . $sub['id']) ?>" 
+                      class="btn btn-action btn-action-delete" onclick="return confirm('Yakin ingin menghapus subkriteria ini?')">
+                      <i class="mdi mdi-delete"></i>
                     </a>
                   </td>
                 </tr>

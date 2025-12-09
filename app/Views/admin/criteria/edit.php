@@ -55,7 +55,7 @@
       </div>
 
       <div class="text-end mt-4">
-        <a href="<?= base_url('admin/criteria?field=' . $criteria['pekerjaan_id']) ?>" class="btn btn-light me-2">Kembali</a>
+        <a href="<?= base_url('admin/criteria') ?>" class="btn btn-light me-2">Kembali</a>
         <button type="submit" class="btn btn-primary px-4">Update Data</button>
       </div>
 
