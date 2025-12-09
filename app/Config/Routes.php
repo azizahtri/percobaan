@@ -2,45 +2,59 @@
 
 namespace Config;
 
-use CodeIgniter\Router\RouteCollection;
-
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
+// Load the system's routing file first, so that the app and ENVIRONMENT
+// can override as needed.
+if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
+    require SYSTEMPATH . 'Config/Routes.php';
+}
+
 /*
  * --------------------------------------------------------------------
- * Router Setup (Biarkan default)
+ * Router Setup
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
+$routes->setDefaultController('LandingController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 
-
 // ==================================================================
-// 1. PUBLIC ROUTES (TIDAK BOLEH KENA FILTER AUTH)
+// 1. PUBLIC ROUTES (BEBAS AKSES)
 // ==================================================================
 $routes->get('/', 'LandingController::index');
 $routes->get('lowongan/detail/(:num)', 'LandingController::detail/$1');
 $routes->post('lamaran/submit', 'LandingController::submit');
 
 // ==================================================================
-// 2. AUTH ROUTES
+// 2. AUTH ROUTES (LOGIN/LOGOUT)
 // ==================================================================
+// Penting: Jangan masukkan ini ke dalam group filter 'auth'!
 $routes->get('login', 'AuthController::login'); 
 $routes->post('login', 'AuthController::doLogin');
 $routes->get('logout', 'AuthController::logout');
 
 // ==================================================================
-// 3. ADMIN ROUTES (PROTECTED)
+// 3. ADMIN ROUTES (DILINDUNGI FILTER)
 // ==================================================================
+// Semua yang ada di sini WAJIB LOGIN dulu
 $routes->group('admin', ['filter' => 'auth'], function($routes) {
     
     // --- DASHBOARD ---
     $routes->get('/', 'AdminController::dashboard');
     $routes->get('dashboard', 'AdminController::dashboard');
-    $routes->get('api/count-pelamar', 'Admin\DashboardController::countPelamar');
+    $routes->get('api/count-pelamar', 'AdminController::countPelamar');
+
+    // --- MANAJEMEN AKUN (Create/Edit/Hapus digabung di AdminController) ---
+    $routes->get('akun', 'AdminController::akunIndex');          // List Akun
+    $routes->get('akun/create', 'AdminController::akunCreate');  // Form Tambah
+    $routes->post('akun/store', 'AdminController::akunStore');   // Proses Simpan
+    $routes->get('akun/edit/(:num)', 'AdminController::akunEdit/$1'); // Form Edit
+    $routes->post('akun/update/(:num)', 'AdminController::akunUpdate/$1'); // Proses Update
+    $routes->get('akun/delete/(:num)', 'AdminController::akunDelete/$1');
     
     // --------------------------------------------------------
     // MASTER DATA: PEKERJAAN (DIVISI & POSISI)

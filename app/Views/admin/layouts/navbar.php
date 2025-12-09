@@ -47,11 +47,31 @@
           
         </div>
       </li>
+      
       <li class="nav-item nav-profile dropdown">
-        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+          
+          <span class="d-none d-lg-inline me-2 text-dark fw-bold" style="font-size: 0.9rem;">
+            Hi, <?= esc(session()->get('name') ?? 'Admin') ?>
+          </span>
+
           <img src="<?= base_url('skydash/dist/assets/images/faces/face1.jpg') ?>" alt="profile"/>
         </a>
+        
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+          
+          <div class="dropdown-item disabled text-muted text-center border-bottom pb-2 mb-2 small">
+            Role: <?= esc(session()->get('role')) ?>
+          </div>
+
+          <?php if (session()->get('role') === 'Super Admin'): ?>
+            <a class="dropdown-item" href="<?= base_url('admin/akun') ?>">
+                <i class="mdi mdi-account-cog text-primary"></i>
+                Manajemen Akun
+            </a>
+            <div class="dropdown-divider"></div>
+          <?php endif; ?>
+
           <a class="dropdown-item" href="<?= site_url('logout') ?>">
             <i class="ti-power-off text-primary"></i>
             Logout
@@ -66,6 +86,7 @@
   </div>
 </nav>
 
+<!-- js notifikasi -->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         updateNotification(); // Jalankan langsung saat load

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2025 pada 05.58
+-- Waktu pembuatan: 09 Des 2025 pada 09.51
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.0.30
 
@@ -29,17 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `name` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` enum('Super Admin','HRD','Staff') DEFAULT 'HRD',
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `username`, `password`) VALUES
-(1, 'Administrator', 'admin', 'admin123');
+INSERT INTO `admin` (`id`, `name`, `username`, `password`, `role`, `created_at`, `updated_at`) VALUES
+(1, 'superadmin', 'superadmin', '$2y$10$6Y.TvLQ7EFQV9SNLGEL/MeEO7rdUzXb4tg7.ovWeGERAdKeNcgVyC', 'Super Admin', '2025-12-09 14:37:26', '2025-12-09 02:49:15'),
+(4, 'Elsa', 'elsa', '$2y$10$VcwriOJljnXA3QVKY2cDXOd9g3IsQJIt0us4vUcqIZBHgXhNbYzey', 'HRD', '2025-12-09 02:40:32', '2025-12-09 02:40:32'),
+(5, 'Ulfa', 'ulfa', '$2y$10$.QWdjdgPSir.zgAMSBtlOOE0qs4ACSma5mo9VrwtRxDk37mUXDKSW', 'Staff', '2025-12-09 02:42:04', '2025-12-09 02:42:04');
 
 -- --------------------------------------------------------
 
@@ -229,7 +234,8 @@ INSERT INTO `subcriteria` (`id`, `criteria_id`, `keterangan`, `bobot_sub`, `tipe
 -- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indeks untuk tabel `alternatives`
@@ -287,7 +293,7 @@ ALTER TABLE `subcriteria`
 -- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `alternatives`
