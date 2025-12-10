@@ -89,31 +89,39 @@
 <!-- js notifikasi -->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        updateNotification(); // Jalankan langsung saat load
-        
-        // Jalankan ulang setiap 60.000 ms (1 menit)
-        setInterval(updateNotification, 60000);
-    });
+    updateNotification(); 
+    setInterval(updateNotification, 60000);
+});
 
-    function updateNotification() {
-        fetch('<?= base_url("admin/api/count-pelamar") ?>')
-        .then(response => response.json())
-        .then(data => {
-            const badge = document.getElementById('notif-badge');
-            const textCount = document.getElementById('notif-count-text');
-            const count = data.count;
+function updateNotification() {
+    fetch('<?= base_url("admin/api/count-pelamar") ?>')
+    .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+    })
+    .then(data => {
+        const badge = document.getElementById('notif-badge');
+        const textCount = document.getElementById('notif-count-text');
 
-            // Update Angka di dalam Dropdown
-            if(textCount) textCount.innerText = count;
+        // Pastikan data.count ada dan valid
+        const count = (data && data.count) ? parseInt(data.count) : 0;
 
-            // Update Badge Lonceng
-            if (count > 0) {
+        if(textCount) textCount.innerText = count;
+
+        if (count > 0) {
+            if(badge) {
                 badge.style.display = 'block';
-                badge.innerText = ""; // Skydash biasanya badge bulat kecil tanpa angka, atau isi count jika mau
-            } else {
-                badge.style.display = 'none';
+                badge.innerText = ""; 
             }
-        })
-        .catch(error => console.error('Gagal memuat notifikasi:', error));
-    }
+        } else {
+            if(badge) badge.style.display = 'none';
+        }
+    })
+    .catch(error => {
+        console.error('Gagal memuat notifikasi:', error);
+        // Default ke 0 jika error
+        const textCount = document.getElementById('notif-count-text');
+        if(textCount) textCount.innerText = "0";
+    });
+}
 </script>

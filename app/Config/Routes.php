@@ -63,22 +63,12 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('pekerjaan/create', 'PekerjaanController::create'); // Create Divisi Baru
     $routes->get('pekerjaan/create/(:any)', 'PekerjaanController::create/$1'); // Create Posisi di Divisi tertentu
     $routes->post('pekerjaan/store', 'PekerjaanController::store');
-    
-    // Detail & Edit
-    $routes->get('pekerjaan/detail/(:any)', 'PekerjaanController::detailDivisi/$1'); // Lihat isi Divisi
-    $routes->get('pekerjaan/edit/(:num)', 'PekerjaanController::edit/$1'); // Halaman Edit (jika pakai view terpisah)
-    
-    // Aksi Update (Modal)
+    $routes->get('pekerjaan/detail/(:any)', 'PekerjaanController::detailDivisi/$1');
+    $routes->get('pekerjaan/edit/(:num)', 'PekerjaanController::edit/$1');
     $routes->post('pekerjaan/updateDivisi', 'PekerjaanController::updateDivisi');
     $routes->post('pekerjaan/updatePosisi/(:num)', 'PekerjaanController::updatePosisi/$1');
-    
-    // Delete
     $routes->get('pekerjaan/delete/(:num)', 'PekerjaanController::delete/$1');
 
-
-    // --------------------------------------------------------
-    // MASTER DATA: KRITERIA & SUBKRITERIA
-    // --------------------------------------------------------
     // Criteria
     $routes->get('criteria', 'CriteriaController::index');
     $routes->get('criteria/create', 'CriteriaController::create');
@@ -99,10 +89,7 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->post('subcriteria/update/(:num)', 'SubcriteriaController::update/$1');
     $routes->get('subcriteria/delete/(:num)', 'SubcriteriaController::delete/$1');
 
-
-    // --------------------------------------------------------
     // MANAJEMEN KARYAWAN (ALTERNATIF)
-    // --------------------------------------------------------
     $routes->get('alternatives', 'AlternativesController::index');
     $routes->get('alternatives/create', 'AlternativesController::create'); // Jika ada fitur tambah manual
     $routes->post('alternatives/store', 'AlternativesController::store');
@@ -111,10 +98,7 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('alternatives/penilaian/(:num)', 'AlternativesController::penilaian/$1');
     $routes->post('alternatives/hitung/(:num)', 'AlternativesController::hitung/$1');
 
-
-    // --------------------------------------------------------
     // TRANSAKSI: KELOLA LOWONGAN & SELEKSI (SPK)
-    // --------------------------------------------------------
     $routes->get('lowongan', 'LowonganController::index');
     $routes->get('lowongan/create', 'LowonganController::create');
     $routes->post('lowongan/store', 'LowonganController::store');
@@ -128,14 +112,12 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->post('lowongan/hitung/(:num)', 'LowonganController::hitungSPK/$1');    // Proses Hitung
     $routes->get('lowongan/selesai/(:num)', 'LowonganController::finalisasi/$1');   // Finalisasi -> Pindah ke Arsip
 
-
-    // --------------------------------------------------------
-    // LAPORAN: DATA ARSIP & RANKING
-    // --------------------------------------------------------
     // Data Pelamar (Arsip)
     $routes->get('data', 'DataController::index');
     $routes->get('data/detail/(:num)', 'DataController::detail/$1');
     $routes->get('data/onboard/(:num)', 'DataController::onboard/$1'); // Rekrut jadi karyawan
+    $routes->get('data/status/(:num)/(:segment)', 'DataController::updateStatus/$1/$2');
+    $routes->get('data/arsipkan/(:num)', 'DataController::arsipkan/$1');
 
     // Ranking Global
     $routes->get('spk', 'SpkController::index');

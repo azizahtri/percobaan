@@ -25,7 +25,7 @@
             <form method="get" class="d-flex align-items-center">
                 <select name="field" class="form-select form-select-sm border-secondary-subtle fw-bold text-dark me-2" 
                         style="min-width: 150px;" onchange="this.form.submit()">
-                  <option value="all">-- Semua Divisi --</option>
+                  <option value="all">- Semua Divisi -</option>
                   <?php foreach ($divisiList as $d): ?>
                     <option value="<?= esc($d['divisi']) ?>" <?= ($selectedField == $d['divisi']) ? 'selected' : '' ?>>
                       <?= esc($d['divisi']) ?>
@@ -87,7 +87,7 @@
                            <?= $l['jumlah_pelamar'] ?> Orang
                         </a>
                     <?php else: ?>
-                        <span class="badge bg-light text-muted border rounded-pill px-3">0</span>
+                        <span class="badge bg-light text-muted border rounded-pill px-3">Belum ada</span>
                     <?php endif; ?>
                   </td>
                   

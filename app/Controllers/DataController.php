@@ -22,89 +22,139 @@ class DataController extends BaseController
     {
         $keyword = $this->request->getGet('keyword');
 
-        $diproses = $this->dataModel
-            ->select('data.*, lowongan.judul_lowongan')
-            ->join('lowongan', 'lowongan.id = data.id_lowongan')
-            ->groupStart()
-                ->where('data.is_history', 0)
-                ->orWhere('data.is_history', null)
-            ->groupEnd()
-            ->orderBy('data.id', 'DESC')
-            ->findAll();
+        // --- QUERY 1: BELUM DINILAI ---
+        // Kita definisikan ulang query-nya agar 'select' dan 'join' pasti tereksekusi
+        $this->dataModel->select('data.*, lowongan.judul_lowongan')
+                        ->join('lowongan', 'lowongan.id = data.id_lowongan')
+                        ->orderBy('data.id', 'DESC')
+                        ->where('data.spk_score', null)
+                        ->where('data.is_history', 0);
+        
+        if ($keyword) {
+            $this->dataModel->groupStart()
+                            ->like('data.nama', $keyword)
+                            ->orLike('lowongan.judul_lowongan', $keyword)
+                            ->groupEnd();
+        }
+        $belumDinilai = $this->dataModel->findAll();
 
-        $builder = $this->dataModel
-            ->select('data.*, lowongan.judul_lowongan')
-            ->join('lowongan', 'lowongan.id = data.id_lowongan')
-            ->where('data.is_history', 1);
+
+        // --- QUERY 2: SUDAH DINILAI ---
+        // Panggil lagi select & join untuk query kedua
+        $this->dataModel->select('data.*, lowongan.judul_lowongan')
+                        ->join('lowongan', 'lowongan.id = data.id_lowongan')
+                        ->orderBy('data.id', 'DESC')
+                        ->where('data.spk_score !=', null)
+                        ->where('data.is_history', 0);
 
         if ($keyword) {
-            $builder->groupStart()
-                ->like('data.nama', $keyword)
-                ->orLike('lowongan.judul_lowongan', $keyword)
-                ->groupEnd();
+            $this->dataModel->groupStart()
+                            ->like('data.nama', $keyword)
+                            ->orLike('lowongan.judul_lowongan', $keyword)
+                            ->groupEnd();
         }
+        $sudahDinilai = $this->dataModel->findAll();
 
-        $history = $builder->orderBy('data.id', 'DESC')->findAll();
+
+        // --- QUERY 3: HISTORY ---
+        // Panggil lagi select & join untuk query ketiga
+        $this->dataModel->select('data.*, lowongan.judul_lowongan')
+                        ->join('lowongan', 'lowongan.id = data.id_lowongan')
+                        ->orderBy('data.id', 'DESC')
+                        ->where('data.is_history', 1);
+
+        if ($keyword) {
+            $this->dataModel->groupStart()
+                            ->like('data.nama', $keyword)
+                            ->orLike('lowongan.judul_lowongan', $keyword)
+                            ->groupEnd();
+        }
+        $history = $this->dataModel->findAll();
             
         return view('admin/data/index', [
-            'diproses' => $diproses,
-            'history'  => $history,
-            'keyword'  => $keyword
+            'belumDinilai' => $belumDinilai,
+            'sudahDinilai' => $sudahDinilai,
+            'history'      => $history,
+            'keyword'      => $keyword
         ]);
     }
+
     public function detail($id)
     {
-        
         $pelamar = $this->dataModel
-            ->select('data.*, lowongan.judul_lowongan, pekerjaan.divisi, pekerjaan.posisi, pekerjaan.standar_spk')
+            ->select('data.*, lowongan.judul_lowongan, lowongan.pekerjaan_id, pekerjaan.divisi, pekerjaan.posisi, pekerjaan.standar_spk')
             ->join('lowongan', 'lowongan.id = data.id_lowongan')
             ->join('pekerjaan', 'pekerjaan.id = lowongan.pekerjaan_id') 
             ->find($id);
 
-        if (!$pelamar) {
-            return redirect()->to('admin/data')->with('error', 'Data tidak ditemukan');
-        }
+        if (!$pelamar) return redirect()->to('admin/data');
 
-        // Cek status rekrut
-        $isRekrut = $this->alternativesModel->where('nama', $pelamar['nama'])->first();
+        // PERBAIKAN LOGIKA CEK REKRUT
+        // Cek apakah pelamar ini sudah ada di tabel alternatives
+        // Kita gunakan kombinasi Nama + Pekerjaan ID agar lebih spesifik
+        $isRekrut = $this->alternativesModel
+            ->where('nama', $pelamar['nama'])
+            ->where('pekerjaan_id', $pelamar['pekerjaan_id']) 
+            ->first();
 
         return view('admin/data/detail', [
-            'title'    => 'Detail Arsip Pelamar',
+            'title'    => 'Detail Pelamar',
             'data'     => $pelamar,
             'isRekrut' => $isRekrut
         ]);
     }
 
+    // Update Status (Memenuhi/Tidak) tanpa pindah ke history
+    public function updateStatus($id, $status)
+    {
+        $allowed = ['memenuhi', 'tidak memenuhi'];
+        $status = urldecode($status);
+
+        if (!in_array($status, $allowed)) return redirect()->back()->with('error', 'Status invalid.');
+
+        $this->dataModel->update($id, ['status' => $status]);
+        return redirect()->back()->with('success', 'Status diperbarui. Silakan "Selesai & Arsipkan" jika sudah final.');
+    }
+
+    // FUNGSI BARU: Pindah ke History
+    public function arsipkan($id)
+    {
+        $this->dataModel->update($id, ['is_history' => 1]);
+        return redirect()->to('admin/data')->with('success', 'Data pelamar berhasil diarsipkan ke History.');
+    }
+
     public function onboard($id)
     {
-        // 1. Ambil Data Pelamar
         $pelamar = $this->dataModel->find($id);
+        
+        // Validasi
         if (!$pelamar || $pelamar['status'] != 'memenuhi') {
-            return redirect()->back()->with('error', 'Data tidak valid atau status belum memenuhi.');
+            return redirect()->back()->with('error', 'Status pelamar belum memenuhi syarat.');
         }
 
-        // 2. Ambil Data Lowongan (Jembatan ke Master Pekerjaan)
         $lowongan = $this->lowonganModel->find($pelamar['id_lowongan']);
-        if (!$lowongan) {
-            return redirect()->back()->with('error', 'Data Lowongan tidak ditemukan.');
-        }
-
-        // 3. Cek apakah Pelamar sudah ada di Alternatives?
-        $cek = $this->alternativesModel->where('nama', $pelamar['nama'])->first();
+        
+        // Cek lagi agar tidak duplikat
+        $cek = $this->alternativesModel
+            ->where('nama', $pelamar['nama'])
+            ->where('pekerjaan_id', $lowongan['pekerjaan_id'])
+            ->first();
         
         if (!$cek) {
-            // 4. SIMPAN KE ALTERNATIVES (Karyawan)
-            // Perhatikan nama kolomnya sesuai database baru: pekerjaan_id, kode, nama
+            // Simpan ke Alternatives
             $this->alternativesModel->save([
-                'pekerjaan_id' => $lowongan['pekerjaan_id'], // Ambil dari lowongan
-                'kode'         => 'K' . sprintf("%03d", $pelamar['id']), // Kolom 'kode' bukan 'code'
+                'pekerjaan_id' => $lowongan['pekerjaan_id'], 
+                'kode'         => 'K' . sprintf("%03d", $pelamar['id']),
                 'nama'         => $pelamar['nama'],
                 'status'       => 'Aktif'
             ]);
             
-            return redirect()->back()->with('success', 'Berhasil! Pelamar resmi menjadi Karyawan.');
-        } else {
-            return redirect()->back()->with('error', 'Pelamar ini sudah terdaftar.');
+            // Opsional: Langsung arsipkan juga setelah direkrut
+            $this->dataModel->update($id, ['is_history' => 1]); 
+            
+            return redirect()->back()->with('success', 'Pelamar berhasil direkrut menjadi karyawan!');
         }
+        
+        return redirect()->back()->with('error', 'Pelamar ini sudah terdaftar sebagai karyawan.');
     }
 }

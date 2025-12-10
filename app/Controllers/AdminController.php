@@ -44,7 +44,7 @@ class AdminController extends BaseController
         $pelamarTerbaru = $dataModel->select('data.*, lowongan.judul_lowongan')
             ->join('lowongan', 'lowongan.id = data.id_lowongan')
             ->orderBy('data.id', 'DESC')
-            ->findAll(5);
+            ->findAll();
 
         $lowonganBaru = $lowonganModel->orderBy('tanggal_posting', 'DESC')->findAll(3);
 
@@ -137,6 +137,13 @@ class AdminController extends BaseController
         }
 
         $this->adminModel->save($data);
+        if ($id == session()->get('id')) {
+            // Timpa session 'name' yang lama dengan yang baru
+            session()->set('name', $data['name']);
+            
+            // Jika Anda menampilkan username juga, update sekalian
+            session()->set('username', $data['username']);
+        }
         return redirect()->to('admin/akun')->with('success', 'Akun diperbarui.');
     }
 

@@ -137,120 +137,126 @@ class CriteriaController extends BaseController
         $criteriaModel  = new \App\Models\CriteriaModel();
         $subModel       = new \App\Models\SubcriteriaModel();
 
-        // 1. Cek Inputan: Bisa berupa ID Pekerjaan ATAU Nama Divisi
-        $jobId      = $this->request->getGet('pekerjaan'); // Dari dropdown di halaman standar
-        $divisiName = $this->request->getGet('divisi');    // Dari tombol di halaman index
+        // 1. Tangkap Input
+        $jobId  = $this->request->getGet('pekerjaan'); // Jika user memilih lewat dropdown di halaman ini
+        $divisi = $this->request->getGet('divisi');    // Jika user melempar filter dari halaman index
 
-        $selectedJob = $pekerjaanModel->find($jobId);
+        $selectedJob = null;
 
+        // 2. LOGIKA AUTO-SELECT
         if ($jobId) {
-            // Skenario A: User memilih spesifik jabatan dari dropdown
+            // Prioritas 1: Jika ada ID Pekerjaan (user baru saja memilih dropdown)
             $selectedJob = $pekerjaanModel->find($jobId);
-        } elseif ($divisiName) {
-            // Skenario B: User klik tombol "Atur Standar" dari Index (bawa nama divisi)
-            // Kita ambil jabatan PERTAMA yang ada di divisi tersebut sebagai default
-            $divisiName = urldecode($divisiName);
-            $selectedJob = $pekerjaanModel->where('divisi', $divisiName)
+        } elseif ($divisi && $divisi != 'all') {
+            // Prioritas 2: Jika dari halaman index (bawa parameter divisi)
+            // Otomatis ambil posisi PERTAMA di divisi tersebut agar user tidak perlu "klik pilih lagi"
+            $selectedJob = $pekerjaanModel->where('divisi', urldecode($divisi))
                                           ->orderBy('posisi', 'ASC')
                                           ->first();
         }
 
-        // Jika data tidak ditemukan sama sekali
-        if (!$selectedJob) {
-            return redirect()->to('admin/criteria')->with('error', 'Silakan pilih posisi atau divisi terlebih dahulu.');
+        // 3. LOGIKA LIST DROPDOWN
+        // Jika sudah ada posisi terpilih (atau divisi terpilih), 
+        // dropdown HANYA menampilkan teman-teman satu divisinya.
+        if ($selectedJob) {
+            $targetDivisi = $selectedJob['divisi'];
+            $pekerjaanList = $pekerjaanModel->where('divisi', $targetDivisi)
+                                            ->orderBy('posisi', 'ASC')
+                                            ->findAll();
+        } else {
+            // Jika belum ada apa-apa (akses langsung menu), tampilkan semua (dikelompokkan)
+            $pekerjaanList = $pekerjaanModel->orderBy('divisi', 'ASC')
+                                            ->orderBy('posisi', 'ASC')
+                                            ->findAll();
         }
 
-        // 2. Ambil SEMUA data untuk Dropdown (Group by Divisi)
-        $pekerjaanList = $pekerjaanModel->where('divisi', $selectedJob['divisi'])
-                                        ->orderBy('posisi', 'ASC')
-                                        ->findAll();
+        // 4. AMBIL KRITERIA (Berdasarkan Divisi dari Posisi Terpilih)
+        $criteria = [];
+        $sub      = [];
 
-        // 3. Ambil Kriteria & Subkriteria untuk posisi yang SEDANG AKTIF
-        $criteria = $criteriaModel->where('pekerjaan_id', $selectedJob['id'])->findAll();
-        
-        $sub = [];
-        foreach ($criteria as $c) {
-            $sub[$c['id']] = $subModel->where('criteria_id', $c['id'])->findAll();
+        if ($selectedJob) {
+            $divisiName = $selectedJob['divisi'];
+            // Cari perwakilan divisi untuk ambil kriteria
+            $repJob = $pekerjaanModel->where('divisi', $divisiName)->orderBy('id', 'ASC')->first();
+
+            if ($repJob) {
+                $criteria = $criteriaModel->where('pekerjaan_id', $repJob['id'])->findAll();
+                foreach ($criteria as $c) {
+                    $sub[$c['id']] = $subModel->where('criteria_id', $c['id'])->findAll();
+                }
+            }
         }
 
         return view('admin/criteria/standar', [
             'title'         => 'Set Standar Nilai',
-            'selected'      => $selectedJob,
             'pekerjaanList' => $pekerjaanList,
+            'selected'      => $selectedJob,
             'criteria'      => $criteria,
             'sub'           => $sub
         ]);
     }
 
+    // ==========================================================
+    // SIMPAN NILAI STANDAR (KE POSISI SPESIFIK)
+    // ==========================================================
     public function savestandar()
     {
         $pekerjaanModel = new \App\Models\PekerjaanModel();
         $criteriaModel  = new \App\Models\CriteriaModel();
         $subModel       = new \App\Models\SubcriteriaModel();
 
-        // 1. Validasi Input Dasar
-        $field = $this->request->getPost('pekerjaan_id');
+        // 1. Validasi ID Posisi
+        $jobId = $this->request->getPost('pekerjaan_id'); 
         
-        if (!$field) {
-            return redirect()->back()->with('error', 'Gagal menyimpan: ID Pekerjaan tidak ditemukan.');
+        if (!$jobId) return redirect()->back()->with('error', 'Posisi tidak ditemukan.');
+
+        // 2. Ambil Data Posisi & Divisinya
+        $job = $pekerjaanModel->find($jobId);
+        if (!$job) return redirect()->back()->with('error', 'Data posisi invalid.');
+
+        // 3. Ambil Kriteria Divisi (Logic sama seperti method standar)
+        $divisiName = $job['divisi'];
+        $repJob     = $pekerjaanModel->where('divisi', $divisiName)->orderBy('id', 'ASC')->first();
+        
+        // Cek kriteria
+        $criteria = [];
+        if ($repJob) {
+            $criteria = $criteriaModel->where('pekerjaan_id', $repJob['id'])->findAll();
         }
 
-        $criteria = $criteriaModel->where('pekerjaan_id', $field)->findAll();
-        if (empty($criteria)) {
-            return redirect()->back()->with('error', 'Gagal: Tidak ada kriteria untuk dihitung.');
-        }
+        if (empty($criteria)) return redirect()->back()->with('error', 'Tidak ada kriteria di divisi ini.');
 
-        // 2. Siapkan Data Nilai & Hitung Total Bobot
-        $nilai = [];
+        // 4. Hitung Vector S (Standar Kelulusan)
         $totalBobotCriteria = 0;
-
         foreach ($criteria as $c) {
-            $totalBobotCriteria += $c['bobot']; // Hitung total bobot dulu
-
-            // Ambil input subkriteria (name="sub_ID")
-            $subId = $this->request->getPost('sub_' . $c['id']);
-            
-            if (!$subId) {
-                return redirect()->back()->with('error', 'Mohon pilih nilai standar untuk kriteria: ' . $c['nama']);
-            }
-            
-            $sub = $subModel->find($subId);
-            $nilai[] = [
-                'criteria' => $c,
-                'sub'      => $sub
-            ];
+            $totalBobotCriteria += $c['bobot'];
         }
 
-        // --- MULAI PERHITUNGAN WP ---
         $vectorS = 1; 
 
-        foreach ($nilai as $item) {
-            $c = $item['criteria'];
-            $s = $item['sub'];
+        foreach ($criteria as $c) {
+            // Ambil input nilai standar (dari form)
+            $subId = $this->request->getPost('sub_' . $c['id']);
             
-            $nilaiInput = (float) $s['bobot_sub'];
+            if (!$subId) return redirect()->back()->with('error', 'Lengkapi nilai standar untuk: ' . $c['nama']);
+            
+            $subData    = $subModel->find($subId);
+            $nilaiInput = (float) $subData['bobot_sub'];
 
-            // A. Normalisasi Bobot
+            // Normalisasi Pangkat
             $bobotNormal = ($totalBobotCriteria > 0) ? ($c['bobot'] / $totalBobotCriteria) : 0;
+            $tipe        = strtolower($c['tipe']);
+            $pangkat     = ($tipe == 'cost') ? -$bobotNormal : $bobotNormal;
 
-            // B. Tentukan Pangkat (Benefit = Positif, Cost = Negatif)
-            $tipe = strtolower($c['tipe']); // pastikan 'tipe' sesuai kolom database
-            $pangkat = ($tipe == 'cost') ? -$bobotNormal : $bobotNormal;
-
-            // C. Rumus WP
+            // Rumus WP
             $nilaiInput = ($nilaiInput == 0) ? 1 : $nilaiInput; 
-            $vectorS *= pow($nilaiInput, $pangkat);
+            $vectorS   *= pow($nilaiInput, $pangkat);
         }
 
-        // 5. Simpan Hasil ke Database
-        // Gunakan try-catch untuk menangkap error database
-        try {
-            $pekerjaanModel->update($field, ['standar_spk' => $vectorS]);
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Database Error: ' . $e->getMessage());
-        }
+        // 5. SIMPAN HASIL KE TABEL PEKERJAAN (POSISI SPESIFIK)
+        $pekerjaanModel->update($jobId, ['standar_spk' => $vectorS]);
 
-        return redirect()->to('/admin/criteria/standar?pekerjaan=' . $field)
-                         ->with('success', 'Standar SPK berhasil dihitung & disimpan: ' . number_format($vectorS, 4));
+        return redirect()->to('/admin/criteria/standar?pekerjaan=' . $jobId)
+                         ->with('success', 'Standar untuk posisi <b>' . esc($job['posisi']) . '</b> berhasil disimpan.');
     }
 }

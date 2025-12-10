@@ -24,38 +24,52 @@
                 </div>
                 <div class="card-body">
                     
-                    <div class="mb-4">
-                        <label class="form-label text-muted small fw-bold text-uppercase">Posisi:</label>
-                        <form method="get" action="">
+                    <form method="get" action="">
+                        <div class="mb-4">
+                            <label class="form-label text-muted small fw-bold text-uppercase">Posisi:</label>
+                            
                             <select name="pekerjaan" class="form-select border-primary text-dark fw-bold" onchange="this.form.submit()">
+                                <?php if (!$selected): ?>
+                                    <option value="">-- Pilih Posisi --</option>
+                                <?php endif; ?>
                                 
-                                <optgroup label="<?= esc($selected['divisi']) ?>">
-                                    
-                                    <?php foreach($pekerjaanList as $p): ?>
-                                        <option value="<?= $p['id'] ?>" <?= ($p['id'] == $selected['id']) ? 'selected' : '' ?>>
-                                            <?= esc($p['posisi']) ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                    
-                                </optgroup>
+                                <?php if(!empty($pekerjaanList)): ?>
+                                    <optgroup label="<?= esc($pekerjaanList[0]['divisi']) ?>">
+                                        <?php foreach($pekerjaanList as $p): ?>
+                                            <option value="<?= $p['id'] ?>" <?= ($selected && $selected['id'] == $p['id']) ? 'selected' : '' ?>>
+                                                <?= esc($p['posisi']) ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </optgroup>
+                                <?php endif; ?>
 
                             </select>
-                        </form>
-                    </div>
+                            
+                            <div class="mt-2 text-end">
+                                <a href="<?= base_url('admin/criteria/standar') ?>" class="text-decoration-none small text-secondary">
+                                    <i class="bi bi-arrow-counterclockwise"></i> Lihat Semua Divisi
+                                </a>
+                            </div>
+                        </div>
+                    </form>
 
-                    <div class="alert alert-light border text-center">
-                        <h6 class="text-muted small text-uppercase mb-2">Nilai Standar Saat Ini</h6>
-                        <h1 class="text-success fw-bold display-4 mb-0">
-                            <?= number_format($selected['standar_spk'], 4) ?>
-                        </h1>
-                        <small class="text-muted">(Metode WP)</small>
-                    </div>
+                    <?php if($selected): ?>
+                        <div class="alert alert-light border text-center">
+                            <h6 class="text-muted small text-uppercase mb-2">Nilai Standar Saat Ini</h6>
+                            <h1 class="text-success fw-bold display-4 mb-0">
+                                <?= number_format($selected['standar_spk'], 4) ?>
+                            </h1>
+                            <small class="text-muted d-block mt-2">
+                                Posisi: <strong><?= esc($selected['posisi']) ?></strong>
+                            </small>
+                        </div>
 
-                    <div class="d-grid mt-3">
-                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalListKriteria">
-                            <i class="bi bi-list-check me-1"></i> Lihat Daftar Kriteria
-                        </button>
-                    </div>
+                        <div class="d-grid mt-3">
+                            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalListKriteria">
+                                <i class="bi bi-list-check me-1"></i> Cek Kriteria (<?= esc($selected['divisi']) ?>)
+                            </button>
+                        </div>
+                    <?php endif; ?>
 
                 </div>
             </div>

@@ -152,21 +152,21 @@
 
                   <td class="text-center">
                     <div class="d-flex justify-content-center gap-2">
-                        <?php if($p['is_history'] == 0): ?>
-                            <a href="<?= base_url('admin/lowongan/pelamar/' . $p['id']) ?>" 
-                               class="btn btn-action btn-action-edit" 
-                               title="Proses Penilaian"
-                               data-bs-toggle="tooltip" data-bs-placement="top">
-                              <i class="mdi mdi-pencil-box-outline"></i>
-                            </a>
-                        <?php else: ?>
-                            <a href="<?= base_url('admin/data/detail/' . $p['id']) ?>" 
-                               class="btn btn-action btn-action-detail" 
-                               title="Lihat Hasil Akhir"
-                               data-bs-toggle="tooltip" data-bs-placement="top">
-                              <i class="mdi mdi-eye"></i>
-                            </a>
-                        <?php endif; ?>
+                      <?php if($p['is_history'] == 0): ?>
+                          <a href="<?= base_url('admin/lowongan/pelamar/' . $p['id']) ?>" 
+                              class="btn btn-action btn-action-edit" 
+                              title="Proses Penilaian"
+                              data-bs-toggle="tooltip" data-bs-placement="top">
+                            <i class="mdi mdi-pencil-box-outline"></i>
+                          </a>
+                      <?php else: ?>
+                          <a href="<?= base_url('admin/data/detail/' . $p['id']) ?>" 
+                              class="btn btn-action btn-action-detail" 
+                              title="Lihat Hasil Akhir"
+                              data-bs-toggle="tooltip" data-bs-placement="top">
+                            <i class="mdi mdi-eye"></i>
+                          </a>
+                      <?php endif; ?>
                     </div>
                   </td>
                 </tr>

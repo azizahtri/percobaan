@@ -30,22 +30,22 @@ class LowonganController extends BaseController
         helper('text');
     }
 
-    // =========================================================================
-    // BAGIAN 1: MANAJEMEN LOWONGAN (CRUD)
-    // =========================================================================
-
     public function index()
     {
         $divisiFilter = $this->request->getGet('field');
 
-        // 1. Ambil Daftar Divisi Unik untuk Dropdown Filter
-        // Menggunakan 'divisi' sesuai struktur baru
+        // 1. Ambil Daftar Divisi
         $divisiList = $this->pekerjaanModel->groupBy('divisi')->orderBy('divisi', 'ASC')->findAll();
 
-        // 2. Setup Query dengan Join ke Tabel Pekerjaan
+        // 2. Setup Query
         $builder = $this->lowonganModel->select('lowongan.*, pekerjaan.divisi, pekerjaan.posisi, COUNT(data.id) as jumlah_pelamar');
         $builder->join('pekerjaan', 'pekerjaan.id = lowongan.pekerjaan_id');
-        $builder->join('data', 'data.id_lowongan = lowongan.id', 'left');
+        
+        // --- PERBAIKAN DISINI ---
+        // Tambahkan kondisi: AND data.is_history = 0
+        // Artinya: Hanya hitung data yang is_history-nya 0 (Belum Selesai/Masih Aktif)
+        $builder->join('data', 'data.id_lowongan = lowongan.id AND data.is_history = 0', 'left');
+        
         $builder->groupBy('lowongan.id');
 
         // 3. Filter Logic
@@ -186,22 +186,18 @@ class LowonganController extends BaseController
 
     public function detail($id)
     {
-        // Cari lowongan
-        $lowongan = $this->lowonganModel->find($id);
-        if (!$lowongan) {
-            return redirect()->to('admin/lowongan')->with('error', 'Lowongan tidak ditemukan.');
-        }
+        // PERBAIKAN: Tambahkan SELECT dan JOIN agar 'nama_pekerjaan' terbaca
+        $lowongan = $this->lowonganModel
+            ->select('lowongan.*, pekerjaan.divisi, pekerjaan.posisi as nama_pekerjaan') // Ambil kolom posisi sebagai nama_pekerjaan
+            ->join('pekerjaan', 'pekerjaan.id = lowongan.pekerjaan_id')
+            ->find($id);
 
-        // Ambil nama pekerjaan manual (Join manual karena find() default CI4 tidak join)
-        // Menggunakan 'pekerjaan_id'
-        $pk = $this->pekerjaanModel->find($lowongan['pekerjaan_id']);
-        
-        // Gabungkan Divisi dan Posisi untuk tampilan
-        $lowongan['nama_pekerjaan'] = $pk ? ($pk['divisi'] . ' - ' . $pk['posisi']) : '-';
+        if (!$lowongan) return redirect()->to('admin/lowongan');
 
-        // Ambil pelamar berdasarkan id_lowongan
+        // FILTER: Hanya tampilkan yang BELUM HISTORY (Aktif)
         $pelamar = $this->dataModel
             ->where('id_lowongan', $id)
+            ->where('is_history', 0) 
             ->orderBy('id', 'DESC')
             ->findAll();
 
@@ -219,19 +215,28 @@ class LowonganController extends BaseController
     // Halaman Form Penilaian Pelamar
     public function detailPelamar($id_data)
     {
-        // 1. Ambil Data Pelamar & Info Standar SPK dari Tabel Pekerjaan
+        // 1. Ambil Data Pelamar
         $pelamar = $this->dataModel
-            ->select('data.*, lowongan.judul_lowongan, lowongan.pekerjaan_id as job_field_id, pekerjaan.divisi, pekerjaan.posisi as nama_pekerjaan, pekerjaan.standar_spk')
+            ->select('data.*, lowongan.judul_lowongan, lowongan.pekerjaan_id, pekerjaan.divisi, pekerjaan.posisi as nama_pekerjaan, pekerjaan.standar_spk')
             ->join('lowongan', 'lowongan.id = data.id_lowongan')
             ->join('pekerjaan', 'pekerjaan.id = lowongan.pekerjaan_id')
             ->find($id_data);
 
         if (!$pelamar) return redirect()->back()->with('error', 'Data pelamar tidak ditemukan.');
 
-        // 2. Ambil Kriteria sesuai ID Pekerjaan (Posisi)
-        $criteria = $this->criteriaModel
-            ->where('pekerjaan_id', $pelamar['job_field_id'])
-            ->findAll();
+        // 2. LOGIKA BARU: Ambil Kriteria Berdasarkan DIVISI
+        // Cari ID Pekerjaan Pertama di Divisi tersebut (sebagai perwakilan tempat simpan kriteria)
+        $divisiName = $pelamar['divisi'];
+        
+        $repJob = $this->pekerjaanModel
+            ->where('divisi', $divisiName)
+            ->orderBy('id', 'ASC')
+            ->first();
+
+        $criteria = [];
+        if ($repJob) {
+            $criteria = $this->criteriaModel->where('pekerjaan_id', $repJob['id'])->findAll();
+        }
 
         // 3. Ambil Subkriteria
         $subcriteria = [];
@@ -247,20 +252,17 @@ class LowonganController extends BaseController
         return view('admin/lowongan/detail_pelamar', [
             'title'       => 'Penilaian Pelamar',
             'data'        => $pelamar,
-            'criteria'    => $criteria,
+            'criteria'    => $criteria, // Ini Kriteria Divisi
             'subcriteria' => $subcriteria
         ]);
     }
 
-
+    // PROSES HITUNG SKOR
     public function hitungSPK($id_data)
     {
-        // 1. Ambil Inputan dari Form
-        $input_criteria_ids = $this->request->getPost('criteria_id'); // Array ID [1, 2, 5]
-        $input_values       = $this->request->getPost('value');       // Array Nilai [3, 4, 2]
+        $input_criteria_ids = $this->request->getPost('criteria_id'); 
+        $input_values       = $this->request->getPost('value');       
 
-        // Buat array assosiatif untuk memudahkan pencarian nilai: [id_kriteria => nilai]
-        // Contoh: [1 => 3, 2 => 4, 5 => 2]
         $submittedValues = [];
         if (!empty($input_criteria_ids)) {
             foreach ($input_criteria_ids as $k => $id) {
@@ -268,55 +270,59 @@ class LowonganController extends BaseController
             }
         }
 
-        // 2. Ambil Data Pelamar
+        // Ambil Data Pelamar & Divisinya
         $pelamar = $this->dataModel
+            ->select('data.*, pekerjaan.divisi')
             ->join('lowongan', 'lowongan.id = data.id_lowongan')
+            ->join('pekerjaan', 'pekerjaan.id = lowongan.pekerjaan_id')
             ->find($id_data);
 
-        if (!$pelamar) return redirect()->back()->with('error', 'Data pelamar tidak valid.');
+        // Ambil Kriteria Divisi (Logic sama)
+        $divisiName = $pelamar['divisi'];
+        $repJob = $this->pekerjaanModel->where('divisi', $divisiName)->orderBy('id', 'ASC')->first();
+        
+        if (!$repJob) return redirect()->back()->with('error', 'Divisi tidak valid.');
 
-        // 3. Ambil SEMUA Kriteria Master untuk Pekerjaan Ini
-        $allCriteria = $this->criteriaModel->where('pekerjaan_id', $pelamar['pekerjaan_id'])->findAll();
+        $allCriteria = $this->criteriaModel->where('pekerjaan_id', $repJob['id'])->findAll();
         
         if (empty($allCriteria)) {
-            return redirect()->back()->with('error', 'Kriteria penilaian belum diatur untuk posisi ini.');
+            return redirect()->back()->with('error', 'Kriteria belum diatur untuk Divisi: ' . $divisiName);
         }
 
-        // 4. Hitung Total Bobot (Untuk Normalisasi)
+        // Hitung Total Bobot
         $totalBobot = 0;
         foreach ($allCriteria as $c) {
             $totalBobot += $c['bobot'];
         }
 
-        // 5. Mulai Perhitungan Vector S
+        // Hitung Vector S
         $vectorS = 1;
-        
-        // Kita Looping berdasarkan KRITERIA MASTER, bukan inputan. 
-        // Agar urutan dan kelengkapannya terjamin.
+        $formData = []; // Untuk simpan history jawaban
+
         foreach ($allCriteria as $c) {
-            
-            // Ambil nilai yang diinputkan user untuk kriteria ini
-            // Jika tidak ada input (lupa isi), default ke 1 (nilai netral perkalian) atau bisa throw error
             $nilai = isset($submittedValues[$c['id']]) ? (float)$submittedValues[$c['id']] : 1;
 
-            // A. Normalisasi Pangkat (Bobot / Total)
             $bobotNormal = ($totalBobot > 0) ? ($c['bobot'] / $totalBobot) : 0;
-
-            // B. Cek Tipe (Cost = Pangkat Negatif)
             $pangkat = (strtolower($c['tipe']) == 'cost') ? -$bobotNormal : $bobotNormal;
 
-            // C. Cegah nilai 0 (Math Error pada pemangkatan)
-            if ($nilai <= 0) $nilai = 1; // Default nilai terkecil aman
-
-            // D. Rumus: S *= Nilai ^ Pangkat
+            if ($nilai <= 0) $nilai = 1; 
             $vectorS *= pow($nilai, $pangkat);
+
+            // Simpan label untuk history
+            $subText = $nilai;
+            $subData = $this->subcriteriaModel->where('criteria_id', $c['id'])->where('bobot_sub', $nilai)->first();
+            if($subData) $subText = $subData['keterangan'] . " (Nilai: $nilai)";
+            $formData[$c['nama']] = $subText;
         }
 
-        // 6. Update Skor
-        $this->dataModel->update($id_data, ['spk_score' => $vectorS]);
+        // Update Database
+        $this->dataModel->update($id_data, [
+            'spk_score' => $vectorS,
+            'form_data' => json_encode($formData)
+        ]);
 
         return redirect()->to(base_url('admin/lowongan/pelamar/' . $id_data))
-            ->with('success', 'Skor WP (Vector S) berhasil dihitung: ' . number_format($vectorS, 4));
+            ->with('success', 'Skor WP berhasil dihitung: ' . number_format($vectorS, 4));
     }
 
     // Finalisasi (Tombol Selesai)
