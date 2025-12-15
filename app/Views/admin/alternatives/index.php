@@ -65,14 +65,16 @@
                           <i class="mdi mdi-eye"></i>
                         </a>
                         
-                        <a href="<?= base_url('admin/alternatives/delete/' . $alt['id']) ?>" 
-                           onclick="return confirm('Hapus data karyawan ini? Data penilaian juga akan hilang.')" 
-                           class="btn btn-action btn-action-delete" 
-                           title="Hapus Data"
-                           data-bs-toggle="tooltip" data-bs-placement="top">
-                          <i class="mdi mdi-delete"></i>
-                        </a>
-
+                        <button type="button"
+                          class="btn btn-action btn-action-delete"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalHapus<?= $alt['id'] ?>">
+                            <span data-bs-toggle="tooltip"
+                                  data-bs-placement="top"
+                                  data-bs-original-title="Hapus Data">
+                                <i class="mdi mdi-delete"></i>
+                            </span>
+                        </button>
                     </div>
                   </td>
                 </tr>
@@ -84,5 +86,43 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Konfirmasi Hapus - Taruh di sini (paling bawah sebelum endSection) -->
+<?php foreach ($alternatives as $alt): ?>
+<div class="modal fade" id="modalHapus<?= $alt['id'] ?>" tabindex="-1" aria-labelledby="modalHapusLabel<?= $alt['id'] ?>" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-danger text-white">
+                <h6 class="modal-title fw-bold" id="modalHapusLabel<?= $alt['id'] ?>">
+                    <i class="mdi mdi-alert-circle-outline me-2"></i> Konfirmasi Hapus
+                </h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <div class="mb-4 text-danger opacity-25">
+                    <i class="mdi mdi-trash-can-outline" style="font-size: 60px;"></i>
+                </div>
+                <p class="mb-2 text-muted">Apakah Anda yakin ingin menghapus karyawan:</p>
+                <h5 class="fw-bold text-dark mb-4" style="max-width: 100%; word-wrap: break-word; overflow-wrap: break-word;">
+                    <?= esc($alt['nama']) ?>
+                </h5>
+                <div class="alert alert-warning small text-start">
+                    <i class="mdi mdi-alert me-2"></i>
+                    <strong>Perhatian:</strong> Data penilaian kinerja terkait karyawan ini juga akan dihapus secara permanen.
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center border-0 pb-4">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
+                <a href="<?= base_url('admin/alternatives/delete/' . $alt['id']) ?>"
+                   class="btn btn-danger rounded-pill px-4 shadow-sm"
+                   onclick="event.stopPropagation();">
+                    Ya, Hapus
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endforeach; ?>
+
 
 <?= $this->endSection() ?>

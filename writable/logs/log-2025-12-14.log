@@ -1,0 +1,167 @@
+CRITICAL - 2025-12-14 21:08:01 --> unlink(C:\xampp\htdocs\percobaan\writable\debugbar/debugbar_1765597638.215211.json): No such file or directory
+in SYSTEMPATH\Debug\Toolbar\Collectors\History.php on line 76.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp\\htdocs\\percobaan\\writable\\debugbar/debugbar_1765597638.215211.json): No such file or directory', 'SYSTEMPATH\\Debug\\Toolbar\\Collectors\\History.php', 76)
+ 2 SYSTEMPATH\Debug\Toolbar\Collectors\History.php(76): unlink('ROOTPATH\\writable\\debugbar/debugbar_1765597638.215211.json')
+ 3 SYSTEMPATH\Debug\Toolbar.php(500): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles('1765768079.826110', 20)
+ 4 SYSTEMPATH\Debug\Toolbar.php(477): CodeIgniter\Debug\Toolbar->format([...], 'html')
+ 5 APPPATH\Config\Events.php(46): CodeIgniter\Debug\Toolbar->respond()
+ 6 SYSTEMPATH\Events\Events.php(149): CodeIgniter\Events\Events::Config\{closure}()
+ 7 SYSTEMPATH\CodeIgniter.php(328): CodeIgniter\Events\Events::trigger('pre_system')
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-14 21:36:44 --> Undefined array key "no_ktp"
+in APPPATH\Views\admin\lowongan\detail.php on line 129.
+ 1 APPPATH\Views\admin\lowongan\detail.php(129): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "no_ktp"', 'APPPATH\\Views\\admin\\lowongan\\detail.php', 129)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\lowongan\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/lowongan/detail', [], true)
+ 5 APPPATH\Controllers\LowonganController.php(264): view('admin/lowongan/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->detail('17')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-12-14 21:39:25 --> mysqli_sql_exception: Unknown column '/* <--- TAMBAHAN PENTING */ pelamar.nama_lengkap' in 'field list' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `data`.*...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data`.*...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data`.*...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `data`.*...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\percobaan\app\Controllers\LowonganController.php(265): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\LowonganController->detail('17')
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-12-14 21:39:25 --> Unknown column '/* <--- TAMBAHAN PENTING */ pelamar.nama_lengkap' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `data`.*, `pelamar`.`id` as `pelamar_id`, `pelamar`.`no_ktp`, `/* <--- TAMBAHAN PENTING */ pelamar`.`nama_lengkap` as `nama`, `pelamar`.`no_hp`, `pelamar`.`is_blacklisted`, `data`.`tanggal_daftar` as `created_at`
+FROM `data`
+JOIN `pelamar` ON `pelamar`.`id` = `data`.`pelamar_id`
+WHERE `data`.`id_lowongan` = \'17\'
+AND `data`.`is_history` = 0
+ORDER BY `data`.`id` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data`.*, `pelamar`.`id` as `pelamar_id`, `pelamar`.`no_ktp`, `/* <--- TAMBAHAN PENTING */ pelamar`.`nama_lengkap` as `nama`, `pelamar`.`no_hp`, `pelamar`.`is_blacklisted`, `data`.`tanggal_daftar` as `created_at`
+FROM `data`
+JOIN `pelamar` ON `pelamar`.`id` = `data`.`pelamar_id`
+WHERE `data`.`id_lowongan` = \'17\'
+AND `data`.`is_history` = 0
+ORDER BY `data`.`id` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data`.*, `pelamar`.`id` as `pelamar_id`, `pelamar`.`no_ktp`, `/* <--- TAMBAHAN PENTING */ pelamar`.`nama_lengkap` as `nama`, `pelamar`.`no_hp`, `pelamar`.`is_blacklisted`, `data`.`tanggal_daftar` as `created_at`
+FROM `data`
+JOIN `pelamar` ON `pelamar`.`id` = `data`.`pelamar_id`
+WHERE `data`.`id_lowongan` = \'17\'
+AND `data`.`is_history` = 0
+ORDER BY `data`.`id` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `data`.*, `pelamar`.`id` as `pelamar_id`, `pelamar`.`no_ktp`, `/* <--- TAMBAHAN PENTING */ pelamar`.`nama_lengkap` as `nama`, `pelamar`.`no_hp`, `pelamar`.`is_blacklisted`, `data`.`tanggal_daftar` as `created_at`
+FROM `data`
+JOIN `pelamar` ON `pelamar`.`id` = `data`.`pelamar_id`
+WHERE `data`.`id_lowongan` = :data.id_lowongan:
+AND `data`.`is_history` = :data.is_history:
+ORDER BY `data`.`id` DESC', [...], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\LowonganController.php(265): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\LowonganController->detail('17')
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LowonganController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-14 22:04:02 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Views\admin\data\index.php on line 26.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/index', [], true)
+ 4 APPPATH\Controllers\DataController.php(59): view('admin/data/index', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-14 22:07:32 --> Undefined variable $blacklist
+in APPPATH\Controllers\DataController.php on line 60.
+ 1 APPPATH\Controllers\DataController.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $blacklist', 'APPPATH\\Controllers\\DataController.php', 60)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-14 22:13:59 --> Undefined variable $data
+in APPPATH\Views\admin\data\detail.php on line 22.
+ 1 APPPATH\Views\admin\data\detail.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\admin\\data\\detail.php', 22)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/detail', [], true)
+ 5 APPPATH\Controllers\DataController.php(84): view('admin/data/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('16')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-14 22:17:57 --> Undefined variable $isRekrut
+in APPPATH\Controllers\DataController.php on line 85.
+ 1 APPPATH\Controllers\DataController.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $isRekrut', 'APPPATH\\Controllers\\DataController.php', 85)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('16')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-14 22:18:52 --> Undefined property: App\Controllers\DataController::$alternativesModel
+in APPPATH\Controllers\DataController.php on line 87.
+ 1 APPPATH\Controllers\DataController.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DataController::$alternativesModel', 'APPPATH\\Controllers\\DataController.php', 87)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('16')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-14 22:18:59 --> Undefined property: App\Controllers\DataController::$alternativesModel
+in APPPATH\Controllers\DataController.php on line 87.
+ 1 APPPATH\Controllers\DataController.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\DataController::$alternativesModel', 'APPPATH\\Controllers\\DataController.php', 87)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('16')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-14 22:19:02 --> Undefined variable $data
+in APPPATH\Views\admin\data\detail.php on line 28.
+ 1 APPPATH\Views\admin\data\detail.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\admin\\data\\detail.php', 28)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\data\\detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/data/detail', [], true)
+ 5 APPPATH\Controllers\DataController.php(84): view('admin/data/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('16')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-12-14 22:24:05 --> mysqli_sql_exception: Unknown column 'pelamar_id' in 'where clause' in C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\percobaan\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\percobaan\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\percobaan\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\percobaan\system\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\percobaan\system\BaseModel.php(623): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\percobaan\app\Controllers\DataController.php(89): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(927): App\Controllers\DataController->detail('16')
+#8 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+#9 C:\xampp\htdocs\percobaan\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\percobaan\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-12-14 22:24:05 --> Unknown column 'pelamar_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `alternatives`
+WHERE `pelamar_id` = \'4\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `alternatives`
+WHERE `pelamar_id` = \'4\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `alternatives`
+WHERE `pelamar_id` = \'4\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `alternatives`
+WHERE `pelamar_id` = :pelamar_id:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(623): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Controllers\DataController.php(89): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\DataController->detail('16')
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

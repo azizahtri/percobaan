@@ -30,7 +30,7 @@ class FormulirController extends BaseController
 
     public function store()
     {
-        // 1. Tangkap Data Pertanyaan (Sama seperti logika kemarin)
+        // 1. Tangkap Data Pertanyaan Kustom
         $q_text    = $this->request->getPost('q_text');
         $q_type    = $this->request->getPost('q_type');
         $q_options = $this->request->getPost('q_options');
@@ -49,11 +49,12 @@ class FormulirController extends BaseController
             }
         }
         
-        $jsonConfig = !empty($finalConfig) ? json_encode($finalConfig) : null;
+        $jsonConfig = !empty($finalConfig) ? json_encode($finalConfig) : '[]';
 
         $this->formulirModel->save([
-            'nama_template' => $this->request->getPost('nama_template'),
-            'config'        => $jsonConfig
+            'nama_template'    => $this->request->getPost('nama_template'),
+            'link_google_form' => $this->request->getPost('link_google_form'), // Pastikan ini ada
+            'config'           => $jsonConfig
         ]);
 
         return redirect()->to('admin/formulir')->with('success', 'Template formulir berhasil dibuat!');
@@ -94,12 +95,12 @@ class FormulirController extends BaseController
             }
         }
         
-        $jsonConfig = !empty($finalConfig) ? json_encode($finalConfig) : null;
+        $jsonConfig = !empty($finalConfig) ? json_encode($finalConfig) : '[]';
 
-        // 2. Update Database
         $this->formulirModel->update($id, [
-            'nama_template' => $this->request->getPost('nama_template'),
-            'config'        => $jsonConfig
+            'nama_template'    => $this->request->getPost('nama_template'),
+            'link_google_form' => $this->request->getPost('link_google_form'), // Pastikan ini ada
+            'config'           => $jsonConfig
         ]);
 
         return redirect()->to('admin/formulir')->with('success', 'Template formulir berhasil diperbarui!');

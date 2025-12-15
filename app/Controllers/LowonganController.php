@@ -9,6 +9,7 @@ use App\Models\DataModel;
 use App\Models\CriteriaModel;
 use App\Models\SubcriteriaModel;
 use App\Models\AlternativesModel;
+use App\Models\PelamarModel;
 
 class LowonganController extends BaseController
 {
@@ -18,6 +19,7 @@ class LowonganController extends BaseController
     protected $criteriaModel;
     protected $subcriteriaModel;
     protected $alternativesModel;
+    protected $pelamarModel;
 
     public function __construct()
     {
@@ -27,6 +29,7 @@ class LowonganController extends BaseController
         $this->criteriaModel     = new CriteriaModel();
         $this->subcriteriaModel  = new SubcriteriaModel();
         $this->alternativesModel = new AlternativesModel();
+        $this->pelamarModel      = new PelamarModel();
         helper('text');
     }
 
@@ -63,29 +66,89 @@ class LowonganController extends BaseController
         ]);
     }
 
+    public function toggleStatus($id)
+    {
+        $lowongan = $this->lowonganModel->find($id);
+        if ($lowongan) {
+            $newStatus = ($lowongan['status'] == 'open') ? 'closed' : 'open';
+            $this->lowonganModel->update($id, ['status' => $newStatus]);
+        }
+        return redirect()->to(base_url('admin/lowongan'))->with('success', 'Status lowongan diperbarui.');
+    }
+    
     public function create()
     {
         $pekerjaanModel = new \App\Models\PekerjaanModel();
-        $formulirModel  = new \App\Models\FormulirModel(); // Load Model Formulir
+        $formulirModel  = new \App\Models\FormulirModel(); 
 
         $pekerjaanList = $pekerjaanModel->orderBy('divisi', 'ASC')->orderBy('posisi', 'ASC')->findAll();
-        $formulirList  = $formulirModel->findAll(); // Ambil semua template
+        $allFormulir   = $formulirModel->findAll();
+
+        // --- FILTER TEMPLATE ---
+        $templateInternal  = []; // Untuk Pertanyaan Kustom
+        $templateEksternal = []; // Untuk Google Form
+
+        foreach($allFormulir as $f) {
+            // Cek Pertanyaan
+            $cfg = json_decode($f['config'] ?? '[]', true);
+            if (!empty($cfg)) {
+                $templateInternal[] = $f;
+            }
+            
+            // Cek Link GForm
+            if (!empty($f['link_google_form'])) {
+                $templateEksternal[] = $f;
+            }
+        }
 
         return view('admin/lowongan/create', [
-            'title'     => 'Tambah Lowongan',
-            'pekerjaan' => $pekerjaanList,
-            'formulir'  => $formulirList // Kirim ke view
+            'title'             => 'Tambah Lowongan',
+            'pekerjaan'         => $pekerjaanList,
+            'templateInternal'  => $templateInternal, // Kirim ke view
+            'templateEksternal' => $templateEksternal // Kirim ke view
+        ]);
+    }
+
+    public function edit($id)
+    {
+        $lowongan = $this->lowonganModel->find($id);
+        if (!$lowongan) return redirect()->to('admin/lowongan');
+
+        $pekerjaanModel = new \App\Models\PekerjaanModel();
+        $formulirModel  = new \App\Models\FormulirModel();
+
+        $pekerjaanList = $pekerjaanModel->orderBy('divisi', 'ASC')->orderBy('posisi', 'ASC')->findAll();
+        $allFormulir   = $formulirModel->findAll();
+
+        // --- FILTER TEMPLATE (SAMA SEPERTI CREATE) ---
+        $templateInternal  = [];
+        $templateEksternal = [];
+
+        foreach($allFormulir as $f) {
+            $cfg = json_decode($f['config'] ?? '[]', true);
+            if (!empty($cfg)) $templateInternal[] = $f;
+            if (!empty($f['link_google_form'])) $templateEksternal[] = $f;
+        }
+
+        return view('admin/lowongan/edit', [
+            'title'             => 'Edit Lowongan',
+            'lowongan'          => $lowongan,
+            'pekerjaan'         => $pekerjaanList,
+            'templateInternal'  => $templateInternal,
+            'templateEksternal' => $templateEksternal
         ]);
     }
 
     public function store()
     {
+        // Validasi (formulir_id dihapus dari required)
         if (!$this->validate([
             'judul_lowongan' => 'required',
             'pekerjaan_id'   => 'required', 
             'jenis'          => 'required',
             'deskripsi'      => 'required',
-            'tanggal_posting'=> 'required'
+            'tanggal_mulai'  => 'required',
+            'tanggal_selesai'=> 'required',
         ])) {
             return redirect()->back()->withInput()->with('error', 'Harap lengkapi data wajib.');
         }
@@ -113,52 +176,43 @@ class LowonganController extends BaseController
         $jsonConfig = !empty($finalConfig) ? json_encode($finalConfig) : null;
 
         // --- 2. SIMPAN SEMUA DATA KE DATABASE ---
+        $formulirId = $this->request->getPost('formulir_id');
+        if (empty($formulirId)) {
+            $formulirId = null;
+        }
+
         $this->lowonganModel->save([
             'pekerjaan_id'     => $this->request->getPost('pekerjaan_id'), 
             'judul_lowongan'   => $this->request->getPost('judul_lowongan'),
             'deskripsi'        => $this->request->getPost('deskripsi'),
             'jenis'            => $this->request->getPost('jenis'),
+            'status'           => 'open', // Default Open saat buat baru
+            'tanggal_mulai'    => $this->request->getPost('tanggal_mulai'),
+            'tanggal_selesai'  => $this->request->getPost('tanggal_selesai'),
             'link_google_form' => $this->request->getPost('link_google_form'),
-            'tanggal_posting'  => $this->request->getPost('tanggal_posting'),
-            
-            // --- TAMBAHAN PENTING ---
-            'formulir_id'      => $this->request->getPost('formulir_id'), // Tangkap ID Template
-            // 'form_config'   => $jsonConfig, // Opsional: Jika masih pakai form manual
+            'tanggal_posting'  => date('Y-m-d'), // Tetap simpan tgl pembuatan
+            'formulir_id'      => $formulirId, 
         ]);
 
         return redirect()->to(base_url('admin/lowongan'))->with('success', 'Lowongan berhasil ditambahkan!');
     }
 
-    public function edit($id)
-    {
-        $lowongan = $this->lowonganModel->find($id);
-        if (!$lowongan) return redirect()->to('admin/lowongan');
-
-        $pekerjaanList = $this->pekerjaanModel->orderBy('divisi', 'ASC')->orderBy('posisi', 'ASC')->findAll();
-        
-        // TAMBAHAN: AMBIL DATA FORMULIR
-        $formulirModel = new \App\Models\FormulirModel();
-        $formulirList  = $formulirModel->findAll();
-
-        return view('admin/lowongan/edit', [
-            'title'     => 'Edit Lowongan',
-            'lowongan'  => $lowongan,
-            'pekerjaan' => $pekerjaanList,
-            'formulir'  => $formulirList // Kirim ke view
-        ]);
-    }
-
     public function update($id)
     {
-        // Validasi Input (Sama seperti store)
         if (!$this->validate([
             'judul_lowongan' => 'required',
             'pekerjaan_id'   => 'required',
             'jenis'          => 'required',
             'deskripsi'      => 'required',
-            'tanggal_posting'=> 'required'
+            'tanggal_mulai'  => 'required',
+            'tanggal_selesai'=> 'required',
         ])) {
             return redirect()->back()->withInput()->with('error', 'Gagal update. Lengkapi data.');
+        }
+
+        $formulirId = $this->request->getPost('formulir_id');
+        if (empty($formulirId)) {
+            $formulirId = null;
         }
 
         $this->lowonganModel->update($id, [
@@ -166,9 +220,11 @@ class LowonganController extends BaseController
             'judul_lowongan'   => $this->request->getPost('judul_lowongan'),
             'deskripsi'        => $this->request->getPost('deskripsi'),
             'jenis'            => $this->request->getPost('jenis'),
+            'status'           => $this->request->getPost('status'), // Bisa edit status manual juga
+            'tanggal_mulai'    => $this->request->getPost('tanggal_mulai'),
+            'tanggal_selesai'  => $this->request->getPost('tanggal_selesai'),
             'link_google_form' => $this->request->getPost('link_google_form'),
-            'tanggal_posting'  => $this->request->getPost('tanggal_posting'),
-            'formulir_id'      => $this->request->getPost('formulir_id'), 
+            'formulir_id'      => $formulirId, 
         ]);
 
         return redirect()->to(base_url('admin/lowongan'))->with('success', 'Lowongan berhasil diperbarui!');
@@ -186,19 +242,26 @@ class LowonganController extends BaseController
 
     public function detail($id)
     {
-        // PERBAIKAN: Tambahkan SELECT dan JOIN agar 'nama_pekerjaan' terbaca
         $lowongan = $this->lowonganModel
-            ->select('lowongan.*, pekerjaan.divisi, pekerjaan.posisi as nama_pekerjaan') // Ambil kolom posisi sebagai nama_pekerjaan
+            ->select('lowongan.*, pekerjaan.divisi, pekerjaan.posisi as nama_pekerjaan') 
             ->join('pekerjaan', 'pekerjaan.id = lowongan.pekerjaan_id')
             ->find($id);
 
         if (!$lowongan) return redirect()->to('admin/lowongan');
 
-        // FILTER: Hanya tampilkan yang BELUM HISTORY (Aktif)
         $pelamar = $this->dataModel
-            ->where('id_lowongan', $id)
-            ->where('is_history', 0) 
-            ->orderBy('id', 'DESC')
+            // PERBAIKAN: Tambahkan 'pelamar.no_ktp' di sini
+            ->select('data.*, 
+                      pelamar.id as pelamar_id, 
+                      pelamar.no_ktp, 
+                      pelamar.nama_lengkap as nama, 
+                      pelamar.no_hp, 
+                      pelamar.is_blacklisted, 
+                      data.tanggal_daftar as created_at') 
+            ->join('pelamar', 'pelamar.id = data.pelamar_id')
+            ->where('data.id_lowongan', $id)
+            ->where('data.is_history', 0) 
+            ->orderBy('data.id', 'DESC')
             ->findAll();
 
         return view('admin/lowongan/detail', [
@@ -208,6 +271,40 @@ class LowonganController extends BaseController
         ]);
     }
 
+    // 2. TAMBAHKAN METHOD BARU UNTUK PROSES BLACKLIST
+    public function blacklist()
+    {
+        $idPelamar = $this->request->getPost('id_pelamar');
+        $alasan    = $this->request->getPost('alasan');
+        $tipe      = $this->request->getPost('tipe_blacklist'); // Input Baru
+
+        if ($idPelamar && $tipe) {
+            
+            // 1. UPDATE MASTER PELAMAR
+            $this->pelamarModel->update($idPelamar, [
+                'is_blacklisted'   => 1,
+                'blacklist_type'   => $tipe, // Simpan Tipe (permanent/temporary)
+                'alasan_blacklist' => $alasan
+            ]);
+
+            // 2. UPDATE TRANSAKSI LAMARAN (Arsipkan lamaran aktif)
+            $this->dataModel
+                ->where('pelamar_id', $idPelamar)
+                ->where('status', 'blacklist') 
+                ->orWhere('is_history', 0) // Ambil semua yang aktif
+                ->where('pelamar_id', $idPelamar) // Pastikan ID pelamar lagi agar orWhere aman
+                ->set([
+                    'status'     => 'blacklist',
+                    'is_history' => 1
+                ])
+                ->update();
+
+            return redirect()->back()->with('success', 'Pelamar telah di-blacklist (' . ucfirst($tipe) . ').');
+        }
+
+        return redirect()->back()->with('error', 'Gagal. Pastikan data lengkap.');
+    }
+
     // =========================================================================
     // BAGIAN 3: PROSES SELEKSI & PENILAIAN SPK (METODE WP)
     // =========================================================================
@@ -215,17 +312,31 @@ class LowonganController extends BaseController
     // Halaman Form Penilaian Pelamar
     public function detailPelamar($id_data)
     {
-        // 1. Ambil Data Pelamar
+        // PERBAIKAN: Select bersih tanpa komentar & Alias yang membingungkan
         $pelamar = $this->dataModel
-            ->select('data.*, lowongan.judul_lowongan, lowongan.pekerjaan_id, pekerjaan.divisi, pekerjaan.posisi as nama_pekerjaan, pekerjaan.standar_spk')
+            ->select('data.*, 
+                      pelamar.no_ktp,
+                      pelamar.nama_lengkap, 
+                      pelamar.email, 
+                      pelamar.no_hp, 
+                      pelamar.foto_profil,
+                      pelamar.file_cv,
+                      pelamar.is_blacklisted,
+                      pelamar.alasan_blacklist,
+                      lowongan.judul_lowongan, 
+                      lowongan.pekerjaan_id, 
+                      pekerjaan.divisi, 
+                      pekerjaan.posisi as nama_pekerjaan, 
+                      pekerjaan.standar_spk')
+            ->join('pelamar', 'pelamar.id = data.pelamar_id')
             ->join('lowongan', 'lowongan.id = data.id_lowongan')
             ->join('pekerjaan', 'pekerjaan.id = lowongan.pekerjaan_id')
             ->find($id_data);
 
         if (!$pelamar) return redirect()->back()->with('error', 'Data pelamar tidak ditemukan.');
 
+        
         // 2. LOGIKA BARU: Ambil Kriteria Berdasarkan DIVISI
-        // Cari ID Pekerjaan Pertama di Divisi tersebut (sebagai perwakilan tempat simpan kriteria)
         $divisiName = $pelamar['divisi'];
         
         $repJob = $this->pekerjaanModel
@@ -252,7 +363,7 @@ class LowonganController extends BaseController
         return view('admin/lowongan/detail_pelamar', [
             'title'       => 'Penilaian Pelamar',
             'data'        => $pelamar,
-            'criteria'    => $criteria, // Ini Kriteria Divisi
+            'criteria'    => $criteria,
             'subcriteria' => $subcriteria
         ]);
     }
@@ -270,14 +381,14 @@ class LowonganController extends BaseController
             }
         }
 
-        // Ambil Data Pelamar & Divisinya
+        // Ambil Data Pelamar & Divisi
         $pelamar = $this->dataModel
             ->select('data.*, pekerjaan.divisi')
             ->join('lowongan', 'lowongan.id = data.id_lowongan')
             ->join('pekerjaan', 'pekerjaan.id = lowongan.pekerjaan_id')
             ->find($id_data);
 
-        // Ambil Kriteria Divisi (Logic sama)
+        // Ambil Kriteria Divisi
         $divisiName = $pelamar['divisi'];
         $repJob = $this->pekerjaanModel->where('divisi', $divisiName)->orderBy('id', 'ASC')->first();
         
@@ -297,7 +408,7 @@ class LowonganController extends BaseController
 
         // Hitung Vector S
         $vectorS = 1;
-        $formData = []; // Untuk simpan history jawaban
+        $logData = []; // Variabel baru untuk LOG PENILAIAN (Bukan jawaban pelamar)
 
         foreach ($allCriteria as $c) {
             $nilai = isset($submittedValues[$c['id']]) ? (float)$submittedValues[$c['id']] : 1;
@@ -308,17 +419,19 @@ class LowonganController extends BaseController
             if ($nilai <= 0) $nilai = 1; 
             $vectorS *= pow($nilai, $pangkat);
 
-            // Simpan label untuk history
+            // Simpan label untuk history admin
             $subText = $nilai;
             $subData = $this->subcriteriaModel->where('criteria_id', $c['id'])->where('bobot_sub', $nilai)->first();
             if($subData) $subText = $subData['keterangan'] . " (Nilai: $nilai)";
-            $formData[$c['nama']] = $subText;
+            
+            $logData[$c['nama']] = $subText;
         }
 
-        // Update Database
+        // UPDATE DATABASE
+        // PERBAIKAN UTAMA: Simpan ke 'spk_log', JANGAN sentuh 'form_data'
         $this->dataModel->update($id_data, [
             'spk_score' => $vectorS,
-            'form_data' => json_encode($formData)
+            'spk_log'   => json_encode($logData) // Simpan rincian penilaian disini
         ]);
 
         return redirect()->to(base_url('admin/lowongan/pelamar/' . $id_data))

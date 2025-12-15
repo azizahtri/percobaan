@@ -109,9 +109,9 @@ class CriteriaController extends BaseController
     }
 
 
-    public function update($id)
-    {
-    $this->criteriaModel->update($id, [
+    public function update($id) {
+    
+        $this->criteriaModel->update($id, [
         'pekerjaan_id'  => $this->request->getPost('pekerjaan_id'),
         'kode'          => $this->request->getPost('kode'),
         'nama'          => $this->request->getPost('nama'),
@@ -120,7 +120,8 @@ class CriteriaController extends BaseController
     ]);
 
     return redirect()->to(base_url('admin/criteria'))
-        ->with('success', 'Kriteria berhasil diperbarui.');
+    ->with('success', 'Kriteria berhasil diperbarui.');
+    
     }
 
 
@@ -258,5 +259,214 @@ class CriteriaController extends BaseController
 
         return redirect()->to('/admin/criteria/standar?pekerjaan=' . $jobId)
                          ->with('success', 'Standar untuk posisi <b>' . esc($job['posisi']) . '</b> berhasil disimpan.');
+    }
+
+    // =========================================================================
+    // 1. PROSES DUPLICATE (PERBAIKAN LOGIKA COPY)
+    // =========================================================================
+    public function duplicate()
+    {
+        $pekerjaanModel = new \App\Models\PekerjaanModel();
+        $subModel       = new \App\Models\SubcriteriaModel();
+
+        $sourceName = $this->request->getPost('source_divisi');
+        $targetName = $this->request->getPost('target_divisi');
+
+        if ($sourceName == $targetName) {
+            return redirect()->back()->with('error', 'Divisi asal dan tujuan tidak boleh sama.');
+        }
+
+        // Cari ID Perwakilan
+        $sourceJob = $pekerjaanModel->where('divisi', $sourceName)->orderBy('id', 'ASC')->first();
+        $targetJob = $pekerjaanModel->where('divisi', $targetName)->orderBy('id', 'ASC')->first();
+
+        if (!$sourceJob || !$targetJob) {
+            return redirect()->back()->with('error', 'Data divisi tidak valid.');
+        }
+
+        // Copy Standar Nilai
+        $pekerjaanModel->where('divisi', $targetName)->set(['standar_spk' => $sourceJob['standar_spk']])->update();
+
+        // Ambil Kriteria Sumber
+        $sourceCriteria = $this->criteriaModel->where('pekerjaan_id', $sourceJob['id'])->findAll();
+
+        if (empty($sourceCriteria)) {
+            return redirect()->back()->with('error', 'Tidak ada kriteria untuk disalin.');
+        }
+
+        // --- MULAI PROSES COPY ---
+        foreach ($sourceCriteria as $c) {
+            // A. Insert Kriteria ke Tujuan
+            $this->criteriaModel->insert([
+                'pekerjaan_id' => $targetJob['id'],
+                'kode'         => $c['kode'],
+                'nama'         => $c['nama'],
+                'bobot'        => (float)$c['bobot'], // Pastikan float
+                'tipe'         => $c['tipe']
+            ]);
+            
+            $newCriteriaId = $this->criteriaModel->getInsertID();
+
+            // B. Insert Subkriteria ke ID Baru
+            $sourceSubs = $subModel->where('criteria_id', $c['id'])->findAll();
+            foreach ($sourceSubs as $sub) {
+                // AMBIL BOBOT DARI SUMBER (Gunakan ?? 0 untuk jaga-jaga)
+                $bobotAsal = $sub['bobot_sub'] ?? $sub['bobot'] ?? 0;
+
+                $subModel->insert([
+                    'criteria_id' => $newCriteriaId,
+                    'keterangan'  => $sub['keterangan'],
+                    'bobot_sub'   => (float)$bobotAsal // Pastikan masuk ke kolom bobot_sub
+                ]);
+            }
+        }
+
+        return redirect()->to(base_url('admin/criteria/editDivisi?divisi=' . urlencode($targetName)))
+                         ->with('success', "Duplikasi selesai. Silakan cek data di bawah.");
+    }
+
+    // =========================================================================
+    // 2. PROSES SIMPAN EDIT MASSAL (PERBAIKAN ERROR UNDEFINED KEY)
+    // =========================================================================
+    public function updateDivisi()
+    {
+        
+        $criteriaModel = new \App\Models\CriteriaModel();
+        $subModel      = new \App\Models\SubcriteriaModel();
+        $divisiName    = $this->request->getPost('divisi_name');
+
+        // A. UPDATE KRITERIA
+        $postCriteria = $this->request->getPost('criteria'); 
+        if ($postCriteria) {
+            foreach ($postCriteria as $id => $data) {
+                $criteriaModel->update($id, [
+                    'kode'  => $data['kode'],
+                    'nama'  => $data['nama'],
+                    'bobot' => (float)$data['bobot'],
+                    'tipe'  => $data['tipe']
+                ]);
+            }
+        }
+
+        // B. UPDATE SUBKRITERIA (Data Lama)
+        $postSubs = $this->request->getPost('subs'); 
+        if ($postSubs) {
+            foreach ($postSubs as $subId => $data) {
+                // LOGIKA ANTI ERROR: Jika key 'bobot_sub' tidak ada, gunakan 0.
+                // Ini mencegah error "Undefined array key"
+                $nilaiBobot = $data['bobot_sub'] ?? $data['bobot'] ?? 0;
+
+                $subModel->update($subId, [
+                    'keterangan' => $data['keterangan'],
+                    'bobot_sub'  => (float)$nilaiBobot 
+                ]);
+            }
+        }
+
+        // C. INSERT SUBKRITERIA BARU
+        $newSubs = $this->request->getPost('new_subs');
+        if ($newSubs) {
+            foreach ($newSubs as $criteriaId => $items) { 
+                foreach ($items as $item) {
+                    if (!empty($item['keterangan'])) {
+                        
+                        // LOGIKA ANTI ERROR
+                        $nilaiBobot = $item['bobot_sub'] ?? $item['bobot'] ?? 0;
+
+                        $subModel->insert([
+                            'criteria_id' => $criteriaId,
+                            'keterangan'  => $item['keterangan'],
+                            'bobot_sub'   => (float)$nilaiBobot
+                        ]);
+                    }
+                }
+            }
+        }
+
+        return redirect()->to(base_url('admin/criteria?field=' . urlencode($divisiName)))
+                         ->with('success', 'Perubahan berhasil disimpan.');
+    }
+
+    // 2. HALAMAN EDIT MASSAL (BULK EDIT)
+    // -------------------------------------------------------------------------
+    public function editDivisi()
+    {
+        $divisiName = $this->request->getGet('divisi');
+        if (!$divisiName) return redirect()->to('admin/criteria');
+
+        $pekerjaanModel = new \App\Models\PekerjaanModel();
+        $criteriaModel  = new \App\Models\CriteriaModel();
+        $subModel       = new \App\Models\SubcriteriaModel();
+
+        // Cari perwakilan pekerjaan untuk divisi ini
+        $repJob = $pekerjaanModel->where('divisi', $divisiName)->orderBy('id', 'ASC')->first();
+
+        if (!$repJob) return redirect()->back()->with('error', 'Divisi tidak ditemukan.');
+
+        // Ambil semua Kriteria milik divisi ini
+        $criteria = $criteriaModel->where('pekerjaan_id', $repJob['id'])->findAll();
+        
+        // Ambil Subkriteria untuk setiap kriteria
+        $subs = [];
+        foreach ($criteria as $c) {
+            $subs[$c['id']] = $subModel->where('criteria_id', $c['id'])->orderBy('bobot_sub', 'DESC')->findAll();
+        }
+
+        return view('admin/criteria/edit_divisi', [
+            'title'      => 'Edit Kriteria Divisi: ' . $divisiName,
+            'divisiName' => $divisiName,
+            'criteria'   => $criteria,
+            'subs'       => $subs
+        ]);
+    }
+    // FUNGSI HAPUS SUBKRITERIA (Direct Link)
+    public function deleteSub($id)
+    {
+        $subModel = new \App\Models\SubcriteriaModel();
+        $sub      = $subModel->find($id);
+        
+        if ($sub) {
+            // Kita perlu cari nama divisi untuk redirect, agak tricky karena tidak tersimpan langsung di sub
+            // Jadi kita redirect back saja
+            $subModel->delete($id);
+            return redirect()->back()->with('success', 'Subkriteria dihapus.');
+        }
+        return redirect()->back()->with('error', 'Data tidak ditemukan.');
+    }
+
+    public function addSingle()
+    {
+        $pekerjaanModel = new \App\Models\PekerjaanModel();
+        $divisiName     = $this->request->getPost('divisi_name'); // Nama Divisi untuk redirect
+
+        // Cari ID perwakilan divisi
+        $job = $pekerjaanModel->where('divisi', $divisiName)->first();
+        if (!$job) return redirect()->back()->with('error', 'Divisi tidak valid.');
+
+        // Simpan Kriteria Baru
+        $this->criteriaModel->insert([
+            'pekerjaan_id' => $job['id'],
+            'kode'         => $this->request->getPost('kode'),
+            'nama'         => $this->request->getPost('nama'),
+            'bobot'        => $this->request->getPost('bobot'),
+            'tipe'         => $this->request->getPost('tipe')
+        ]);
+
+        // Redirect KEMBALI ke halaman Edit Divisi
+        return redirect()->to(base_url('admin/criteria/editDivisi?divisi=' . urlencode($divisiName)))
+                         ->with('success', 'Kriteria baru berhasil ditambahkan.');
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. HAPUS SATU KRITERIA (KHUSUS HALAMAN EDIT DIVISI)
+    // -------------------------------------------------------------------------
+    public function deleteSingle($id)
+    {
+        $divisiName = $this->request->getGet('divisi'); // Ambil nama divisi dari URL untuk redirect
+
+        $this->criteriaModel->delete($id);
+
+        return redirect()->to(base_url('admin/criteria/editDivisi?divisi=' . urlencode($divisiName)))
+                         ->with('success', 'Kriteria berhasil dihapus.');
     }
 }

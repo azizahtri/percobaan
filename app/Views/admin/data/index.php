@@ -5,16 +5,15 @@
   
   <h4 class="mb-4 text-dark fw-bold">Manajemen Data Pelamar</h4>
 
-  <!-- wadah tabel -->
   <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active fw-bold" id="baru-tab" data-bs-toggle="tab" data-bs-target="#baru" type="button">
-        Pelamar Baru <span class="badge bg-danger rounded-pill ms-2"><?= count($belumDinilai) ?></span>
+        Pelamar Baru <span class="badge bg-primary rounded-pill ms-2"><?= count($belumDinilai) ?></span>
       </button>
     </li>
     <li class="nav-item" role="presentation">
       <button class="nav-link fw-bold" id="nilai-tab" data-bs-toggle="tab" data-bs-target="#nilai" type="button">
-        Hasil Penilaian (SPK) <span class="badge bg-warning text-dark rounded-pill ms-2"><?= count($sudahDinilai) ?></span>
+        Hasil Penilaian <span class="badge bg-warning text-dark rounded-pill ms-2"><?= count($sudahDinilai) ?></span>
       </button>
     </li>
     <li class="nav-item" role="presentation">
@@ -22,9 +21,13 @@
         History / Arsip
       </button>
     </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link fw-bold text-danger" id="blacklist-tab" data-bs-toggle="tab" data-bs-target="#blacklist" type="button">
+        Blacklist <span class="badge bg-danger rounded-pill ms-2"><?= count($blacklist ?? []) ?></span>
+      </button>
+    </li>
   </ul>
 
-  <!-- bagian tabel pelamar baru -->
   <div class="tab-content" id="myTabContent">
     
     <div class="tab-pane fade show active" id="baru" role="tabpanel">
@@ -43,9 +46,9 @@
                         <tbody>
                             <?php foreach ($belumDinilai as $d): ?>
                             <tr>
-                                <td class="text-start fw-bold"><?= esc($d['nama']) ?></td>
+                                <td class="text-start fw-bold"><?= esc($d['nama_lengkap']) ?></td>
                                 <td><span class="badge bg-info text-dark"><?= esc($d['judul_lowongan']) ?></span></td>
-                                <td><?= date('d M Y', strtotime($d['created_at'])) ?></td>
+                                <td><?= date('d M Y', strtotime($d['tanggal_daftar'])) ?></td>
                                 <td>
                                     <a href="<?= base_url('admin/lowongan/pelamar/' . $d['id']) ?>" class="btn btn-primary btn-sm rounded-pill px-3">
                                         <i class="mdi mdi-calculator me-1"></i> Hitung SPK
@@ -60,7 +63,6 @@
         </div>
     </div>
 
-<!-- bagian tabel penilaian -->
     <div class="tab-pane fade" id="nilai" role="tabpanel">
         <div class="card shadow-sm border-0 border-top border-4 border-warning">
             <div class="card-body">
@@ -79,7 +81,7 @@
                         <tbody>
                             <?php foreach ($sudahDinilai as $d): ?>
                             <tr>
-                                <td class="text-start fw-bold"><?= esc($d['nama']) ?></td>
+                                <td class="text-start fw-bold"><?= esc($d['nama_lengkap']) ?></td>
                                 <td><?= esc($d['judul_lowongan']) ?></td>
                                 <td class="fw-bold text-primary"><?= number_format($d['spk_score'], 4) ?></td>
                                 <td>
@@ -87,6 +89,7 @@
                                         $cls = match($d['status']) {
                                             'memenuhi' => 'bg-success',
                                             'tidak memenuhi' => 'bg-danger',
+                                            'blacklist'      => 'bg-dark text-white',
                                             default => 'bg-secondary'
                                         };
                                     ?>
@@ -94,17 +97,9 @@
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-center gap-2">
-                                        <a href="<?= base_url('admin/data/detail/' . $d['id']) ?>" 
-                                            class="btn btn-action btn-action-detail" 
-                                            title="Lihat Detail"
-                                            data-bs-toggle="tooltip" data-bs-placement="top">
-                                            <i class="mdi mdi-eye"></i>
-                                        </a>
-                                        
-                                        <?php if($d['status'] == 'memenuhi' || $d['status'] == 'tidak memenuhi'): ?>
-                                            <a href="<?= base_url('admin/data/arsipkan/' . $d['id']) ?>" class="btn btn-success btn-sm" onclick="return confirm('Selesaikan proses dan pindah ke history?')" title="Selesai">
-                                                <i class="mdi mdi-check"></i> Selesai
-                                            </a>
+                                        <a href="<?= base_url('admin/data/detail/' . $d['id']) ?>" class="btn btn-action btn-action-detail" title="Lihat Detail"><i class="mdi mdi-eye"></i></a>
+                                        <?php if(in_array($d['status'], ['memenuhi', 'tidak memenuhi', 'blacklist'])): ?>
+                                            <a href="<?= base_url('admin/data/arsipkan/' . $d['id']) ?>" class="btn btn-success btn-sm" onclick="return confirm('Selesaikan proses dan pindah ke history?')" title="Selesai"><i class="mdi mdi-check"></i> Selesai</a>
                                         <?php endif; ?>
                                     </div>
                                 </td>
@@ -117,7 +112,6 @@
         </div>
     </div>
 
-<!-- bagian tabel selesai/history -->
     <div class="tab-pane fade" id="history" role="tabpanel">
         <div class="card shadow-sm border-0">
             <div class="card-body">
@@ -134,18 +128,76 @@
                         <tbody>
                             <?php foreach ($history as $h): ?>
                             <tr>
-                                <td class="text-start"><?= esc($h['nama']) ?></td>
+                                <td class="text-start"><?= esc($h['nama_lengkap']) ?></td>
                                 <td><?= esc($h['judul_lowongan']) ?></td>
                                 <td>
-                                    <span class="badge <?= $h['status'] == 'memenuhi' ? 'bg-success' : 'bg-danger' ?>">
+                                    <?php 
+                                        $badge = match($h['status']) {
+                                            'memenuhi' => 'bg-success',
+                                            'tidak memenuhi' => 'bg-danger',
+                                            'blacklist' => 'bg-dark',
+                                            default => 'bg-secondary'
+                                        };
+                                    ?>
+                                    <span class="badge <?= $badge ?>">
                                         <?= strtoupper($h['status']) ?>
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url('admin/data/detail/' . $h['id']) ?>" 
-                                    class="btn btn-action btn-action-detail">
-                                        <i class="mdi mdi-eye"></i>
-                                    </a>
+                                    <a href="<?= base_url('admin/data/detail/' . $h['id']) ?>" class="btn btn-action btn-action-detail"><i class="mdi mdi-eye"></i></a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="blacklist" role="tabpanel">
+        <div class="card shadow-sm border-0 border-top border-4 border-danger">
+            <div class="card-body">
+                <div class="alert alert-danger small border-0 bg-danger-subtle text-danger">
+                    <i class="mdi mdi-alert-circle me-2"></i>Daftar pelamar yang diblokir oleh sistem. Mereka tidak dapat melamar lowongan baru.
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle text-center datatable" style="width:100%">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="text-center">Nama Pelamar</th>
+                                <th class="text-center">No KTP / NIK</th>
+                                <th class="text-center">Alasan Blacklist</th>
+                                <th class="text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($blacklist ?? [] as $b): ?>
+                            <tr>
+                                <td class="text-start">
+                                    <span class="fw-bold text-danger"><?= esc($b['nama_lengkap']) ?></span>
+                                    <?php if($b['blacklist_type'] == 'permanent'): ?>
+                                        <span class="badge bg-danger ms-2">PERMANEN</span>
+                                    <?php else: ?>
+                                        <span class="badge bg-warning text-dark ms-2">SEMENTARA</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td class="text-center"><?= esc($b['no_ktp']) ?></td>
+                                <td class="text-center text-muted small fst-italic">"<?= esc($b['alasan_blacklist']) ?>"</td>
+                                <td class="text-center">
+                                    
+                                    <?php if($b['blacklist_type'] == 'permanent'): ?>
+                                        <button class="btn btn-secondary btn-sm rounded-pill px-3" disabled title="Sanksi Permanen Tidak Bisa Dipulihkan">
+                                            <i class="mdi mdi-lock me-1"></i> Terkunci
+                                        </button>
+                                    <?php else: ?>
+                                        <a href="<?= base_url('admin/data/pulihkan-blacklist/' . $b['id']) ?>" 
+                                           class="btn btn-outline-success btn-sm rounded-pill px-3"
+                                           onclick="return confirm('Yakin ingin memulihkan status pelamar ini?')">
+                                            <i class="mdi mdi-refresh me-1"></i> Pulihkan
+                                        </a>
+                                    <?php endif; ?>
+
                                 </td>
                             </tr>
                             <?php endforeach; ?>

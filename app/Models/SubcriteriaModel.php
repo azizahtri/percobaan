@@ -11,7 +11,7 @@ class SubcriteriaModel extends Model
 
     protected $allowedFields = [
         'criteria_id',
-        'field_id',
+        'pekerjaan_id',
         'keterangan',
         'bobot_sub',
         'tipe'

@@ -72,14 +72,13 @@
                                 <i class="mdi mdi-pencil"></i>
                             </button>
 
-                            <a href="<?= base_url('admin/pekerjaan/delete/' . $j['id']) ?>" 
-                               onclick="return confirm('PERINGATAN: Menghapus posisi ini akan menghapus data terkait. Lanjutkan?')" 
-                               class="btn btn-action btn-action-delete"
-                               title="Hapus Posisi"
-                               data-bs-toggle="tooltip" data-bs-placement="top">
+                            <button type="button"
+                                class="btn btn-action btn-action-delete"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalHapus<?= $j['id'] ?>"
+                                title="Hapus Posisi">
                                 <i class="mdi mdi-delete"></i>
-                            </a>
-
+                            </button>
                         </div>
                       </td>
                     </tr>
@@ -149,6 +148,45 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Hapus Posisi -->
+<?php foreach ($posisi as $j): ?>
+<div class="modal fade" id="modalHapus<?= $j['id'] ?>" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-danger text-white">
+                <h6 class="modal-title fw-bold">
+                    <i class="mdi mdi-alert-circle-outline me-2"></i> Hapus Posisi?
+                </h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <div class="mb-4 text-danger opacity-25">
+                    <i class="mdi mdi-trash-can-outline" style="font-size: 60px;"></i>
+                </div>
+                <p class="mb-2 text-muted">Apakah Anda yakin ingin menghapus posisi:</p>
+                <h5 class="fw-bold text-dark mb-4 px-3 mx-auto"
+                    style="max-width: 100%; word-wrap: break-word; overflow-wrap: break-word;">
+                    "<?= esc($j['posisi']) ?>"
+                </h5>
+                <div class="alert alert-warning small text-start">
+                    <i class="mdi mdi-alert me-2"></i>
+                    <strong>Perhatian:</strong> Standar kelulusan terkait juga akan hilang.
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center border-0 pb-4">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">
+                    Batal
+                </button>
+                <a href="<?= base_url('admin/pekerjaan/deletePosisi/' . $j['id']) ?>"
+                    class="btn btn-danger rounded-pill px-4 shadow-sm">
+                    Ya, Hapus
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endforeach; ?>
 
 <script>
     function editPosisi(id, nama) {

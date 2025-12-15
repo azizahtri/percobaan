@@ -1,44 +1,127 @@
 <?= $this->extend('admin/layouts/main') ?>
 <?= $this->section('content') ?>
 
+<?php
+    // --- LOGIKA PEMISAHAN DATA ---
+    $gformList = [];
+    $internalList = [];
+
+    if(!empty($formulir)) {
+        foreach($formulir as $f) {
+            // Jika punya Link G-Form, masuk kategori Eksternal/Hybrid
+            if (!empty($f['link_google_form'])) {
+                $gformList[] = $f;
+            } else {
+                // Sisanya masuk kategori Internal
+                $internalList[] = $f;
+            }
+        }
+    }
+?>
+
 <div class="container-fluid py-4">
   
   <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
           <h4 class="mb-0 fw-bold text-dark">Template Formulir Lamaran</h4>
-          <p class="text-muted small mb-0">Kelola pertanyaan kustom yang akan muncul di formulir pelamar.</p>
+          <p class="text-muted small mb-0">Kelola dan pilih jenis formulir untuk rekrutmen.</p>
       </div>
       <a href="<?= base_url('admin/formulir/create') ?>" class="btn btn-primary btn-sm rounded-pill px-3 fw-bold">
           <i class="mdi mdi-plus-circle me-1"></i> Buat Template Baru
       </a>
   </div>
 
-  <div class="card shadow-sm border-0">
+  <h6 class="fw-bold text-primary mb-3"><i class="mdi mdi-google-forms me-2"></i>Template Google Form / Eksternal</h6>
+  <div class="card shadow-sm border-0 mb-5">
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-hover align-middle text-center datatable" style="width:100%">
-                <thead class="bg-light text-secondary small text-uppercase">
-                    <tr>
-                        <th width="5%" class="text-center">No</th>
-                        <th class="text-start">Nama Template</th>
-                        <th class="text-center">Jumlah Pertanyaan</th>
-                        <th width="20%" class="text-center">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if(!empty($formulir)): ?>
-                        <?php foreach($formulir as $key => $f): ?>
+        <?php if(empty($gformList)): ?>
+            <div class="text-center py-4 text-muted small">Belum ada template Google Form.</div>
+        <?php else: ?>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-center" style="width:100%">
+                    <thead class="bg-primary bg-opacity-10 text-primary small text-uppercase">
+                        <tr>
+                            <th width="5%" class="text-center">No</th>
+                            <th class="text-start">Nama Template</th>
+                            <th class="text-start">Link Tautan</th>
+                            <th class="text-center">Info Tambahan</th>
+                            <th width="15%" class="text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($gformList as $key => $f): ?>
                         <?php 
-                            $cfg = json_decode($f['config'], true); 
-                            $count = count($cfg ?? []);
-                            // Encode data row ke JSON agar bisa dikirim ke JS (Aman dari kutip)
+                            $cfg = json_decode($f['config'] ?? '[]', true); 
+                            $count = count($cfg);
                             $jsonData = htmlspecialchars(json_encode($f), ENT_QUOTES, 'UTF-8');
                         ?>
                         <tr>
                             <td><?= $key+1 ?></td>
+                            <td class="text-start fw-bold"><?= esc($f['nama_template']) ?></td>
                             <td class="text-start">
-                                <span class="fw-bold text-dark d-block"><?= esc($f['nama_template']) ?></span>
+                                <a href="<?= esc($f['link_google_form']) ?>" target="_blank" class="text-decoration-none small text-truncate d-inline-block" style="max-width: 250px;">
+                                    <i class="mdi mdi-open-in-new me-1"></i><?= esc($f['link_google_form']) ?>
+                                </a>
                             </td>
+                            <td>
+                                <?php if($count > 0): ?>
+                                    <span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25 rounded-pill px-2">
+                                        + <?= $count ?> Pertanyaan Tambahan
+                                    </span>
+                                <?php else: ?>
+                                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill px-2">
+                                        Full Google Form
+                                    </span>
+                                <?php endif; ?>
+                            </td>
+                            <td class="text-center">
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button type="button" class="btn btn-action btn-action-detail" onclick="showDetail(<?= $jsonData ?>)" title="Lihat Detail"><i class="mdi mdi-eye"></i></button>
+                                    <a href="<?= base_url('admin/formulir/edit/'.$f['id']) ?>" class="btn btn-action btn-action-edit" title="Edit"><i class="mdi mdi-pencil"></i></a>
+                                    <button type="button"
+                                            class="btn btn-action btn-action-delete"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#modalHapus<?= $f['id'] ?>"
+                                            title="Hapus Template">
+                                        <i class="mdi mdi-delete"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php endif; ?>
+    </div>
+  </div>
+
+  <h6 class="fw-bold text-info mb-3"><i class="mdi mdi-file-document-edit-outline me-2"></i>Template Pertanyaan Internal (Sistem)</h6>
+  <div class="card shadow-sm border-0">
+    <div class="card-body">
+        <?php if(empty($internalList)): ?>
+            <div class="text-center py-4 text-muted small">Belum ada template internal.</div>
+        <?php else: ?>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-center" style="width:100%">
+                    <thead class="bg-info bg-opacity-10 text-info small text-uppercase">
+                        <tr>
+                            <th width="5%" class="text-center">No</th>
+                            <th class="text-start">Nama Template</th>
+                            <th class="text-center">Jumlah Pertanyaan</th>
+                            <th width="15%" class="text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($internalList as $key => $f): ?>
+                        <?php 
+                            $cfg = json_decode($f['config'] ?? '[]', true); 
+                            $count = count($cfg);
+                            $jsonData = htmlspecialchars(json_encode($f), ENT_QUOTES, 'UTF-8');
+                        ?>
+                        <tr>
+                            <td><?= $key+1 ?></td>
+                            <td class="text-start fw-bold"><?= esc($f['nama_template']) ?></td>
                             <td>
                                 <span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25 rounded-pill px-3">
                                     <?= $count ?> Pertanyaan
@@ -46,54 +129,38 @@
                             </td>
                             <td class="text-center">
                                 <div class="d-flex justify-content-center gap-2">
-                                    
-                                    <button type="button" class="btn btn-action btn-action-detail" 
-                                            onclick="showDetail(<?= $jsonData ?>)" 
-                                            title="Lihat Detail Pertanyaan"
-                                            data-bs-toggle="tooltip" data-bs-placement="top">
-                                        <i class="mdi mdi-eye"></i>
+                                    <button type="button" class="btn btn-action btn-action-detail" onclick="showDetail(<?= $jsonData ?>)" title="Lihat Detail"><i class="mdi mdi-eye"></i></button>
+                                    <a href="<?= base_url('admin/formulir/edit/'.$f['id']) ?>" class="btn btn-action btn-action-edit" title="Edit"><i class="mdi mdi-pencil"></i></a>
+                                    <button type="button"
+                                        class="btn btn-action btn-action-delete"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalHapus<?= $f['id'] ?>"
+                                        title="Hapus Template">
+                                    <i class="mdi mdi-delete"></i>
                                     </button>
-
-                                    <a href="<?= base_url('admin/formulir/edit/'.$f['id']) ?>" 
-                                       class="btn btn-action btn-action-edit" 
-                                       title="Edit Template"
-                                       data-bs-toggle="tooltip" data-bs-placement="top">
-                                        <i class="mdi mdi-pencil"></i>
-                                    </a>
-                                    
-                                    <a href="<?= base_url('admin/formulir/delete/'.$f['id']) ?>" 
-                                       class="btn btn-action btn-action-delete" 
-                                       onclick="return confirm('Hapus template ini? Lowongan yang menggunakan template ini mungkin akan terdampak.')" 
-                                       title="Hapus Template"
-                                       data-bs-toggle="tooltip" data-bs-placement="top">
-                                        <i class="mdi mdi-delete"></i>
-                                    </a>
-
                                 </div>
                             </td>
                         </tr>
                         <?php endforeach; ?>
-                    <?php endif; ?>
-                </tbody>
-            </table>
-        </div>
+                    </tbody>
+                </table>
+            </div>
+        <?php endif; ?>
     </div>
   </div>
+
 </div>
 
 <div class="modal fade" id="modalDetailForm" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content border-0 shadow-lg">
-      <div class="modal-header bg-info text-white">
-        <h5 class="modal-title fw-bold" id="modalTitle">
-            <i class="mdi mdi-file-document-box me-2"></i>Detail Template
-        </h5>
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title fw-bold" id="modalTitle">Detail Template</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
-      <div class="modal-body bg-light p-4" id="modalContent">
-          </div>
+      <div class="modal-body bg-light p-4" id="modalContent"></div>
       <div class="modal-footer bg-white">
-        <button type="button" class="btn btn-secondary btn-sm px-3" data-bs-dismiss="modal">Tutup</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Tutup</button>
       </div>
     </div>
   </div>
@@ -101,79 +168,134 @@
 
 <script>
     function showDetail(data) {
-        // 1. Set Judul Modal
-        document.getElementById('modalTitle').innerHTML = '<i class="mdi mdi-file-document-box me-2"></i>' + data.nama_template;
-        
-        // 2. Parse Data JSON Config
+        document.getElementById('modalTitle').innerText = data.nama_template;
         let config = [];
-        try {
-            config = JSON.parse(data.config);
-        } catch(e) {
-            console.error("JSON Error", e);
-            config = [];
+        try { config = JSON.parse(data.config); } catch(e) { config = []; }
+        const container = document.getElementById('modalContent');
+        container.innerHTML = ''; 
+
+        if (data.link_google_form) {
+            container.innerHTML += `
+                <div class="alert alert-primary d-flex align-items-center mb-3 border-0 shadow-sm">
+                    <i class="mdi mdi-google-forms fs-1 me-3"></i>
+                    <div class="overflow-hidden">
+                        <small class="d-block text-uppercase fw-bold opacity-75">Link Google Form</small>
+                        <a href="${data.link_google_form}" target="_blank" class="fw-bold text-primary text-truncate d-block">
+                            ${data.link_google_form}
+                        </a>
+                    </div>
+                </div>`;
         }
 
-        const container = document.getElementById('modalContent');
-        container.innerHTML = ''; // Bersihkan isi lama
-
-        // 3. Render Tampilan
-        if (!config || config.length === 0) {
-            container.innerHTML = `
-                <div class="text-center text-muted py-5">
-                    <div class="mb-3 opacity-50"><i class="mdi mdi-playlist-remove" style="font-size: 4rem;"></i></div>
-                    <h6 class="fw-bold">Template Kosong</h6>
-                    <p class="small mb-0">Template ini belum memiliki pertanyaan.</p>
-                </div>`;
-        } else {
+        if (config && config.length > 0) {
+            if(data.link_google_form) container.innerHTML += `<h6 class="fw-bold mb-3 border-bottom pb-2">Pertanyaan Tambahan:</h6>`;
+            
             config.forEach((item, index) => {
-                // Deteksi format data (String lama vs Object baru)
                 let label = (typeof item === 'string') ? item : item.label;
                 let type  = (typeof item === 'object' && item.type) ? item.type : 'text';
                 let opts  = (typeof item === 'object' && item.options) ? item.options : '';
+                
+                let badge = 'bg-secondary';
+                if(type=='textarea') badge='bg-warning text-dark';
+                else if(type=='radio' || type=='checkbox') badge='bg-success';
 
-                // Tentukan Badge Tipe & Ikon
-                let badgeClass = 'bg-secondary';
-                let typeName   = 'Teks Singkat';
-                let typeIcon   = 'mdi-format-title';
-
-                if(type === 'textarea') { badgeClass = 'bg-warning text-dark'; typeName = 'Paragraf'; typeIcon = 'mdi-format-align-left'; }
-                else if(type === 'radio') { badgeClass = 'bg-success'; typeName = 'Pilihan Ganda'; typeIcon = 'mdi-radiobox-marked'; }
-                else if(type === 'checkbox') { badgeClass = 'bg-primary'; typeName = 'Checkbox'; typeIcon = 'mdi-checkbox-marked-outline'; }
-                else if(type === 'file') { badgeClass = 'bg-dark'; typeName = 'Upload File'; typeIcon = 'mdi-cloud-upload'; }
-
-                // Template HTML per Item (Card Modern)
                 let html = `
-                    <div class="card mb-3 border-0 shadow-sm">
+                    <div class="card mb-2 border-0 shadow-sm">
                         <div class="card-body p-3">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-light text-dark border">Pertanyaan #${index + 1}</span>
-                                <span class="badge ${badgeClass}"><i class="mdi ${typeIcon} me-1"></i>${typeName}</span>
+                            <div class="d-flex justify-content-between mb-1">
+                                <small class="text-muted">#${index+1}</small>
+                                <span class="badge ${badge}">${type}</span>
                             </div>
-                            
-                            <h6 class="fw-bold text-dark mb-1" style="line-height: 1.5;">${label}</h6>
-                `;
-
-                // Jika ada opsi (Radio/Checkbox), tampilkan dengan rapi
-                if ((type === 'radio' || type === 'checkbox') && opts) {
-                    // Pecah opsi jadi array
-                    let optList = opts.split(',').map(o => o.trim());
-                    
-                    html += `<div class="mt-2 pt-2 border-top">`;
-                    optList.forEach(opt => {
-                        html += `<span class="badge bg-light text-secondary border me-1 mb-1 font-weight-normal">${opt}</span>`;
-                    });
-                    html += `</div>`;
+                            <div class="fw-bold text-dark">${label}</div>`;
+                
+                if((type=='radio'||type=='checkbox') && opts){
+                    html += `<div class="mt-2 ps-2 border-start small text-muted">${opts.split(',').join('<br>')}</div>`;
                 }
-
                 html += `</div></div>`;
                 container.innerHTML += html;
             });
+        } else if(!data.link_google_form) {
+            container.innerHTML = `<div class="text-center py-3 text-muted">Template kosong</div>`;
         }
-
-        // 4. Tampilkan Modal
-        var myModal = new bootstrap.Modal(document.getElementById('modalDetailForm'));
-        myModal.show();
+        new bootstrap.Modal(document.getElementById('modalDetailForm')).show();
     }
 </script>
+
+<!-- Modal Hapus untuk Google Form -->
+<?php foreach ($gformList as $f): ?>
+    <div class="modal fade" id="modalHapus<?= $f['id'] ?>" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-danger text-white">
+                    <h6 class="modal-title fw-bold">
+                        <i class="mdi mdi-alert-circle-outline me-2"></i> Hapus Template?
+                    </h6>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <div class="mb-4 text-danger opacity-25">
+                        <i class="mdi mdi-trash-can-outline" style="font-size: 60px;"></i>
+                    </div>
+                    <p class="mb-2 text-muted">Apakah Anda yakin ingin menghapus template:</p>
+                    <h5 class="fw-bold text-dark mb-4 px-3 mx-auto"
+                        style="max-width: 100%; word-wrap: break-word; overflow-wrap: break-word;">
+                        "<?= esc($f['nama_template']) ?>"
+                    </h5>
+                    <div class="alert alert-warning small text-start">
+                        <i class="mdi mdi-alert me-2"></i>
+                        <strong>Perhatian:</strong> Template ini akan dihapus secara permanen dan tidak dapat dikembalikan.
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center border-0 pb-4">
+                    <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">
+                        Batal
+                    </button>
+                    <a href="<?= base_url('admin/formulir/delete/' . $f['id']) ?>"
+                        class="btn btn-danger rounded-pill px-4 shadow-sm">
+                        Ya, Hapus
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+<!-- Modal Hapus untuk Internal -->
+<?php foreach ($internalList as $f): ?>
+<div class="modal fade" id="modalHapus<?= $f['id'] ?>" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-danger text-white">
+                <h6 class="modal-title fw-bold">
+                    <i class="mdi mdi-alert-circle-outline me-2"></i> Hapus Template?
+                </h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <div class="mb-4 text-danger opacity-25">
+                    <i class="mdi mdi-trash-can-outline" style="font-size: 60px;"></i>
+                </div>
+                <p class="mb-2 text-muted">Apakah Anda yakin ingin menghapus template:</p>
+                <h5 class="fw-bold text-dark mb-4 px-3 mx-auto"
+                    style="max-width: 100%; word-wrap: break-word; overflow-wrap: break-word;">
+                    "<?= esc($f['nama_template']) ?>"
+                </h5>
+                <div class="alert alert-warning small text-start">
+                    <i class="mdi mdi-alert me-2"></i>
+                    <strong>Perhatian:</strong> Template ini akan dihapus secara permanen dan tidak dapat dikembalikan.
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center border-0 pb-4">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">
+                    Batal
+                </button>
+                <a href="<?= base_url('admin/formulir/delete/' . $f['id']) ?>"
+                    class="btn btn-danger rounded-pill px-4 shadow-sm">
+                    Ya, Hapus
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endforeach; ?>
 
 <?= $this->endSection() ?>

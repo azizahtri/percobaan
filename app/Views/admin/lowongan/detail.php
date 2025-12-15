@@ -26,25 +26,44 @@
       </div>
 
       <div class="row mb-4">
-          <div class="col-md-6 py-3 border-end">
+        <div class="col-md-6 py-3 border-end">
+            <div class="d-flex align-items-center mb-2">
+                <div class="bg-light p-2 rounded-circle me-3 text-secondary">
+                    <i class="mdi mdi-account-tie fs-4"></i>
+                </div>
+                <div>
+                    <small class="text-uppercase text-muted fw-bold" style="font-size: 0.7rem;">Posisi / Jabatan</small>
+                    <h6 class="fw-bold mb-0 text-dark"><?= esc($lowongan['nama_pekerjaan']) ?></h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 py-3 ps-md-4">
+            <div class="d-flex align-items-center mb-2">
+                <div class="bg-light p-2 rounded-circle me-3 text-secondary">
+                    <i class="mdi mdi-calendar-clock fs-4"></i>
+                </div>
+                <div>
+                    <small class="text-uppercase text-muted fw-bold" style="font-size: 0.7rem;">Tanggal Posting</small>
+                    <h6 class="fw-bold mb-0 text-dark"><?= date('d F Y', strtotime($lowongan['tanggal_posting'])) ?></h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 py-3 ps-md-4">
               <div class="d-flex align-items-center mb-2">
                   <div class="bg-light p-2 rounded-circle me-3 text-secondary">
-                      <i class="mdi mdi-account-tie fs-4"></i>
+                      <i class="mdi mdi-calendar-range fs-4"></i>
                   </div>
                   <div>
-                      <small class="text-uppercase text-muted fw-bold" style="font-size: 0.7rem;">Posisi / Jabatan</small>
-                      <h6 class="fw-bold mb-0 text-dark"><?= esc($lowongan['nama_pekerjaan']) ?></h6>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-6 py-3 ps-md-4">
-              <div class="d-flex align-items-center mb-2">
-                  <div class="bg-light p-2 rounded-circle me-3 text-secondary">
-                      <i class="mdi mdi-calendar-clock fs-4"></i>
-                  </div>
-                  <div>
-                      <small class="text-uppercase text-muted fw-bold" style="font-size: 0.7rem;">Tanggal Posting</small>
-                      <h6 class="fw-bold mb-0 text-dark"><?= date('d F Y', strtotime($lowongan['tanggal_posting'])) ?></h6>
+                      <small class="text-uppercase text-muted fw-bold" style="font-size: 0.7rem;">Periode Pendaftaran</small>
+                      <h6 class="fw-bold mb-0 text-dark">
+                        <?= date('d M', strtotime($lowongan['tanggal_mulai'])) ?> - <?= date('d M Y', strtotime($lowongan['tanggal_selesai'])) ?>
+                        
+                        <?php if($lowongan['status'] == 'open'): ?>
+                            <span class="badge bg-success ms-2 small">OPEN</span>
+                        <?php else: ?>
+                            <span class="badge bg-danger ms-2 small">CLOSED</span>
+                        <?php endif; ?>
+                      </h6>
                   </div>
               </div>
           </div>
@@ -80,7 +99,6 @@
     </div>
   </div>
 
-
   <div class="card shadow-sm border-0">
     <div class="card-body">
       <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-bottom">
@@ -95,83 +113,99 @@
       <?php if (!empty($pelamar)): ?>
         <div class="table-responsive">
           <table class="table table-hover align-middle text-center datatable" style="width:100%">
-            <thead class="bg-light text-secondary text-uppercase small">
-              <tr>
-                <th width="5%" class="text-center">No</th>
-                <th class="text-start">Nama Pelamar</th>
-                <th class="text-start">Kontak</th>
-                <th class="text-center">Skor SPK</th>
-                <th class="text-center">Status</th>
-                <th class="text-center">Aksi</th>
-              </tr>
-            </thead>
+              <thead class="bg-light text-secondary small text-uppercase fw-bold">
+                  <tr>
+                      <th class="text-center" width="5%">No</th>
+                      <th class="text-center" width="15%">No KTP</th> 
+                      <th class="text-start" width="25%">Nama Pelamar</th> 
+                      <th class="text-center" width="15%">Waktu Daftar</th> 
+                      <th class="text-center" width="10%">Skor SPK</th> 
+                      <th class="text-center" width="15%">Status</th> 
+                      <th class="text-center" width="15%">Aksi</th> 
+                  </tr>
+              </thead>
 
-            <tbody>
-              <?php foreach ($pelamar as $i => $p): ?>
-                <tr>
-                  <td><?= $i + 1 ?></td>
-                  
-                  <td class="text-start">
-                      <span class="d-block fw-bold text-dark"><?= esc($p['nama']) ?></span>
-                      <small class="text-muted d-block text-truncate" style="max-width: 200px;">
-                          <?= esc($p['email']) ?>
-                      </small>
-                  </td>
-                  
-                  <td class="text-start">
-                      <?php 
-                        // Format WA
-                        $hp = preg_replace('/[^0-9]/', '', $p['no_hp']);
-                        if(substr($hp, 0, 1) == '0') $hp = '62' . substr($hp, 1);
-                      ?>
-                      <a href="https://wa.me/<?= $hp ?>" target="_blank" class="badge bg-success-subtle text-success border border-success-subtle text-decoration-none">
-                          <i class="mdi mdi-whatsapp me-1"></i> <?= esc($p['no_hp']) ?>
-                      </a>
-                  </td>
-                  
-                  <td>
-                    <?php if($p['spk_score'] > 0): ?>
-                        <span class="fw-bold text-primary fs-6"><?= number_format($p['spk_score'], 4) ?></span>
-                    <?php else: ?>
-                        <span class="badge bg-light text-muted border">Belum Dinilai</span>
-                    <?php endif; ?>
-                  </td>
+              <tbody>
+                  <?php foreach ($pelamar as $i => $p): ?>
+                  <tr class="<?= ($p['is_blacklisted'] == 1) ? 'table-danger' : '' ?>">
+                      
+                      <td><?= $i + 1 ?></td>
+                      
+                      <td class="fw-bold"><?= esc($p['no_ktp']) ?></td>
+                      
+                      <td class="text-start">
+                          <div class="d-flex align-items-center">
+                              <div class="avatar-sm rounded-circle me-2 d-flex align-items-center justify-content-center bg-white text-primary border fw-bold" style="width: 35px; height: 35px;">
+                                  <?= strtoupper(substr($p['nama'], 0, 1)) ?>
+                              </div>
+                              <div>
+                                  <span class="d-block fw-bold text-dark"><?= esc($p['nama']) ?></span>
+                                  
+                                  <?php if($p['is_blacklisted'] == 1): ?>
+                                      <span class="badge bg-danger" style="font-size: 0.65rem;">
+                                          <i class="mdi mdi-cancel"></i> BLACKLISTED
+                                      </span>
+                                  <?php else: ?>
+                                      <a href="https://wa.me/<?= preg_replace('/^0/', '62', $p['no_hp']) ?>" target="_blank" class="text-decoration-none small text-success">
+                                          <i class="mdi mdi-whatsapp"></i> <?= esc($p['no_hp']) ?>
+                                      </a>
+                                  <?php endif; ?>
+                              </div>
+                          </div>
+                      </td>
+                      
+                      <td class="small text-muted">
+                          <?= date('d M Y, H:i', strtotime($p['created_at'])) ?>
+                      </td>
+                      
+                      <td>
+                          <?php if($p['spk_score'] > 0): ?>
+                              <span class="fw-bold text-primary"><?= number_format($p['spk_score'], 4) ?></span>
+                          <?php else: ?>
+                              <span class="text-muted">-</span>
+                          <?php endif; ?>
+                      </td>
 
-                  <td>
-                    <?php 
-                        $badgeClass = match($p['status']) {
-                            'memenuhi' => 'bg-success text-white',
-                            'tidak memenuhi' => 'bg-danger text-white',
-                            default => 'bg-warning text-dark'
-                        };
-                    ?>
-                    <span class="badge rounded-pill <?= $badgeClass ?> px-3">
-                      <?= ucfirst($p['status'] ?: 'Proses') ?>
-                    </span>
-                  </td>
+                      <td>
+                          <?php 
+                              $badge = match($p['status']) {
+                                  'memenuhi'       => 'bg-success',
+                                  'tidak memenuhi' => 'bg-danger',
+                                  'blacklist'      => 'bg-dark text-white',
+                                  default          => 'bg-warning text-dark'
+                              };
+                          ?>
+                          <span class="badge rounded-pill <?= $badge ?> px-3">
+                              <?= ucfirst($p['status'] ?: 'Proses') ?>
+                          </span>
+                      </td>
 
-                  <td class="text-center">
-                    <div class="d-flex justify-content-center gap-2">
-                      <?php if($p['is_history'] == 0): ?>
-                          <a href="<?= base_url('admin/lowongan/pelamar/' . $p['id']) ?>" 
-                              class="btn btn-action btn-action-edit" 
-                              title="Proses Penilaian"
-                              data-bs-toggle="tooltip" data-bs-placement="top">
-                            <i class="mdi mdi-pencil-box-outline"></i>
-                          </a>
-                      <?php else: ?>
-                          <a href="<?= base_url('admin/data/detail/' . $p['id']) ?>" 
-                              class="btn btn-action btn-action-detail" 
-                              title="Lihat Hasil Akhir"
-                              data-bs-toggle="tooltip" data-bs-placement="top">
-                            <i class="mdi mdi-eye"></i>
-                          </a>
-                      <?php endif; ?>
-                    </div>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
-            </tbody>
+                      <td>
+                          <div class="d-flex justify-content-center gap-1">
+                              
+                              <a href="<?= base_url('admin/lowongan/pelamar/' . $p['id']) ?>" 
+                                class="btn btn-primary btn-sm p-1 px-2" 
+                                title="Proses Penilaian">
+                                  <i class="mdi mdi-pencil-box-outline fs-6"></i>
+                              </a>
+
+                              <?php if($p['is_blacklisted'] == 0): ?>
+                                  <button type="button" class="btn btn-outline-danger btn-sm p-1 px-2 btn-blacklist" 
+                                          data-bs-toggle="modal" 
+                                          data-bs-target="#modalBlacklist"
+                                          data-id="<?= $p['pelamar_id'] ?>"
+                                          data-nama="<?= esc($p['nama']) ?>"
+                                          title="Blacklist Pelamar">
+                                      <i class="mdi mdi-account-cancel fs-6"></i>
+                                  </button>
+                              <?php endif; ?>
+
+                          </div>
+                      </td>
+
+                  </tr>
+                  <?php endforeach; ?>
+              </tbody>
           </table>
         </div>
 
@@ -187,28 +221,88 @@
   </div>
 </div>
 
+<div class="modal fade" id="modalBlacklist" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="<?= base_url('admin/lowongan/blacklist') ?>" method="post">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title fw-bold"><i class="mdi mdi-alert-circle me-2"></i>Blacklist Pelamar</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id_pelamar" id="blacklistId">
+                    
+                    <div class="alert alert-warning d-flex align-items-center small p-2">
+                        <i class="mdi mdi-alert fs-4 me-2"></i>
+                        <div>Anda akan memblokir: <strong id="blacklistNama"></strong></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Jenis Sanksi <span class="text-danger">*</span></label>
+                        <div class="d-flex gap-3">
+                            <div class="form-check border p-2 px-3 rounded w-100 bg-light">
+                                <input class="form-check-input" type="radio" name="tipe_blacklist" id="typeTemp" value="temporary" checked>
+                                <label class="form-check-label w-100 fw-bold text-warning" for="typeTemp" style="cursor:pointer;">
+                                    <i class="mdi mdi-timer-sand"></i> Sementara
+                                    <div class="text-muted fw-normal small" style="font-size: 0.75rem;">Masih bisa dipulihkan kembali.</div>
+                                </label>
+                            </div>
+                            <div class="form-check border p-2 px-3 rounded w-100 bg-danger-subtle border-danger">
+                                <input class="form-check-input" type="radio" name="tipe_blacklist" id="typePerm" value="permanent">
+                                <label class="form-check-label w-100 fw-bold text-danger" for="typePerm" style="cursor:pointer;">
+                                    <i class="mdi mdi-gavel"></i> Permanen
+                                    <div class="text-dark fw-normal small" style="font-size: 0.75rem;">FATAL. Tidak bisa dipulihkan.</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Alasan <span class="text-danger">*</span></label>
+                        <textarea name="alasan" class="form-control" rows="3" required placeholder="Jelaskan alasan pelanggaran..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger fw-bold">Ya, Blacklist</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var blacklistBtns = document.querySelectorAll('.btn-blacklist');
+        blacklistBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var id = this.getAttribute('data-id');
+                var nama = this.getAttribute('data-nama');
+                document.getElementById('blacklistId').value = id;
+                document.getElementById('blacklistNama').innerText = nama;
+            });
+        });
+    });
+
     function toggleDescription() {
         var container = document.getElementById("descContainer");
         var btn = document.querySelector("#toggleDescBtnContainer button");
         
         if (container.style.maxHeight === "120px") {
-            container.style.maxHeight = "none"; // Buka penuh
+            container.style.maxHeight = "none"; 
             btn.innerHTML = '<i class="mdi mdi-chevron-up"></i> Tutup Deskripsi';
         } else {
-            container.style.maxHeight = "120px"; // Tutup
+            container.style.maxHeight = "120px"; 
             btn.innerHTML = '<i class="mdi mdi-chevron-down"></i> Baca Selengkapnya';
         }
     }
 
-    // Cek jika konten pendek, sembunyikan tombol
     document.addEventListener("DOMContentLoaded", function() {
         var container = document.getElementById("descContainer");
-        // Jika tinggi asli kurang dari batas, sembunyikan tombol
-        if (container.scrollHeight <= 120) {
+        if (container && container.scrollHeight <= 120) {
             document.getElementById("toggleDescBtnContainer").style.display = 'none';
-            container.style.maxHeight = "none"; // Biarkan tampil penuh
-            container.classList.remove('border', 'bg-light', 'p-3'); // Hapus border agar clean
+            container.style.maxHeight = "none"; 
+            container.classList.remove('border', 'bg-light', 'p-3'); 
         }
     });
 </script>

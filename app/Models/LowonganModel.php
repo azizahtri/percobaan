@@ -13,8 +13,11 @@ class LowonganModel extends Model
         'judul_lowongan', 
         'deskripsi', 
         'jenis', 
+        'status',           // BARU
+        'tanggal_mulai',    // BARU
+        'tanggal_selesai',  // BARU
         'link_google_form', 
-        'tanggal_posting',
+        'tanggal_posting',  // Bisa tetap dipakai sebagai 'created_at'
         'formulir_id'
     ];
 

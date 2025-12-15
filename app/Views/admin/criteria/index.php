@@ -50,15 +50,21 @@
               <i class="mdi mdi-format-list-checks me-2 text-primary"></i>Daftar Kriteria
           </h6>
 
-          <?php if($selectedField != 'all'): ?>
-              <a href="<?= base_url('admin/criteria/create?field=' . urlencode($selectedField)) ?>" class="btn btn-primary btn-sm rounded-pill px-3 fw-bold">
-                  <i class="mdi mdi-plus-circle me-1"></i> Tambah Kriteria
-              </a>
-          <?php else: ?>
-              <button class="btn btn-secondary btn-sm rounded-pill px-3 fw-bold" disabled title="Pilih divisi terlebih dahulu">
-                  <i class="mdi mdi-plus-circle me-1"></i> Tambah Kriteria
+          <div>
+              <button type="button" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-bold me-2" data-bs-toggle="modal" data-bs-target="#modalDuplicate">
+                  <i class="mdi mdi-content-copy me-1"></i> Duplicate Kriteria
               </button>
-          <?php endif; ?>
+
+              <?php if($selectedField != 'all'): ?>
+                  <a href="<?= base_url('admin/criteria/create?field=' . urlencode($selectedField)) ?>" class="btn btn-primary btn-sm rounded-pill px-3 fw-bold">
+                      <i class="mdi mdi-plus-circle me-1"></i> Tambah Kriteria
+                  </a>
+              <?php else: ?>
+                  <button class="btn btn-secondary btn-sm rounded-pill px-3 fw-bold" disabled title="Pilih divisi terlebih dahulu">
+                      <i class="mdi mdi-plus-circle me-1"></i> Tambah Kriteria
+                  </button>
+              <?php endif; ?>
+          </div>
       </div>
 
       <div class="table-responsive">
@@ -68,7 +74,7 @@
               <th class="text-center">No</th>
               <th class="text-center">Kode</th>
               <th class="text-start">Nama Kriteria</th>
-              <th class="text-center">Bobot</th>
+              <th class="text-center">Bobot (Maks)</th>
               <th class="text-center">Tipe</th>
               <th class="text-center">Divisi</th> 
               <th class="text-center">Subkriteria</th>
@@ -119,13 +125,13 @@
                             <i class="mdi mdi-pencil"></i>
                         </a>
                         
-                        <a href="<?= base_url('admin/criteria/delete/' . $c['id']) ?>" 
-                           onclick="return confirm('Hapus kriteria ini? Subkriteria di dalamnya juga akan terhapus.')" 
-                           class="btn btn-action btn-action-delete" 
-                           title="Hapus Data"
-                           data-bs-toggle="tooltip" data-bs-placement="top">
+                        <button type="button"
+                            class="btn btn-action btn-action-delete"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalHapus<?= $c['id'] ?>"
+                            title="Hapus Kriteria">
                             <i class="mdi mdi-delete"></i>
-                        </a>
+                        </button>
                     </div>
                   </td>
                 </tr>
@@ -139,4 +145,92 @@
 
 </div>
 
+<div class="modal fade" id="modalDuplicate" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title fw-bold"><i class="mdi mdi-content-copy me-2"></i>Duplicate Kriteria</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            
+            <form action="<?= base_url('admin/criteria/duplicate') ?>" method="post">
+                <?= csrf_field() ?>
+                <div class="modal-body p-4">
+                    <div class="alert alert-warning small border-0 bg-warning-subtle text-warning-emphasis mb-4">
+                        <i class="mdi mdi-alert-circle me-1"></i> 
+                        Fitur ini akan menyalin seluruh Kriteria & Subkriteria dari Divisi Asal ke Divisi Tujuan.
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-muted small text-uppercase">Dari Divisi (Sumber)</label>
+                        <select name="source_divisi" class="form-select border-primary" required>
+                            <option value="">-- Pilih Divisi Asal --</option>
+                            <?php foreach ($divisiList as $d): ?>
+                                <option value="<?= esc($d['divisi']) ?>"><?= esc($d['divisi']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <div class="text-center my-2 text-muted">
+                        <i class="mdi mdi-arrow-down-bold fs-4"></i>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-muted small text-uppercase">Ke Divisi (Tujuan)</label>
+                        <select name="target_divisi" class="form-select border-success" required>
+                            <option value="">-- Pilih Divisi Tujuan --</option>
+                            <?php foreach ($divisiList as $d): ?>
+                                <option value="<?= esc($d['divisi']) ?>"><?= esc($d['divisi']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-top-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4 border" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">
+                        <i class="mdi mdi-check-all me-1"></i> Proses Copy
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<?php foreach ($criteria as $c): ?>
+<div class="modal fade" id="modalHapus<?= $c['id'] ?>" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-danger text-white">
+                <h6 class="modal-title fw-bold">
+                    <i class="mdi mdi-alert-circle-outline me-2"></i> Hapus Kriteria?
+                </h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <div class="mb-4 text-danger opacity-25">
+                    <i class="mdi mdi-trash-can-outline" style="font-size: 60px;"></i>
+                </div>
+                <p class="mb-2 text-muted">Apakah Anda yakin ingin menghapus kriteria:</p>
+                <h5 class="fw-bold text-dark mb-4 px-3 mx-auto"
+                    style="max-width: 100%; word-wrap: break-word; overflow-wrap: break-word;">
+                    <?= esc($c['nama']) ?> (<?= esc($c['kode']) ?>)
+                </h5>
+                <div class="alert alert-warning small text-start">
+                    <i class="mdi mdi-alert me-2"></i>
+                    <strong>Perhatian:</strong> Semua subkriteria terkait juga akan dihapus secara permanen.
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center border-0 pb-4">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">
+                    Batal
+                </button>
+                <a href="<?= base_url('admin/criteria/delete/' . $c['id']) ?>"
+                    class="btn btn-danger rounded-pill px-4 shadow-sm">
+                    Ya, Hapus
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endforeach; ?>
 <?= $this->endSection() ?>

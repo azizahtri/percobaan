@@ -1,0 +1,85 @@
+CRITICAL - 2025-12-10 00:18:10 --> Undefined variable $sub
+in APPPATH\Views\admin\criteria\edit.php on line 62.
+ 1 APPPATH\Views\admin\criteria\edit.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sub', 'APPPATH\\Views\\admin\\criteria\\edit.php', 62)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/edit', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(108): view('admin/criteria/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-10 00:19:47 --> Undefined array key "criteria_id"
+in APPPATH\Views\admin\criteria\edit.php on line 62.
+ 1 APPPATH\Views\admin\criteria\edit.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "criteria_id"', 'APPPATH\\Views\\admin\\criteria\\edit.php', 62)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\criteria\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/criteria/edit', [], true)
+ 5 APPPATH\Controllers\CriteriaController.php(108): view('admin/criteria/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-10 22:10:25 --> Undefined array key "bobot"
+in APPPATH\Controllers\CriteriaController.php on line 401.
+ 1 APPPATH\Controllers\CriteriaController.php(401): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "bobot"', 'APPPATH\\Controllers\\CriteriaController.php', 401)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->updateDivisi()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-10 22:11:31 --> Undefined array key "bobot_sub"
+in APPPATH\Controllers\CriteriaController.php on line 401.
+ 1 APPPATH\Controllers\CriteriaController.php(401): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "bobot_sub"', 'APPPATH\\Controllers\\CriteriaController.php', 401)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->updateDivisi()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-10 22:17:56 --> Undefined array key "bobot"
+in APPPATH\Controllers\CriteriaController.php on line 405.
+ 1 APPPATH\Controllers\CriteriaController.php(405): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "bobot"', 'APPPATH\\Controllers\\CriteriaController.php', 405)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->updateDivisi()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-10 22:35:24 --> Undefined variable $criteriaId
+in APPPATH\Controllers\CriteriaController.php on line 405.
+ 1 APPPATH\Controllers\CriteriaController.php(405): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $criteriaId', 'APPPATH\\Controllers\\CriteriaController.php', 405)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->updateDivisi()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-10 23:29:49 --> Undefined array key "bobot_sub"
+in APPPATH\Controllers\CriteriaController.php on line 371.
+ 1 APPPATH\Controllers\CriteriaController.php(371): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "bobot_sub"', 'APPPATH\\Controllers\\CriteriaController.php', 371)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->updateDivisi()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-10 23:36:42 --> Undefined array key "bobot_sub"
+in APPPATH\Controllers\CriteriaController.php on line 371.
+ 1 APPPATH\Controllers\CriteriaController.php(371): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "bobot_sub"', 'APPPATH\\Controllers\\CriteriaController.php', 371)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->updateDivisi()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-10 23:36:46 --> Undefined array key "bobot_sub"
+in APPPATH\Controllers\CriteriaController.php on line 371.
+ 1 APPPATH\Controllers\CriteriaController.php(371): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "bobot_sub"', 'APPPATH\\Controllers\\CriteriaController.php', 371)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->updateDivisi()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-10 23:37:27 --> Undefined array key "bobot_sub"
+in APPPATH\Controllers\CriteriaController.php on line 371.
+ 1 APPPATH\Controllers\CriteriaController.php(371): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "bobot_sub"', 'APPPATH\\Controllers\\CriteriaController.php', 371)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->updateDivisi()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-12-10 23:37:38 --> Undefined array key "bobot_sub"
+in APPPATH\Controllers\CriteriaController.php on line 371.
+ 1 APPPATH\Controllers\CriteriaController.php(371): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "bobot_sub"', 'APPPATH\\Controllers\\CriteriaController.php', 371)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\CriteriaController->updateDivisi()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CriteriaController))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

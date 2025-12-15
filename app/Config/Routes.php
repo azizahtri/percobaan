@@ -27,8 +27,9 @@ $routes->set404Override();
 // ==================================================================
 $routes->get('/', 'LandingController::index');
 $routes->get('lowongan/detail/(:num)', 'LandingController::detail/$1');
-$routes->post('lamaran/submit', 'LandingController::submit');
-
+$routes->post('lamaran/submit', 'LandingController::submitLamaran');
+$routes->get('konfirmasi/terima/(:num)', 'DataController::confirmOffer/$1/terima');
+$routes->get('konfirmasi/tolak/(:num)', 'DataController::confirmOffer/$1/tolak');
 // ==================================================================
 // 2. AUTH ROUTES (LOGIN/LOGOUT)
 // ==================================================================
@@ -76,8 +77,13 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('criteria/edit/(:num)', 'CriteriaController::edit/$1');
     $routes->post('criteria/update/(:num)', 'CriteriaController::update/$1');
     $routes->get('criteria/delete/(:num)', 'CriteriaController::delete/$1');
+    $routes->post('criteria/duplicate', 'CriteriaController::duplicate');
+                // Halaman Edit dan Simpan Massal (Setelah Duplicate)
+    $routes->get('criteria/editDivisi', 'CriteriaController::editDivisi');
+    $routes->post('criteria/updateDivisi', 'CriteriaController::updateDivisi');
+    $routes->post('criteria/addSingle', 'CriteriaController::addSingle');
+    $routes->get('criteria/deleteSingle/(:num)', 'CriteriaController::deleteSingle/$1');
     
-    // Standar Nilai SPK
     $routes->get('criteria/standar', 'CriteriaController::standar');
     $routes->post('criteria/savestandar', 'CriteriaController::savestandar');
 
@@ -105,6 +111,9 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('lowongan/edit/(:num)', 'LowonganController::edit/$1');
     $routes->post('lowongan/update/(:num)', 'LowonganController::update/$1');
     $routes->get('lowongan/delete/(:num)', 'LowonganController::delete/$1');
+    $routes->get('lowongan/toggleStatus/(:num)', 'LowonganController::toggleStatus/$1');
+    $routes->post('lowongan/blacklist', 'LowonganController::blacklist');
+    
     
     // Detail & Proses Seleksi
     $routes->get('lowongan/detail/(:num)', 'LowonganController::detail/$1'); 
@@ -118,6 +127,10 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('data/onboard/(:num)', 'DataController::onboard/$1'); // Rekrut jadi karyawan
     $routes->get('data/status/(:num)/(:segment)', 'DataController::updateStatus/$1/$2');
     $routes->get('data/arsipkan/(:num)', 'DataController::arsipkan/$1');
+    $routes->get('data/pulihkan-blacklist/(:num)', 'DataController::pulihkanBlacklist/$1');
+    $routes->get('data/offering/(:num)', 'DataController::offering/$1');
+    $routes->get('data/confirm/(:num)/(:segment)', 'DataController::confirmOffer/$1/$2');
+    
 
     // Ranking Global
     $routes->get('spk', 'SpkController::index');

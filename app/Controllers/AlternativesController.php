@@ -70,7 +70,7 @@ class AlternativesController extends BaseController
 
     public function penilaian($id)
     {
-        // 1. Ambil Data Karyawan
+        // 1. Ambil Data Karyawan & Divisi
         $karyawan = $this->alternativesModel
             ->select('alternatives.*, pekerjaan.divisi, pekerjaan.posisi, pekerjaan.id as pekerjaan_id')
             ->join('pekerjaan', 'pekerjaan.id = alternatives.pekerjaan_id', 'left')
@@ -78,10 +78,15 @@ class AlternativesController extends BaseController
 
         if (!$karyawan) return redirect()->to('admin/alternatives');
 
-        // 2. Ambil Kriteria Berdasarkan Posisi Pekerjaan Karyawan
-        $criteria = $this->criteriaModel
-            ->where('pekerjaan_id', $karyawan['pekerjaan_id'])
-            ->findAll();
+        // 2. [PERBAIKAN] Ambil Kriteria Berdasarkan DIVISI
+        // Cari ID Pekerjaan 'Perwakilan' (ID pertama di divisi tersebut)
+        $divisiName = $karyawan['divisi'];
+        $repJob     = $this->pekerjaanModel->where('divisi', $divisiName)->orderBy('id', 'ASC')->first();
+
+        $criteria = [];
+        if ($repJob) {
+            $criteria = $this->criteriaModel->where('pekerjaan_id', $repJob['id'])->findAll();
+        }
 
         // 3. Ambil Subkriteria
         $subcriteria = [];
@@ -94,7 +99,7 @@ class AlternativesController extends BaseController
             }
         }
 
-        // 4. Ambil Nilai Sebelumnya (Jika mau edit)
+        // 4. Ambil Nilai Sebelumnya
         $savedValues = json_decode($karyawan['detail_nilai'] ?? '[]', true);
 
         return view('admin/alternatives/penilaian', [
@@ -105,14 +110,14 @@ class AlternativesController extends BaseController
             'savedValues' => $savedValues
         ]);
     }
-
+    
+    // Jangan lupa update juga method 'hitung' dengan logika pengambilan kriteria yang SAMA
     public function hitung($id)
     {
         // 1. Tangkap Input
         $input_criteria_ids = $this->request->getPost('criteria_id');
         $input_values       = $this->request->getPost('value');
 
-        // Mapping Input
         $submittedValues = [];
         if (!empty($input_criteria_ids)) {
             foreach ($input_criteria_ids as $k => $cid) {
@@ -120,26 +125,35 @@ class AlternativesController extends BaseController
             }
         }
 
-        // 2. Ambil Karyawan & Kriteria
-        $karyawan = $this->alternativesModel->find($id);
-        $allCriteria = $this->criteriaModel->where('pekerjaan_id', $karyawan['pekerjaan_id'])->findAll();
+        // 2. Ambil Karyawan
+        $karyawan = $this->alternativesModel
+            ->join('pekerjaan', 'pekerjaan.id = alternatives.pekerjaan_id')
+            ->find($id);
 
-        if (empty($allCriteria)) {
-            return redirect()->back()->with('error', 'Kriteria penilaian belum diatur untuk posisi ini.');
+        // 3. [PERBAIKAN] Ambil Kriteria Divisi
+        $divisiName = $karyawan['divisi'];
+        $repJob     = $this->pekerjaanModel->where('divisi', $divisiName)->orderBy('id', 'ASC')->first();
+        
+        $allCriteria = [];
+        if($repJob) {
+            $allCriteria = $this->criteriaModel->where('pekerjaan_id', $repJob['id'])->findAll();
         }
 
-        // 3. Hitung Total Bobot
+        if (empty($allCriteria)) {
+            return redirect()->back()->with('error', 'Kriteria penilaian belum diatur untuk divisi ini.');
+        }
+
+        // 4. Hitung Total Bobot
         $totalBobot = 0;
         foreach ($allCriteria as $c) {
             $totalBobot += $c['bobot'];
         }
 
-        // 4. Hitung Vector S
+        // 5. Hitung Vector S
         $vectorS = 1;
         foreach ($allCriteria as $c) {
             $nilai = isset($submittedValues[$c['id']]) ? (float)$submittedValues[$c['id']] : 1;
             
-            // Normalisasi Pangkat
             $bobotNormal = ($totalBobot > 0) ? ($c['bobot'] / $totalBobot) : 0;
             $pangkat = (strtolower($c['tipe']) == 'cost') ? -$bobotNormal : $bobotNormal;
 
@@ -147,13 +161,13 @@ class AlternativesController extends BaseController
             $vectorS *= pow($nilai, $pangkat);
         }
 
-        // 5. Simpan Hasil ke Tabel Alternatives
+        // 6. Simpan Hasil
         $this->alternativesModel->update($id, [
             'skor_akhir'   => $vectorS,
-            'detail_nilai' => json_encode($submittedValues) // Simpan inputan agar form tidak reset
+            'detail_nilai' => json_encode($submittedValues)
         ]);
 
-        return redirect()->to(base_url('admin/alternatives'))->with('success', 'Evaluasi berhasil! Skor Kinerja: ' . number_format($vectorS, 4));
+        return redirect()->to(base_url('admin/alternatives'))->with('success', 'Evaluasi berhasil! Skor: ' . number_format($vectorS, 4));
     }
     
     public function delete($id)

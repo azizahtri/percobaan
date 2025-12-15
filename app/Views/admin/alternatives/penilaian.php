@@ -37,9 +37,11 @@
             <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-bottom">
                 <h6 class="mb-0 fw-bold">Formulir Penilaian</h6>
                 
-                <button type="button" class="btn btn-sm btn-light text-primary border fw-bold" id="btnAddRow">
-                    <i class="mdi mdi-plus-circle me-1"></i> Tambah Kriteria
-                </button>
+                <?php if (!empty($criteria)): ?>
+                    <button type="button" class="btn btn-sm btn-light text-primary border fw-bold" id="btnAddRow">
+                        <i class="mdi mdi-plus-circle me-1"></i> Tambah Kriteria
+                    </button>
+                <?php endif; ?>
             </div>
             
             <div class="card-body p-0">
@@ -83,109 +85,109 @@
 </div>
 
 <?php if (!empty($criteria)): ?>
-<script>
-    // Siapkan Data dari PHP ke JS
-    const masterCriteria = <?= json_encode($criteria) ?>;
-    const masterSubcriteria = <?= json_encode($subcriteria) ?>;
-    const savedValues = <?= json_encode($savedValues ?? []) ?>; // Data nilai lama (JSON)
+    <script>
+        // Siapkan Data dari PHP ke JS
+        const masterCriteria = <?= json_encode($criteria) ?>;
+        const masterSubcriteria = <?= json_encode($subcriteria) ?>;
+        const savedValues = <?= json_encode($savedValues ?? []) ?>; // Data nilai lama (JSON)
 
-    const tbody = document.getElementById('criteriaBody');
-    const btnAdd = document.getElementById('btnAddRow');
+        const tbody = document.getElementById('criteriaBody');
+        const btnAdd = document.getElementById('btnAddRow');
 
-    // Fungsi Tambah Baris
-    function addRow(selectedCriteriaId = null, selectedValue = null) {
-        const tr = document.createElement('tr');
-        
-        // Buat Opsi Dropdown Kriteria
-        let criteriaOptions = '<option value="">-- Pilih Kriteria --</option>';
-        masterCriteria.forEach(c => {
-            const isSelected = (c.id == selectedCriteriaId) ? 'selected' : '';
-            criteriaOptions += `<option value="${c.id}" data-bobot="${c.bobot}" ${isSelected}>${c.nama} (${c.tipe})</option>`;
-        });
-
-        tr.innerHTML = `
-            <td class="ps-4">
-                <select name="criteria_id[]" class="form-select form-select-sm select-criteria border-secondary-subtle" required>
-                    ${criteriaOptions}
-                </select>
-            </td>
-            <td class="text-center">
-                <input type="text" class="form-control form-control-sm text-center input-bobot bg-light fw-bold" readonly value="-" style="border:none;">
-            </td>
-            <td>
-                <select name="value[]" class="form-select form-select-sm select-sub" required>
-                    <option value="">(Pilih Kriteria Dahulu)</option>
-                </select>
-            </td>
-            <td class="text-center pe-3">
-                <button type="button" class="btn btn-danger btn-sm btn-remove" title="Hapus Baris">
-                    <i class="mdi mdi-delete"></i>
-                </button>
-            </td>
-        `;
-
-        tbody.appendChild(tr);
-
-        // Definisi Elemen
-        const selectCriteria = tr.querySelector('.select-criteria');
-        const inputBobot     = tr.querySelector('.input-bobot');
-        const selectSub      = tr.querySelector('.select-sub');
-        const btnRemove      = tr.querySelector('.btn-remove');
-
-        // Logic saat Kriteria Berubah
-        function updateSubcriteria() {
-            const criteriaId = selectCriteria.value;
-            const selectedOption = selectCriteria.options[selectCriteria.selectedIndex];
-            const bobot = selectedOption.getAttribute('data-bobot');
+        // Fungsi Tambah Baris
+        function addRow(selectedCriteriaId = null, selectedValue = null) {
+            const tr = document.createElement('tr');
             
-            inputBobot.value = bobot ? bobot : '-';
-            selectSub.innerHTML = '<option value="">-- Pilih Nilai --</option>';
-            
-            if(criteriaId && masterSubcriteria[criteriaId]) {
-                masterSubcriteria[criteriaId].forEach(sub => {
-                    // Cek jika ini mode edit (nilai lama dipilih otomatis)
-                    const isSubSelected = (selectedValue && sub.bobot_sub == selectedValue) ? 'selected' : '';
-                    selectSub.innerHTML += `<option value="${sub.bobot_sub}" ${isSubSelected}>${sub.keterangan} (Nilai: ${sub.bobot_sub})</option>`;
-                });
-            } else {
-                 selectSub.innerHTML = '<option value="">Tidak ada subkriteria</option>';
+            // Buat Opsi Dropdown Kriteria
+            let criteriaOptions = '<option value="">-- Pilih Kriteria --</option>';
+            masterCriteria.forEach(c => {
+                const isSelected = (c.id == selectedCriteriaId) ? 'selected' : '';
+                criteriaOptions += `<option value="${c.id}" data-bobot="${c.bobot}" ${isSelected}>${c.nama} (${c.tipe})</option>`;
+            });
+
+            tr.innerHTML = `
+                <td class="ps-4">
+                    <select name="criteria_id[]" class="form-select form-select-sm select-criteria border-secondary-subtle" required>
+                        ${criteriaOptions}
+                    </select>
+                </td>
+                <td class="text-center">
+                    <input type="text" class="form-control form-control-sm text-center input-bobot bg-light fw-bold" readonly value="-" style="border:none;">
+                </td>
+                <td>
+                    <select name="value[]" class="form-select form-select-sm select-sub" required>
+                        <option value="">(Pilih Kriteria Dahulu)</option>
+                    </select>
+                </td>
+                <td class="text-center pe-3">
+                    <button type="button" class="btn btn-danger btn-sm btn-remove" title="Hapus Baris">
+                        <i class="mdi mdi-delete"></i>
+                    </button>
+                </td>
+            `;
+
+            tbody.appendChild(tr);
+
+            // Definisi Elemen
+            const selectCriteria = tr.querySelector('.select-criteria');
+            const inputBobot     = tr.querySelector('.input-bobot');
+            const selectSub      = tr.querySelector('.select-sub');
+            const btnRemove      = tr.querySelector('.btn-remove');
+
+            // Logic saat Kriteria Berubah
+            function updateSubcriteria() {
+                const criteriaId = selectCriteria.value;
+                const selectedOption = selectCriteria.options[selectCriteria.selectedIndex];
+                const bobot = selectedOption.getAttribute('data-bobot');
+                
+                inputBobot.value = bobot ? bobot : '-';
+                selectSub.innerHTML = '<option value="">-- Pilih Nilai --</option>';
+                
+                if(criteriaId && masterSubcriteria[criteriaId]) {
+                    masterSubcriteria[criteriaId].forEach(sub => {
+                        // Cek jika ini mode edit (nilai lama dipilih otomatis)
+                        const isSubSelected = (selectedValue && sub.bobot_sub == selectedValue) ? 'selected' : '';
+                        selectSub.innerHTML += `<option value="${sub.bobot_sub}" ${isSubSelected}>${sub.keterangan} (Nilai: ${sub.bobot_sub})</option>`;
+                    });
+                } else {
+                    selectSub.innerHTML = '<option value="">Tidak ada subkriteria</option>';
+                }
+            }
+
+            // Event Listener
+            selectCriteria.addEventListener('change', function() {
+                selectedValue = null; // Reset value jika user ganti kriteria manual
+                updateSubcriteria();
+            });
+
+            btnRemove.addEventListener('click', function() { tr.remove(); });
+
+            // Trigger update pertama kali (jika mode edit/load data)
+            if(selectedCriteriaId) {
+                updateSubcriteria();
             }
         }
 
-        // Event Listener
-        selectCriteria.addEventListener('change', function() {
-            selectedValue = null; // Reset value jika user ganti kriteria manual
-            updateSubcriteria();
-        });
-
-        btnRemove.addEventListener('click', function() { tr.remove(); });
-
-        // Trigger update pertama kali (jika mode edit/load data)
-        if(selectedCriteriaId) {
-            updateSubcriteria();
+        // --- INISIALISASI ---
+        // 1. Jika ada data tersimpan (Mode Edit), load barisnya
+        if (Object.keys(savedValues).length > 0) {
+            for (const [cID, val] of Object.entries(savedValues)) {
+                addRow(cID, val);
+            }
+        } 
+        // 2. Jika data kosong (Baru), tampilkan semua kriteria master otomatis (biar user ga capek klik tambah)
+        else {
+            masterCriteria.forEach(c => {
+                addRow(c.id, null);
+            });
         }
-    }
 
-    // --- INISIALISASI ---
-    // 1. Jika ada data tersimpan (Mode Edit), load barisnya
-    if (Object.keys(savedValues).length > 0) {
-        for (const [cID, val] of Object.entries(savedValues)) {
-            addRow(cID, val);
+        // Event Tombol Tambah Manual
+        if(btnAdd) { 
+            btnAdd.addEventListener('click', () => addRow()); 
         }
-    } 
-    // 2. Jika data kosong (Baru), tampilkan semua kriteria master otomatis (biar user ga capek klik tambah)
-    else {
-        masterCriteria.forEach(c => {
-            addRow(c.id, null);
-        });
-    }
 
-    // Event Tombol Tambah Manual
-    if(btnAdd) { 
-        btnAdd.addEventListener('click', () => addRow()); 
-    }
-
-</script>
+    </script>
 <?php endif; ?>
 
 <?= $this->endSection() ?>

@@ -219,72 +219,72 @@
 
       <div class="container">
 
-        <?php if (session()->getFlashdata('success')): ?>
-          <div class="alert alert-success alert-dismissible fade show shadow-sm mb-5" role="alert">
-              <div class="d-flex align-items-center">
-                  <i class="bi bi-check-circle-fill fs-4 me-2"></i> 
-                  <div><strong>Berhasil!</strong> <?= session()->getFlashdata('success') ?></div>
-              </div>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        <?php endif; ?>
-
         <?php if(empty($lowongan)): ?>
-            <div class="text-center py-5" data-aos="fade-up">
-                <i class="bi bi-briefcase-fill text-muted" style="font-size: 4rem;"></i>
-                <h3 class="mt-3 text-muted">Belum ada lowongan dibuka saat ini.</h3>
-            </div>
-        <?php else: ?>
+            <?php else: ?>
 
             <div id="lowongan-container" class="row gy-5">
-              <?php foreach ($lowongan as $i => $l): ?>
-                <?php 
-                  $jenis = strtolower($l['jenis'] ?? 'full time');
-                  $badgeClass = match ($jenis) {
-                      'magang' => 'bg-warning text-dark',
-                      'part time' => 'bg-info text-dark',
-                      default => 'bg-success text-white',
-                  };
-                ?>
+              <?php 
+                $countOpen = 0;
+                foreach ($lowongan as $i => $l): 
+                    // FILTER: Hanya tampilkan yang OPEN dan Belum Lewat Tanggal Selesai
+                    $today = date('Y-m-d');
+                    if ($l['status'] !== 'open' || $l['tanggal_selesai'] < $today) {
+                        continue; // Skip loop ini (jangan tampilkan)
+                    }
+                    $countOpen++;
+
+                    $jenis = strtolower($l['jenis'] ?? 'full time');
+                    $badgeClass = match ($jenis) {
+                        'magang' => 'bg-warning text-dark',
+                        'part time' => 'bg-info text-dark',
+                        default => 'bg-success text-white',
+                    };
+              ?>
                 
-                <div class="col-xl-4 col-md-6 lowongan-item <?= $i >= 6 ? 'd-none' : '' ?>" data-aos="fade-up" data-aos-delay="<?= $i * 100 ?>">
+                <div class="col-xl-4 col-md-6 lowongan-item" data-aos="fade-up">
                   <div class="post-item position-relative h-100 shadow-sm rounded-3 overflow-hidden border">
                     <div class="post-content d-flex flex-column p-4 h-100">
+                      
                       <div class="d-flex justify-content-between align-items-start mb-3">
                           <span class="badge <?= $badgeClass ?> rounded-pill text-uppercase" style="font-size: 0.75rem;">
                             <?= esc($jenis) ?>
                           </span>
-                          <small class="text-muted"><i class="bi bi-clock me-1"></i> <?= date('d M Y', strtotime($l['tanggal_posting'])) ?></small>
+                          <small class="text-danger fw-bold" style="font-size: 0.8rem;">
+                            <i class="bi bi-calendar-x me-1"></i> Sampai <?= date('d M Y', strtotime($l['tanggal_selesai'])) ?>
+                          </small>
                       </div>
+
                       <h3 class="post-title mb-3">
                           <a href="<?= site_url('lowongan/detail/' . $l['id']) ?>" class="text-decoration-none text-dark stretched-link">
                               <?= esc($l['judul_lowongan']) ?>
                           </a>
                       </h3>
+
                       <p class="text-muted flex-grow-1" style="font-size: 0.95rem; line-height: 1.6;">
                         <?= character_limiter(strip_tags($l['deskripsi']), 100) ?>
                       </p>
+
                       <hr class="my-4 text-muted opacity-25">
+                      
                       <div class="d-flex align-items-center justify-content-between">
-                        <span class="text-primary fw-bold" style="font-size: 0.9rem;">Baca Selengkapnya</span>
+                        <span class="text-primary fw-bold" style="font-size: 0.9rem;">Lihat Detail</span>
                         <i class="bi bi-arrow-right text-primary"></i>
                       </div>
+
                     </div>
                   </div>
                 </div>
               <?php endforeach; ?>
             </div>
 
-            <?php if(count($lowongan) > 6): ?>
-            <div class="row mt-5" data-aos="fade-up">
-                <div class="col-12 text-center">
-                  <button id="prevBtn" class="btn btn-outline-primary px-4 py-2 rounded-pill me-2" disabled>Sebelumnya</button>
-                  <button id="nextBtn" class="btn btn-primary px-4 py-2 rounded-pill shadow-sm">Berikutnya</button>
+            <?php if($countOpen == 0): ?>
+                <div class="text-center py-5">
+                    <i class="bi bi-emoji-frown text-muted" style="font-size: 3rem;"></i>
+                    <h4 class="mt-3 text-muted">Mohon maaf, saat ini belum ada posisi yang dibuka.</h4>
                 </div>
-            </div>
             <?php endif; ?>
 
-        <?php endif; ?>
+            <?php endif; ?>
 
       </div>
     </section>
@@ -343,7 +343,7 @@
 
   <script src="<?= base_url('FlexStart/assets/js/main.js') ?>"></script>
 
-  <!-- Logika untuk mengubah warna navbar saat di-scroll -->
+  <!-- JS untuk mengubah warna navbar saat di-scroll -->
   <script>
       
       const selectHeader = document.querySelector('#header');
@@ -401,5 +401,27 @@
     //     document.getElementById('devAlert').style.display = 'none';
     // }
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+      <?php if (session()->getFlashdata('success')) : ?>
+          Swal.fire({
+            icon: 'success',
+            title: 'Lamaran Terkirim!',
+            text: '<?= session()->getFlashdata('success') ?>',
+            confirmButtonColor: '#4154f1',
+            confirmButtonText: 'OK'
+          });
+      <?php endif; ?>
+
+      <?php if (session()->getFlashdata('error')) : ?>
+          Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: '<?= session()->getFlashdata('error') ?>',
+            confirmButtonColor: '#d33'
+          });
+      <?php endif; ?>
+  </script>
 </body>
 </html>

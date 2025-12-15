@@ -7,10 +7,18 @@
         <h4 class="card-title">Buat Template Formulir</h4>
         
         <form action="<?= base_url('admin/formulir/store') ?>" method="post">
-            <div class="mb-4">
+            <div class="mb-3">
                 <label class="fw-bold">Nama Template</label>
                 <input type="text" name="nama_template" class="form-control" placeholder="Contoh: Form IT Staff, Form Magang" required>
             </div>
+
+            <div class="mb-4">
+                <label class="fw-bold text-primary"><i class="mdi mdi-google-forms me-1"></i>Link Google Form (Opsional)</label>
+                <input type="url" name="link_google_form" class="form-control bg-light" placeholder="https://forms.google.com/...">
+                <small class="text-muted">Isi jika ingin pelamar diarahkan ke Google Form. Kosongkan jika hanya menggunakan pertanyaan di bawah.</small>
+            </div>
+
+            <hr>
 
             <h6 class="fw-bold mb-3">Daftar Pertanyaan</h6>
             <div id="formContainer"></div>

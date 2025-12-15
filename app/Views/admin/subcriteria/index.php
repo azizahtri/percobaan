@@ -48,25 +48,23 @@
                   </td>
                   <td class="text-center">
                     <div class="d-flex justify-content-center gap-2">
-                    <a href="<?= base_url('admin/subcriteria/edit/' . $sub['id']) ?>" 
-                      class="btn btn-action btn-action-edit">
-                      <i class="mdi mdi-pencil"></i>
-                    </a>
-                    <a href="<?= base_url('admin/subcriteria/delete/' . $sub['id']) ?>" 
-                      class="btn btn-action btn-action-delete" onclick="return confirm('Yakin ingin menghapus subkriteria ini?')">
-                      <i class="mdi mdi-delete"></i>
-                    </a>
+                        <a href="<?= base_url('admin/subcriteria/edit/' . $sub['id']) ?>" 
+                           class="btn btn-action btn-action-edit">
+                           <i class="mdi mdi-pencil"></i>
+                        </a>
+                        <button type="button"
+                          class="btn btn-action btn-action-delete"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalHapus<?= $sub['id'] ?>"
+                          title="Hapus Subkriteria">
+                          <i class="mdi mdi-delete"></i>
+                        </button>
+                    </div> 
                   </td>
                 </tr>
               <?php endforeach; ?>
-            <?php else: ?>
-              <tr>
-                <td colspan="5" class="text-center text-muted py-3">
-                  Belum ada subkriteria untuk kriteria ini.
-                </td>
-              </tr>
-            <?php endif; ?>
-          </tbody>
+            <?php endif; ?> 
+            </tbody>
         </table>
       </div>
 
@@ -77,4 +75,42 @@
   </div>
 </div>
 
+<!-- Modal Konfirmasi Hapus Subkriteria -->
+<?php foreach ($subcriteria as $sub): ?>
+<div class="modal fade" id="modalHapus<?= $sub['id'] ?>" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-danger text-white">
+                <h6 class="modal-title fw-bold">
+                    <i class="mdi mdi-alert-circle-outline me-2"></i> Hapus Subkriteria?
+                </h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <div class="mb-4 text-danger opacity-25">
+                    <i class="mdi mdi-trash-can-outline" style="font-size: 60px;"></i>
+                </div>
+                <p class="mb-2 text-muted">Apakah Anda yakin ingin menghapus subkriteria:</p>
+                <h5 class="fw-bold text-dark mb-4 px-3 mx-auto"
+                    style="max-width: 100%; word-wrap: break-word; overflow-wrap: break-word;">
+                    "<?= esc($sub['keterangan']) ?>"
+                </h5>
+                <div class="alert alert-warning small text-start">
+                    <i class="mdi mdi-alert me-2"></i>
+                    <strong>Perhatian:</strong> Data ini akan dihapus secara permanen dan tidak dapat dikembalikan.
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center border-0 pb-4">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">
+                    Batal
+                </button>
+                <a href="<?= base_url('admin/subcriteria/delete/' . $sub['id']) ?>"
+                    class="btn btn-danger rounded-pill px-4 shadow-sm">
+                    Ya, Hapus
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endforeach; ?>
 <?= $this->endSection() ?>

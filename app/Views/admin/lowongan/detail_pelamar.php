@@ -2,9 +2,15 @@
 <?= $this->section('content') ?>
 
 <?php 
-    $isHistory = (isset($data['is_history']) && $data['is_history'] == 1);
-    $jawaban   = json_decode($data['form_data'] ?? '[]', true);
-    $hasJawaban = !empty($jawaban);
+    $isHistory  = (isset($data['is_history']) && $data['is_history'] == 1);
+    
+    // DATA 1: Jawaban Pelamar (Murni dari user)
+    $jawabanPelamar = json_decode($data['form_data'] ?? '[]', true);
+    $hasJawaban     = !empty($jawabanPelamar);
+
+    // DATA 2: Rincian Penilaian Admin (Hasil hitung SPK)
+    $riwayatSPK     = json_decode($data['spk_log'] ?? '[]', true);
+    $hasRiwayat     = !empty($riwayatSPK);
 ?>
 
 <div class="container-fluid py-4">
@@ -16,9 +22,8 @@
             <?= $isHistory ? 'Detail Hasil Penilaian' : 'Proses Penilaian Pelamar' ?>
         </h4>
         <div class="text-muted small">
-            Lowongan: <span class="fw-bold text-dark"><?= esc($data['judul_lowongan']) ?></span> 
-            <span class="mx-2">|</span> 
-            Posisi: <span class="badge bg-info text-dark border border-info-subtle"><?= esc($data['nama_pekerjaan']) ?></span>
+            Lowongan: <span class="fw-bold text-dark"><?= esc($data['judul_lowongan']) ?></span> | 
+            Posisi: <span class="badge bg-info text-dark"><?= esc($data['nama_pekerjaan']) ?></span>
         </div>
     </div>
     <a href="<?= base_url('admin/lowongan/detail/' . $data['id_lowongan']) ?>" class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold">
@@ -27,12 +32,9 @@
   </div>
 
   <?php if($isHistory): ?>
-    <div class="alert alert-success border-0 shadow-sm mb-4 d-flex align-items-center bg-success-subtle text-success-emphasis">
+    <div class="alert alert-success border-0 shadow-sm mb-4 d-flex align-items-center bg-success-subtle">
         <i class="mdi mdi-check-circle fs-4 me-3"></i>
-        <div>
-            <strong>Proses Selesai.</strong> Data ini sudah masuk Arsip History.
-            <a href="<?= base_url('admin/data/detail/' . $data['id']) ?>" class="fw-bold text-success text-decoration-underline ms-1">Lihat di Menu Data</a>
-        </div>
+        <div><strong>Proses Selesai.</strong> Data ini sudah masuk Arsip History.</div>
     </div>
   <?php endif; ?>
 
@@ -40,26 +42,61 @@
     <div class="col-lg-4">
       <div class="card shadow-sm border-0 h-100">
         <div class="card-header bg-white border-bottom pt-4 pb-3 text-center">
-            <div class="avatar-lg bg-primary-subtle text-primary rounded-circle mx-auto d-flex align-items-center justify-content-center fw-bold fs-3 mb-3" style="width: 70px; height: 70px;">
-                <?= strtoupper(substr($data['nama'], 0, 1)) ?>
-            </div>
-            <h5 class="card-title fw-bold mb-1 text-dark"><?= esc($data['nama']) ?></h5>
+            <?php if (!empty($data['foto_profil'])): ?>
+                <img src="<?= base_url('uploads/berkas/' . $data['foto_profil']) ?>" class="avatar-lg rounded-circle mx-auto mb-3 shadow-sm border p-1" style="width: 100px; height: 100px; object-fit: cover;">
+            <?php else: ?>
+                <div class="avatar-lg bg-primary-subtle text-primary rounded-circle mx-auto d-flex align-items-center justify-content-center fw-bold fs-3 mb-3" style="width: 80px; height: 80px;">
+                    <?= strtoupper(substr($data['nama_lengkap'], 0, 1)) ?>
+                </div>
+            <?php endif; ?>
+            <h5 class="card-title fw-bold mb-1 text-dark"><?= esc($data['nama_lengkap']) ?></h5>
+            <div class="text-muted small mb-1"><i class="mdi mdi-card-account-details-outline me-1"></i><?= esc($data['no_ktp']) ?></div>
             <small class="text-muted"><i class="mdi mdi-email-outline me-1"></i><?= esc($data['email']) ?></small>
+            
+            <?php if($data['is_blacklisted'] == 1): ?>
+                    <div class="alert alert-danger border-0 shadow-sm p-2 mb-3 text-center">
+                        <i class="mdi mdi-account-cancel fs-4 d-block mb-1"></i>
+                        <strong>PELAMAR DIBLACKLIST</strong>
+                        <div class="small mt-1 fst-italic">"<?= esc($data['alasan_blacklist']) ?>"</div>
+                    </div>
+                <?php endif; ?>
+
+                <div class="d-grid gap-2">
+                    <?php if($data['is_blacklisted'] == 0): ?>
+                        <hr class="my-2">
+                        <button type="button" class="btn btn-outline-danger btn-sm fw-bold" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#modalBlacklist">
+                            <i class="mdi mdi-account-cancel me-1"></i> Blacklist Pelamar
+                        </button>
+                    <?php endif; ?>
+                </div>
         </div>
+        
         <div class="card-body">
+            
             <ul class="list-group list-group-flush small mb-4">
                 <li class="list-group-item px-0 d-flex justify-content-between py-2 border-0">
                     <span class="text-muted">No. HP</span>
-                    <span class="fw-bold text-dark"><?= esc($data['no_hp']) ?></span>
+                    <span class="fw-bold text-dark">
+                        <a href="https://wa.me/<?= preg_replace('/^0/', '62', $data['no_hp']) ?>" target="_blank" class="text-decoration-none text-dark">
+                            <?= esc($data['no_hp']) ?> <i class="mdi mdi-whatsapp text-success"></i>
+                        </a>
+                    </span>
                 </li>
             </ul>
             <div class="d-grid gap-2">
-                <?php if (filter_var($data['link'], FILTER_VALIDATE_URL)): ?>
-                    <a href="<?= $data['link'] ?>" target="_blank" class="btn btn-outline-primary btn-sm fw-bold">Lihat CV</a>
+                <?php if (!empty($data['file_cv'])): ?>
+                    <a href="<?= base_url('uploads/berkas/' . $data['file_cv']) ?>" target="_blank" class="btn btn-outline-primary btn-sm fw-bold">
+                        <i class="mdi mdi-file-document-outline me-1"></i> Lihat File CV
+                    </a>
+                <?php else: ?>
+                    <button class="btn btn-outline-secondary btn-sm" disabled>CV Tidak Ada</button>
                 <?php endif; ?>
+
                 <?php if ($hasJawaban): ?>
                     <button type="button" class="btn btn-primary btn-sm text-white fw-bold shadow-sm" data-bs-toggle="modal" data-bs-target="#modalJawaban">
-                        Lihat Jawaban
+                        <i class="mdi mdi-chat-question-outline me-1"></i> Lihat Jawaban Kualifikasi
                     </button>
                 <?php endif; ?>
             </div>
@@ -69,7 +106,7 @@
 
     <div class="col-lg-8">
       
-      <?php if($data['spk_score'] != null): ?>
+      <?php if($data['spk_score'] != null && $data['spk_score'] > 0): ?>
         <div class="card shadow-sm border-0 mb-4 bg-primary text-white overflow-hidden position-relative">
             <div class="card-body p-4 position-relative" style="z-index: 2;">
                 <div class="row align-items-center">
@@ -85,11 +122,27 @@
                         <?php else: ?>
                             <div class="bg-white text-danger fs-5 px-4 py-2 rounded-pill fw-bold shadow-sm d-inline-block">TIDAK MEMENUHI</div>
                         <?php endif; ?>
-                        <p class="text-white-50 mt-3 small mb-0">*Keputusan akhir ada di menu Data Pelamar.</p>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <?php if ($hasRiwayat): ?>
+        <div class="card shadow-sm border-0 mb-4 bg-light">
+            <div class="card-body py-3 px-4">
+                <h6 class="fw-bold text-dark mb-2 small text-uppercase"><i class="mdi mdi-history me-1"></i>Rincian Penilaian Terakhir</h6>
+                <div class="row">
+                    <?php foreach($riwayatSPK as $kriteria => $nilai): ?>
+                        <div class="col-md-6 mb-1 small">
+                            <span class="text-muted"><?= esc($kriteria) ?>:</span> 
+                            <span class="fw-bold text-dark"><?= esc($nilai) ?></span>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+
       <?php endif; ?>
 
       <div class="card shadow-sm border-0">
@@ -137,16 +190,17 @@
   </div>
 </div>
 
+<!-- modal jawaban -->
 <?php if ($hasJawaban): ?>
 <div class="modal fade" id="modalJawaban" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title fw-bold">Jawaban Kualifikasi</h5>
+        <h5 class="modal-title fw-bold">Jawaban Kualifikasi Pelamar</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body bg-light p-4">
-        <?php foreach($jawaban as $tanya => $jawab): ?>
+        <?php foreach($jawabanPelamar as $tanya => $jawab): ?>
             <div class="p-3 bg-white rounded border shadow-sm mb-3">
                 <small class="d-block text-muted fw-bold mb-1"><?= esc($tanya) ?></small>
                 <div class="text-dark fw-bold"><?= is_array($jawab) ? implode(', ', $jawab) : esc($jawab) ?></div>
@@ -158,6 +212,7 @@
 </div>
 <?php endif; ?>
 
+<!-- js tabel kriteria -->
 <?php if (!empty($criteria)): ?>
 <script>
     const masterCriteria = <?= json_encode($criteria) ?>;
@@ -168,7 +223,6 @@
 
     function addRow() {
         const tr = document.createElement('tr');
-        
         let criteriaOptions = '<option value="">-- Pilih Kriteria --</option>';
         masterCriteria.forEach(c => {
             criteriaOptions += `<option value="${c.id}" data-bobot="${c.bobot}">${c.nama} (${c.tipe})</option>`;
@@ -204,7 +258,6 @@
             const bobot = selectedOption.getAttribute('data-bobot');
             inputBobot.value = bobot ? bobot : '-';
             selectSub.innerHTML = '<option value="">-- Pilih Nilai --</option>';
-            
             if(criteriaId && masterSubcriteria[criteriaId]) {
                 masterSubcriteria[criteriaId].forEach(sub => {
                     selectSub.innerHTML += `<option value="${sub.bobot_sub}">${sub.keterangan} (Nilai: ${sub.bobot_sub})</option>`;
@@ -218,5 +271,61 @@
     if(btnAdd) { btnAdd.addEventListener('click', addRow); }
 </script>
 <?php endif; ?>
+
+<!-- modal blacklist -->
+<div class="modal fade" id="modalBlacklist" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="<?= base_url('admin/lowongan/blacklist') ?>" method="post">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title fw-bold">
+                        <i class="mdi mdi-account-cancel me-2"></i>Blacklist Pelamar
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                
+                <div class="modal-body">
+                    <input type="hidden" name="id_pelamar" value="<?= $data['pelamar_id'] ?>">
+                    
+                    <div class="alert alert-warning d-flex align-items-center small p-2 mb-3">
+                        <i class="mdi mdi-alert fs-4 me-2"></i>
+                        <div>Yakin ingin memblokir: <strong><?= esc($data['nama_lengkap']) ?></strong>?</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Jenis Sanksi <span class="text-danger">*</span></label>
+                        <div class="d-flex gap-3">
+                            <div class="form-check border p-2 px-3 rounded w-100 bg-light">
+                                <input class="form-check-input" type="radio" name="tipe_blacklist" id="typeTempDetail" value="temporary" checked>
+                                <label class="form-check-label w-100 fw-bold text-warning" for="typeTempDetail" style="cursor:pointer;">
+                                    <i class="mdi mdi-timer-sand"></i> Sementara
+                                    <div class="text-muted fw-normal small" style="font-size: 0.75rem;">Masih bisa dipulihkan.</div>
+                                </label>
+                            </div>
+                            
+                            <div class="form-check border p-2 px-3 rounded w-100 bg-danger-subtle border-danger">
+                                <input class="form-check-input" type="radio" name="tipe_blacklist" id="typePermDetail" value="permanent">
+                                <label class="form-check-label w-100 fw-bold text-danger" for="typePermDetail" style="cursor:pointer;">
+                                    <i class="mdi mdi-gavel"></i> Permanen
+                                    <div class="text-dark fw-normal small" style="font-size: 0.75rem;">FATAL. Tidak bisa dipulihkan.</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Alasan <span class="text-danger">*</span></label>
+                        <textarea name="alasan" class="form-control" rows="3" required placeholder="Jelaskan alasan pelanggaran..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger fw-bold">Ya, Blacklist</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <?= $this->endSection() ?>

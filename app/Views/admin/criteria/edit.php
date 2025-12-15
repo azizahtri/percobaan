@@ -5,11 +5,12 @@
   <div class="card-body">
     <h4 class="card-title mb-4 fw-bold">Edit Kriteria</h4>
 
-    <?php
+    <form action="<?= base_url('admin/criteria/update/' . $criteria['id']) ?>" method="post">
+      <?= csrf_field() ?> <?php
           $divisiLabel = '-';
           foreach($pekerjaan as $p) {
               if($p['id'] == $criteria['pekerjaan_id']) {
-                  $divisiLabel = esc($p['divisi']); // Cukup tampilkan Divisi
+                  $divisiLabel = esc($p['divisi']); 
                   break;
               }
           }
@@ -55,12 +56,12 @@
       </div>
 
       <div class="text-end mt-4">
-        <a href="<?= base_url('admin/criteria') ?>" class="btn btn-light me-2">Kembali</a>
+        <a href="<?= base_url('admin/criteria?field=' . urlencode($divisiLabel)) ?>" class="btn btn-light me-2">Kembali</a>
+        
         <button type="submit" class="btn btn-primary px-4">Update Data</button>
       </div>
 
-    </form>
-
+    </form> 
   </div>
 </div>
 

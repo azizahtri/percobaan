@@ -69,22 +69,43 @@
         <input type="hidden" name="deskripsi" id="deskripsi_input">
       </div>
 
-      <div class="mb-3">
-        <label class="form-label fw-bold">Template Formulir Lamaran</label>
-        <select name="formulir_id" class="form-select">
-            <option value="">-- Pilih Template --</option>
-            <?php foreach($formulir as $f): ?>
-                <option value="<?= $f['id'] ?>">
-                    <?= esc($f['nama_template']) ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <div class="form-text">Pilih pertanyaan tambahan yang akan muncul untuk pelamar.</div>
+      <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Tanggal Mulai</label>
+                <input type="date" name="tanggal_mulai" class="form-control" value="<?= date('Y-m-d') ?>" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Tanggal Selesai (Penutupan)</label>
+                <input type="date" name="tanggal_selesai" class="form-control" required>
+            </div>
       </div>
 
-      <div class="mb-3">
-        <label class="form-label fw-bold">Link Google Form (Opsional)</label>
-        <input type="text" name="link_google_form" class="form-control" placeholder="Isi jika pelamar diarahkan ke GForm eksternal">
+      <div class="row mb-3">
+          <div class="col-md-6">
+              <label class="form-label fw-bold">Template Formulir Lamaran (Internal)</label>
+              <select name="formulir_id" class="form-select border-primary">
+                  <option value="">-- Tidak Pakai Pertanyaan --</option>
+                  <?php foreach($templateInternal as $f): ?>
+                      <option value="<?= $f['id'] ?>">
+                          <?= esc($f['nama_template']) ?>
+                      </option>
+                  <?php endforeach; ?>
+              </select>
+              <div class="form-text small">Pilih jika ingin menambah pertanyaan essay/pilihan ganda.</div>
+          </div>
+
+          <div class="col-md-6">
+              <label class="form-label fw-bold">Template Google Form (Eksternal)</label>
+              <select name="link_google_form" class="form-select border-primary">
+                  <option value="">-- Tidak Pakai Google Form --</option>
+                  <?php foreach($templateEksternal as $f): ?>
+                      <option value="<?= esc($f['link_google_form']) ?>">
+                          <?= esc($f['nama_template']) ?>
+                      </option>
+                  <?php endforeach; ?>
+              </select>
+              <div class="form-text small">Pilih jika pelamar diarahkan ke link luar.</div>
+          </div>
       </div>
 
       <div class="mb-4">

@@ -26,6 +26,8 @@ class AdminController extends BaseController
         $lowonganModel     = new LowonganModel();
         $dataModel         = new DataModel();
         $alternativesModel = new AlternativesModel();
+        // Load PelamarModel untuk menghitung total orang (bukan total lamaran)
+        $pelamarModel      = new \App\Models\PelamarModel(); 
 
         // Ambil data admin yang sedang login
         $adminId   = session()->get('id');
@@ -35,16 +37,19 @@ class AdminController extends BaseController
         // Statistik Dashboard
         $stats = [
             'lowongan' => $lowonganModel->countAllResults(),
-            'pelamar'  => $dataModel->countAllResults(),
+            // Hitung total pelamar unik dari tabel Master Pelamar
+            'pelamar'  => $pelamarModel->countAllResults(), 
             'karyawan' => $alternativesModel->countAllResults(),
             'pending'  => $dataModel->where('status', 'proses')->where('is_history', 0)->countAllResults()
         ];
 
-        // Tabel & List
-        $pelamarTerbaru = $dataModel->select('data.*, lowongan.judul_lowongan')
+        // Tabel & List Pelamar Terbaru
+        // PERBAIKAN: Tambahkan JOIN ke tabel 'pelamar' dan ambil 'nama_lengkap' sebagai 'nama'
+        $pelamarTerbaru = $dataModel->select('data.*, lowongan.judul_lowongan, pelamar.nama_lengkap as nama')
             ->join('lowongan', 'lowongan.id = data.id_lowongan')
+            ->join('pelamar', 'pelamar.id = data.pelamar_id') // <--- JOIN PENTING
             ->orderBy('data.id', 'DESC')
-            ->findAll();
+            ->findAll(5); // Batasi 5 saja biar tidak berat
 
         $lowonganBaru = $lowonganModel->orderBy('tanggal_posting', 'DESC')->findAll(3);
 

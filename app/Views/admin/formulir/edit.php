@@ -5,38 +5,43 @@
   <div class="card" style="max-width: 800px; margin: 0 auto;">
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h4 class="card-title mb-0">Edit Template Formulir</h4>
-            <a href="<?= base_url('admin/formulir') ?>" class="btn btn-light btn-sm">Kembali</a>
+            <h4 class="card-title mb-0 fw-bold">Edit Template Formulir</h4>
+            <a href="<?= base_url('admin/formulir') ?>" class="btn btn-light btn-sm border">Kembali</a>
         </div>
         
         <form action="<?= base_url('admin/formulir/update/' . $formulir['id']) ?>" method="post">
-            <div class="mb-4">
+            <div class="mb-3">
                 <label class="fw-bold">Nama Template</label>
                 <input type="text" name="nama_template" class="form-control" value="<?= esc($formulir['nama_template']) ?>" required>
             </div>
+
+            <div class="mb-4">
+                <label class="fw-bold text-primary"><i class="mdi mdi-google-forms me-1"></i>Link Google Form (Opsional)</label>
+                <input type="url" name="link_google_form" class="form-control bg-light" value="<?= esc($formulir['link_google_form']) ?>" placeholder="https://forms.google.com/...">
+                <small class="text-muted">Link form eksternal yang akan digunakan.</small>
+            </div>
+
+            <hr>
 
             <h6 class="fw-bold mb-3">Daftar Pertanyaan</h6>
             <div id="formContainer">
                 
                 <?php 
-                    // Decode JSON Config
                     $questions = json_decode($formulir['config'] ?? '[]', true);
                 ?>
 
                 <?php if(!empty($questions)): ?>
                     <?php foreach($questions as $q): ?>
                         <?php 
-                            // Handling format lama/baru
                             $label = is_array($q) ? $q['label'] : $q;
                             $type  = is_array($q) ? ($q['type'] ?? 'text') : 'text';
                             $opts  = is_array($q) ? ($q['options'] ?? '') : '';
                             
-                            // Cek apakah perlu menampilkan input opsi
                             $showOpts = ($type == 'radio' || $type == 'checkbox') ? '' : 'd-none';
                             $reqOpts  = ($type == 'radio' || $type == 'checkbox') ? 'required' : '';
                         ?>
 
-                        <div class="card mb-2 border shadow-sm bg-light item-pertanyaan">
+                        <div class="card mb-2 border shadow-sm bg-light text-dark item-pertanyaan">
                             <div class="card-body p-3">
                                 <div class="row g-2">
                                     <div class="col-md-6">
@@ -69,7 +74,7 @@
             </button>
 
             <div class="text-end border-top pt-3">
-                <button type="submit" class="btn btn-primary">Update Template</button>
+                <button type="submit" class="btn btn-primary fw-bold px-4">Update Template</button>
             </div>
         </form>
     </div>
@@ -79,10 +84,10 @@
 <script>
     const container = document.getElementById('formContainer');
 
-    // 1. Fungsi Tambah Baris Baru (Sama seperti Create)
     document.getElementById('btnAddQuestion').addEventListener('click', function() {
         const card = document.createElement('div');
-        card.className = 'card mb-2 border shadow-sm bg-light item-pertanyaan';
+        // TAMBAHAN: text-dark di sini juga
+        card.className = 'card mb-2 border shadow-sm bg-light text-dark item-pertanyaan';
         
         card.innerHTML = `
             <div class="card-body p-3">
@@ -111,13 +116,11 @@
         attachEvents(card);
     });
 
-    // 2. Fungsi Event Listener (Agar tombol Hapus & Select tipe bekerja pada elemen lama & baru)
     function attachEvents(card) {
         const select = card.querySelector('.q-type-select');
         const opts = card.querySelector('.option-container');
         const btnRemove = card.querySelector('.remove-q');
 
-        // Logic Tipe Input
         select.addEventListener('change', function() {
             if(this.value === 'radio' || this.value === 'checkbox') {
                 opts.classList.remove('d-none');
@@ -128,13 +131,11 @@
             }
         });
 
-        // Logic Hapus
         btnRemove.addEventListener('click', function() { 
             card.remove(); 
         });
     }
 
-    // 3. Inisialisasi Event untuk Data Lama (PHP Rendered)
     document.querySelectorAll('.item-pertanyaan').forEach(card => {
         attachEvents(card);
     });

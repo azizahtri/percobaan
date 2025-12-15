@@ -10,16 +10,17 @@
 
 /* --- 1. CORE VARIABLES & OVERRIDES --- */
 :root {
-    --bs-primary: #1F3BB3;        /* Biru Utama */
+    --bs-primary: #5675ff;        /* Biru Utama */
     --bs-primary-rgb: 31, 59, 179;
-    --cartenz-blue: #1F3BB3; 
-    --cartenz-dark: #0d1b54; 
+    --cartenz-blue: #4b6cff; 
+    --cartenz-dark: #0d247e; 
     --cartenz-light: #f4f5f7;
 }
 
 /* Background & Text Colors */
 .bg-primary { background-color: var(--bs-primary) !important; }
 .text-primary { color: var(--bs-primary) !important; }
+
 
 /* Buttons Primary */
 .btn-primary {
@@ -233,3 +234,4 @@ table.dataTable {
     background-color: #0dcaf0 !important; /* Biru Muda Info */
     color: #fff !important;
 }
+
