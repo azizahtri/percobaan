@@ -25,33 +25,44 @@
 
       /* Navbar Style */
       #header {
-          position: fixed; top: 20px; left: 0; right: 0; z-index: 997;
-          transition: all 0.5s ease-in-out; padding: 0;
-          background: transparent !important;
+          background:  rgba(255, 255, 255, 0.95);
+          padding: 20px 0;
+          box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+          border-radius: 50px;  
+          padding: 12px 30px;                    
+          max-width: 90%;              
+          margin: 0 auto;
+          margin-top: 5px;
       }
-      #header .container-fluid {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-          border-radius: 50px; padding: 12px 30px; max-width: 90%; margin: 0 auto;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); border: 1px solid rgba(255, 255, 255, 0.5);
-          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+      /* Class ini akan ditambahkan via JS saat scroll */
+      #header.header-scrolled {
+          background:  rgba(255, 255, 255, 0.95);
+          padding: 20px 0;
+          box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+          border-radius: 50px;  
+          padding: 12px 30px;                    /* Padding Besar (Awal) */
+          max-width: 90%;                        /* Lebar Awal */
+          margin: 0 auto;
+          margin-top: 5px;
       }
-      #header.header-scrolled { top: 10px; }
-      #header.header-scrolled .container-fluid {
-          max-width: 85%; padding: 8px 25px;
-          background: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+
+      /* Warna Teks Menu */
+      .navmenu a, .navmenu a:focus {
+          color: #012970; /* Biru Tua agar kontras */
+          font-weight: 600;
       }
+
+      /* --- 2. KONFIGURASI LOGO BESAR --- */
+      .logo img {
+          max-height: 50px;
+          
+      }
+
       .logo img { max-height: 50px; }
       
       /* Menu & Mobile Nav */
       .navmenu ul { margin: 0; padding: 0; display: flex; list-style: none; align-items: center; }
-      .navmenu a {
-          color: #012970; font-weight: 600; font-size: 15px; padding: 8px 20px;
-          border-radius: 30px; transition: 0.3s; text-decoration: none;
-      }
-      .navmenu a:hover, .navmenu .active { color: #4154f1; background: rgba(65, 84, 241, 0.08); }
-      .mobile-nav-toggle { color: #012970; font-size: 28px; cursor: pointer; display: none; }
       
       @media (max-width: 991px) {
           .mobile-nav-toggle { display: block; }
@@ -70,18 +81,21 @@
 <body>
 
   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="<?= base_url('/') ?>" class="logo d-flex align-items-center me-auto text-decoration-none">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="<?= base_url('/') ?>" class="logo d-flex align-items-center me-auto">
         <img src="<?= base_url('FlexStart/assets/img/cartenz-logo.png') ?>" alt="logo">
         <span class="d-none d-lg-block ms-2 text-dark fw-bold">Cartenz Technology</span>
-      </a>
+        </a>
+
       <nav id="navmenu" class="navmenu">
-        <ul class="d-flex list-unstyled m-0 gap-4">
-          <li><a href="<?= base_url('/') ?>" class="text-dark fw-bold">Beranda</a></li>
-          <li><a href="<?= base_url('/#lowongan') ?>" class="text-primary fw-bold">Lowongan</a></li>
+        <ul>
+            <li><a href="<?= base_url('/') ?>" class="text-dark fw-bold">Beranda</a></li>
+            <li><a href="<?= base_url('/#lowongan') ?>" class="text-primary fw-bold">Lowongan</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+
     </div>
   </header>
 
@@ -381,6 +395,9 @@
   </div>
 
   <script src="<?= base_url('FlexStart/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+  
+  <script src="<?= base_url('FlexStart/assets/js/main.js') ?>"></script> 
+  
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
   <script>
@@ -423,6 +440,7 @@
         document.addEventListener('scroll', headerScrolled);
       }
   </script>
+
 
 </body>
 </html>

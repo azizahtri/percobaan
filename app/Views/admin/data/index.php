@@ -98,8 +98,14 @@
                                 <td>
                                     <div class="d-flex justify-content-center gap-2">
                                         <a href="<?= base_url('admin/data/detail/' . $d['id']) ?>" class="btn btn-action btn-action-detail" title="Lihat Detail"><i class="mdi mdi-eye"></i></a>
-                                        <?php if(in_array($d['status'], ['memenuhi', 'tidak memenuhi', 'blacklist'])): ?>
-                                            <a href="<?= base_url('admin/data/arsipkan/' . $d['id']) ?>" class="btn btn-success btn-sm" onclick="return confirm('Selesaikan proses dan pindah ke history?')" title="Selesai"><i class="mdi mdi-check"></i> Selesai</a>
+                                        <?php if (in_array($d['status'], ['memenuhi', 'tidak memenuhi', 'blacklist'])): ?>
+                                            <button type="button"
+                                                    class="btn btn-success rounded-pill px-4 fw-bold shadow-sm"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#modalSelesai<?= $d['id'] ?>"
+                                                    title="Selesaikan Proses">
+                                                <i class="mdi mdi-check me-1"></i> Selesai
+                                            </button>
                                         <?php endif; ?>
                                     </div>
                                 </td>
@@ -210,4 +216,34 @@
 
   </div>
 </div>
+
+<?php if (in_array($d['status'], ['memenuhi', 'tidak memenuhi', 'blacklist'])): ?>
+<div class="modal fade" id="modalSelesai<?= $d['id'] ?>" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-success text-white">
+                <h6 class="modal-title fw-bold">
+                    <i class="mdi mdi-check-all me-2"></i> Selesaikan Proses Rekrutmen?
+                </h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <i class="mdi mdi-archive-arrow-down-outline text-success opacity-25" style="font-size: 80px;"></i>
+                <p class="mt-3 mb-2 fw-bold">Proses rekrutmen untuk pelamar ini akan diselesaikan.</p>
+                <p class="text-muted small">Data akan dipindahkan ke riwayat (history) dan tidak muncul lagi di daftar aktif.</p>
+            </div>
+            <div class="modal-footer justify-content-center border-0 pb-4">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">
+                    Batal
+                </button>
+                <a href="<?= base_url('admin/data/arsipkan/' . $d['id']) ?>"
+                   class="btn btn-success rounded-pill px-5 fw-bold shadow-sm">
+                    Ya, Selesaikan
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
 <?= $this->endSection() ?>

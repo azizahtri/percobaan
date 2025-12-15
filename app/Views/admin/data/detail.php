@@ -96,82 +96,186 @@
                 </div>
             </div>
 
-            <div class="card border-0 shadow-sm bg-light">
+            <!-- Keputusan & Proses -->
+            <div class="card border-0 shadow-sm">
                 <div class="card-body p-4">
-                    <h5 class="fw-bold text-dark mb-3">Keputusan & Proses Rekrutmen</h5>
-                    
-                    <?php if($data['status'] == null || $data['status'] == 'proses' || $data['status'] == 'seleksi' || $data['status'] == 'tidak memenuhi'): ?>
-                        <div class="mb-4">
-                            <p class="small text-muted mb-2">Tentukan hasil seleksi (Email notifikasi otomatis dikirim):</p>
-                            <div class="d-flex gap-2">
-                                <a href="<?= base_url('admin/data/status/' . $data['id'] . '/memenuhi') ?>" 
-                                   class="btn btn-outline-success bg-white flex-grow-1 py-2 fw-bold"
-                                   onclick="return confirm('Nyatakan Lolos? Email notifikasi akan dikirim ke pelamar.')">
-                                    <i class="mdi mdi-check-circle-outline me-1"></i> Lolos Seleksi
-                                </a>
+                    <h5 class="fw-bold text-dark mb-4">Keputusan & Proses Rekrutmen</h5>
 
-                                <a href="<?= base_url('admin/data/status/' . $data['id'] . '/tidak memenuhi') ?>" 
-                                   class="btn btn-outline-danger bg-white flex-grow-1 py-2 fw-bold"
-                                   onclick="return confirm('Nyatakan Tidak Lolos? Email penolakan akan dikirim.')">
-                                    <i class="mdi mdi-close-circle-outline me-1"></i> Tidak Lolos
-                                </a>
-                            </div>
+                    <!-- Belum Diputuskan / Proses -->
+                    <?php if(in_array($data['status'] ?? '', [null, '', 'proses', 'seleksi', 'tidak memenuhi'])): ?>
+                        <p class="small text-muted mb-3">Tentukan hasil seleksi. Notifikasi WhatsApp akan dikirim otomatis.</p>
+                        <div class="d-grid d-md-flex gap-3">
+                            <button type="button" class="btn btn-success rounded-pill px-4 py-3 fw-bold flex-grow-1 shadow-sm"
+                                    data-bs-toggle="modal" data-bs-target="#modalLolos">
+                                <i class="mdi mdi-check-circle-outline me-2"></i> Nyatakan Lolos Seleksi
+                            </button>
+                            <button type="button" class="btn btn-danger rounded-pill px-4 py-3 fw-bold flex-grow-1 shadow-sm"
+                                    data-bs-toggle="modal" data-bs-target="#modalTidakLolos">
+                                <i class="mdi mdi-close-circle-outline me-2"></i> Nyatakan Tidak Lolos
+                            </button>
                         </div>
                     <?php endif; ?>
 
+                    <!-- Sudah Lolos -->
                     <?php if($data['status'] == 'memenuhi'): ?>
-                        <div class="alert alert-success border-0 fade show shadow-sm" role="alert">
-                            <h6 class="fw-bold mb-1 text-success"><i class="mdi mdi-check-circle me-1"></i> Lolos Seleksi</h6>
-                            <p class="small text-muted mb-3">Kandidat memenuhi kualifikasi. Lanjutkan ke tahap penawaran kerja?</p>
-                            
-                            <a href="<?= base_url('admin/data/offering/' . $data['id']) ?>" 
-                               class="btn btn-success w-100 fw-bold py-2 rounded-pill shadow-sm"
-                               onclick="return confirm('Kirim email Offering Letter ke pelamar?')">
-                                <i class="mdi mdi-email-fast-outline me-1"></i> Kirim Offering Letter
-                            </a>
+                        <div class="alert alert-success border-0 shadow-sm">
+                            <h6 class="fw-bold mb-2"><i class="mdi mdi-check-circle me-2"></i> Lolos Seleksi</h6>
+                            <p class="small text-muted mb-3">Kandidat memenuhi kualifikasi. Lanjutkan ke tahap penawaran?</p>
+                            <button type="button" class="btn btn-success rounded-pill w-100 py-3 fw-bold shadow-sm"
+                                    data-bs-toggle="modal" data-bs-target="#modalOffering">
+                                <i class="mdi mdi-email-fast-outline me-2"></i> Kirim Offering Letter via WhatsApp
+                            </button>
                         </div>
                     <?php endif; ?>
 
+                    <!-- Offering Dikirim -->
                     <?php if($data['status'] == 'offering'): ?>
-                        <div class="alert alert-warning border-0 fade show shadow-sm" role="alert">
-                            <h6 class="fw-bold mb-1 text-warning"><i class="mdi mdi-clock-outline me-1"></i> Menunggu Konfirmasi</h6>
-                            <p class="small text-muted mb-3">Email Offering sudah dikirim. Masukkan jawaban pelamar secara manual di sini:</p>
-                            
-                            <div class="d-flex gap-2">
-                                <a href="<?= base_url('admin/data/confirm/' . $data['id'] . '/terima') ?>" 
-                                   class="btn btn-primary flex-grow-1 fw-bold"
-                                   onclick="return confirm('Pelamar MENERIMA tawaran? Data akan masuk ke Data Karyawan.')">
-                                    <i class="mdi mdi-handshake me-1"></i> Pelamar Menerima
-                                </a>
-                                <a href="<?= base_url('admin/data/confirm/' . $data['id'] . '/tolak') ?>" 
-                                   class="btn btn-outline-secondary flex-grow-1 fw-bold bg-white"
-                                   onclick="return confirm('Pelamar MENOLAK tawaran? Data akan diarsipkan.')">
-                                    <i class="mdi mdi-close me-1"></i> Pelamar Menolak
-                                </a>
+                        <div class="alert alert-warning border-0 shadow-sm">
+                            <h6 class="fw-bold mb-2"><i class="mdi mdi-clock-outline me-2"></i> Menunggu Konfirmasi</h6>
+                            <p class="small text-muted mb-3">Offering sudah dikirim. Masukkan jawaban pelamar:</p>
+                            <div class="d-grid d-md-flex gap-3">
+                                <button type="button" class="btn btn-primary rounded-pill px-4 py-3 fw-bold flex-grow-1 shadow-sm"
+                                        data-bs-toggle="modal" data-bs-target="#modalTerima">
+                                    <i class="mdi mdi-handshake me-2"></i> Pelamar Menerima
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary rounded-pill px-4 py-3 fw-bold flex-grow-1"
+                                        data-bs-toggle="modal" data-bs-target="#modalTolakOffering">
+                                    <i class="mdi mdi-close me-2"></i> Pelamar Menolak
+                                </button>
                             </div>
                         </div>
                     <?php endif; ?>
 
+                    <!-- Hired -->
                     <?php if($data['status'] == 'hired'): ?>
-                        <div class="alert alert-primary border-0 text-center mb-0">
-                            <i class="mdi mdi-party-popper fs-3"></i><br>
-                            <strong>SUDAH DIREKRUT</strong><br>
-                            <span class="small">Kandidat resmi menjadi karyawan.</span>
-                        </div>
-                    <?php endif; ?>
-                    
-                    <?php if($data['status'] == 'rejected_offer'): ?>
-                        <div class="alert alert-secondary border-0 text-center mb-0">
-                            <i class="mdi mdi-close-circle fs-3"></i><br>
-                            <strong>MENOLAK TAWARAN</strong><br>
-                            <span class="small">Pelamar menolak offering letter.</span>
+                        <div class="alert alert-primary border-0 text-center py-5 shadow-sm">
+                            <i class="mdi mdi-party-popper fs-1 mb-3 d-block"></i>
+                            <h5 class="fw-bold">SELAMAT! SUDAH DIREKRUT</h5>
+                            <p class="small text-muted">Kandidat resmi menjadi karyawan perusahaan.</p>
                         </div>
                     <?php endif; ?>
 
+                    <!-- Rejected Offer -->
+                    <?php if($data['status'] == 'rejected_offer'): ?>
+                        <div class="alert alert-secondary border-0 text-center py-5 shadow-sm">
+                            <i class="mdi mdi-close-circle fs-1 mb-3 d-block"></i>
+                            <h5 class="fw-bold">MENOLAK TAWARAN</h5>
+                            <p class="small text-muted">Pelamar menolak offering letter.</p>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Modal Konfirmasi Lolos Seleksi -->
+<div class="modal fade" id="modalLolos" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-success text-white">
+                <h6 class="modal-title fw-bold"><i class="mdi mdi-check-circle-outline me-2"></i> Nyatakan Lolos?</h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <i class="mdi mdi-account-check-outline text-success opacity-25" style="font-size: 80px;"></i>
+                <p class="mt-3 mb-2">Pelamar akan dinyatakan <strong>LOLOS SELEKSI</strong>.</p>
+                <p class="text-muted small">Notifikasi WhatsApp akan dikirim otomatis ke kandidat.</p>
+            </div>
+            <div class="modal-footer justify-content-center border-0 pb-4">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
+                <a href="<?= base_url('admin/data/status/' . $data['id'] . '/memenuhi') ?>"
+                   class="btn btn-success rounded-pill px-5 fw-bold shadow-sm">Ya, Loloskan</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Konfirmasi Tidak Lolos -->
+<div class="modal fade" id="modalTidakLolos" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-danger text-white">
+                <h6 class="modal-title fw-bold"><i class="mdi mdi-close-circle-outline me-2"></i> Nyatakan Tidak Lolos?</h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <i class="mdi mdi-account-remove-outline text-danger opacity-25" style="font-size: 80px;"></i>
+                <p class="mt-3 mb-2">Pelamar akan dinyatakan <strong>TIDAK LOLOS</strong>.</p>
+                <p class="text-muted small">Pesan penolakan WhatsApp akan dikirim otomatis.</p>
+            </div>
+            <div class="modal-footer justify-content-center border-0 pb-4">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
+                <a href="<?= base_url('admin/data/status/' . $data['id'] . '/tidak memenuhi') ?>"
+                   class="btn btn-danger rounded-pill px-5 fw-bold shadow-sm">Ya, Tolak</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Kirim Offering -->
+<div class="modal fade" id="modalOffering" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-primary text-white">
+                <h6 class="modal-title fw-bold"><i class="mdi mdi-email-fast-outline me-2"></i> Kirim Offering Letter?</h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <i class="mdi mdi-file-send-outline text-primary opacity-25" style="font-size: 80px;"></i>
+                <p class="mt-3 mb-2">Offering letter akan dikirim via WhatsApp ke pelamar.</p>
+                <p class="text-muted small">Status akan berubah menjadi "Menunggu Konfirmasi".</p>
+            </div>
+            <div class="modal-footer justify-content-center border-0 pb-4">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
+                <a href="<?= base_url('admin/data/offering/' . $data['id']) ?>"
+                   class="btn btn-primary rounded-pill px-5 fw-bold shadow-sm">Ya, Kirim Offering</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Pelamar Menerima -->
+<div class="modal fade" id="modalTerima" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-success text-white">
+                <h6 class="modal-title fw-bold"><i class="mdi mdi-handshake me-2"></i> Pelamar Menerima Tawaran?</h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <i class="mdi mdi-account-heart-outline text-success opacity-25" style="font-size: 80px;"></i>
+                <p class="mt-3 mb-2">Pelamar <strong>MENERIMA</strong> tawaran kerja.</p>
+                <p class="text-muted small">Data akan dipindahkan ke Daftar Karyawan.</p>
+            </div>
+            <div class="modal-footer justify-content-center border-0 pb-4">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
+                <a href="<?= base_url('admin/data/confirm/' . $data['id'] . '/terima') ?>"
+                   class="btn btn-success rounded-pill px-5 fw-bold shadow-sm">Ya, Terima</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Pelamar Menolak Offering -->
+<div class="modal fade" id="modalTolakOffering" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-secondary text-white">
+                <h6 class="modal-title fw-bold"><i class="mdi mdi-close me-2"></i> Pelamar Menolak Tawaran?</h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <i class="mdi mdi-account-off-outline text-secondary opacity-25" style="font-size: 80px;"></i>
+                <p class="mt-3 mb-2">Pelamar <strong>MENOLAK</strong> offering letter.</p>
+                <p class="text-muted small">Data akan diarsipkan sebagai ditolak.</p>
+            </div>
+            <div class="modal-footer justify-content-center border-0 pb-4">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
+                <a href="<?= base_url('admin/data/confirm/' . $data['id'] . '/tolak') ?>"
+                   class="btn btn-secondary rounded-pill px-5 fw-bold shadow-sm">Ya, Tolak</a>
+            </div>
+        </div>
+    </div>
+</div>
 <?= $this->endSection() ?>
