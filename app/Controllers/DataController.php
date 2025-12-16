@@ -7,6 +7,7 @@ use App\Models\DataModel;
 use App\Models\LowonganModel;
 use App\Models\PelamarModel;
 use App\Models\AlternativesModel;
+use App\Models\PekerjaanModel;
 
 class DataController extends BaseController
 {
@@ -14,6 +15,7 @@ class DataController extends BaseController
     protected $lowonganModel;
     protected $pelamarModel;
     protected $alternativesModel;
+    protected $pekerjaanModel;
 
     public function __construct()
     {
@@ -21,52 +23,74 @@ class DataController extends BaseController
         $this->lowonganModel = new LowonganModel();
         $this->pelamarModel  = new PelamarModel();
         $this->alternativesModel  = new AlternativesModel();
+        $this->pekerjaanModel  = new PekerjaanModel();
     }
 
     public function index()
     {
-        // 1. PELAMAR BARU ... (Kode lama)
-        $belumDinilai = $this->dataModel
-            ->select('data.*, pelamar.nama_lengkap, lowongan.judul_lowongan')
+        // 1. AMBIL FILTER DARI URL
+        $divisiFilter = $this->request->getGet('divisi');
+
+        // 2. AMBIL LIST DIVISI (UNTUK DROPDOWN)
+        // Pastikan load PekerjaanModel di construct
+        $divisiList = $this->pekerjaanModel->groupBy('divisi')->orderBy('divisi', 'ASC')->findAll();
+
+        // --- HELPER FUNCTION UNTUK FILTER ---
+        $applyFilter = function($builder) use ($divisiFilter) {
+            if ($divisiFilter && $divisiFilter != 'all') {
+                $builder->where('pekerjaan.divisi', $divisiFilter);
+            }
+            return $builder;
+        };
+
+        // 3. QUERY DATA DENGAN FILTER
+        
+        // A. Pelamar Baru
+        $builder1 = $this->dataModel
+            ->select('data.*, pelamar.nama_lengkap, lowongan.judul_lowongan, pekerjaan.divisi')
             ->join('pelamar', 'pelamar.id = data.pelamar_id')
             ->join('lowongan', 'lowongan.id = data.id_lowongan')
+            ->join('pekerjaan', 'pekerjaan.id = lowongan.pekerjaan_id') // Join ke Pekerjaan
             ->where('data.spk_score', 0)
-            ->where('data.is_history', 0)
-            ->orderBy('data.id', 'DESC')
-            ->findAll();
+            ->where('data.is_history', 0);
+        
+        $belumDinilai = $applyFilter($builder1)->orderBy('data.id', 'DESC')->findAll();
 
-        // 2. HASIL PENILAIAN ... (Kode lama)
-        $sudahDinilai = $this->dataModel
-            ->select('data.*, pelamar.nama_lengkap, lowongan.judul_lowongan')
+        // B. Hasil Penilaian
+        $builder2 = $this->dataModel
+            ->select('data.*, pelamar.nama_lengkap, lowongan.judul_lowongan, pekerjaan.divisi')
             ->join('pelamar', 'pelamar.id = data.pelamar_id')
             ->join('lowongan', 'lowongan.id = data.id_lowongan')
+            ->join('pekerjaan', 'pekerjaan.id = lowongan.pekerjaan_id')
             ->where('data.spk_score >', 0)
-            ->where('data.is_history', 0)
-            ->orderBy('data.spk_score', 'DESC')
-            ->findAll();
+            ->where('data.is_history', 0);
 
-        // 3. HISTORY ... (Kode lama)
-        $history = $this->dataModel
-            ->select('data.*, pelamar.nama_lengkap, lowongan.judul_lowongan')
+        $sudahDinilai = $applyFilter($builder2)->orderBy('data.spk_score', 'DESC')->findAll();
+
+        // C. History
+        $builder3 = $this->dataModel
+            ->select('data.*, pelamar.nama_lengkap, lowongan.judul_lowongan, pekerjaan.divisi')
             ->join('pelamar', 'pelamar.id = data.pelamar_id')
             ->join('lowongan', 'lowongan.id = data.id_lowongan')
-            ->where('data.is_history', 1)
-            ->orderBy('data.id', 'DESC')
-            ->findAll();
+            ->join('pekerjaan', 'pekerjaan.id = lowongan.pekerjaan_id')
+            ->where('data.is_history', 1);
 
-        // 4. BLACKLIST (BARU)
-        // Ambil langsung dari Master Pelamar
+        $history = $applyFilter($builder3)->orderBy('data.id', 'DESC')->findAll();
+
+        // D. Blacklist (Tidak perlu filter divisi karena global)
         $blacklist = $this->pelamarModel
             ->where('is_blacklisted', 1)
             ->orderBy('updated_at', 'DESC')
             ->findAll();
 
         return view('admin/data/index', [
-            'title'        => 'Manajemen Data Pelamar',
-            'belumDinilai' => $belumDinilai,
-            'sudahDinilai' => $sudahDinilai,
-            'history'      => $history,
-            'blacklist'    => $blacklist // Kirim data blacklist
+            'title'         => 'Manajemen Data Pelamar',
+            'belumDinilai'  => $belumDinilai,
+            'sudahDinilai'  => $sudahDinilai,
+            'history'       => $history,
+            'blacklist'     => $blacklist,
+            'divisiList'    => $divisiList,       // Kirim List Divisi
+            'selectedDivisi'=> $divisiFilter ?? 'all' // Kirim Status Filter
         ]);
     }
 

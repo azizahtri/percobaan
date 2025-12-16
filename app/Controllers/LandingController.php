@@ -30,7 +30,6 @@ class LandingController extends BaseController
 
     public function detail($id)
     {
-        // Join ke formulir agar config pertanyaan terbaca (jika ada)
         $lowongan = $this->lowonganModel
             ->select('lowongan.*, formulir.config as form_config')
             ->join('formulir', 'formulir.id = lowongan.formulir_id', 'left')
@@ -157,7 +156,7 @@ class LandingController extends BaseController
         $this->dataModel->save([
             'pelamar_id'     => $finalPelamarId,
             'id_lowongan'    => $idLowongan,
-            'tanggal_daftar' => date('Y-m-d'),
+            'tanggal_daftar' => date('Y-m-d H:i:s'),
             'form_data'      => json_encode($jawabanForm),
             'status'         => 'seleksi',
             'is_history'     => 0

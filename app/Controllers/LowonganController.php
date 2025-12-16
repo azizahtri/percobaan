@@ -186,11 +186,11 @@ class LowonganController extends BaseController
             'judul_lowongan'   => $this->request->getPost('judul_lowongan'),
             'deskripsi'        => $this->request->getPost('deskripsi'),
             'jenis'            => $this->request->getPost('jenis'),
-            'status'           => 'open', // Default Open saat buat baru
+            'status'           => 'open',
             'tanggal_mulai'    => $this->request->getPost('tanggal_mulai'),
             'tanggal_selesai'  => $this->request->getPost('tanggal_selesai'),
             'link_google_form' => $this->request->getPost('link_google_form'),
-            'tanggal_posting'  => date('Y-m-d'), // Tetap simpan tgl pembuatan
+            'tanggal_posting'  => date('Y-m-d H:i:s'),
             'formulir_id'      => $formulirId, 
         ]);
 
@@ -250,7 +250,6 @@ class LowonganController extends BaseController
         if (!$lowongan) return redirect()->to('admin/lowongan');
 
         $pelamar = $this->dataModel
-            // PERBAIKAN: Tambahkan 'pelamar.no_ktp' di sini
             ->select('data.*, 
                       pelamar.id as pelamar_id, 
                       pelamar.no_ktp, 

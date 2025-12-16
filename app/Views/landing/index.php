@@ -24,7 +24,6 @@
   <link href="<?= base_url('FlexStart/assets/css/main.css') ?>" rel="stylesheet">
 
   <style>
-      /* --- 1. KONFIGURASI NAVBAR TRANSPARAN KE BIRU --- */
       #header {
           background:  rgba(255, 255, 255, 0.95);
           padding: 20px 0;
@@ -36,46 +35,40 @@
           margin-top: 5px;
       }
 
-      /* Class ini akan ditambahkan via JS saat scroll */
       #header.header-scrolled {
           background:  rgba(255, 255, 255, 0.95);
           padding: 20px 0;
           box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
           border-radius: 50px;  
-          padding: 12px 30px;                    /* Padding Besar (Awal) */
-          max-width: 90%;                        /* Lebar Awal */
+          padding: 12px 30px; 
+          max-width: 90%;
           margin: 0 auto;
           margin-top: 5px;
       }
 
-      /* Warna Teks Menu */
       .navmenu a, .navmenu a:focus {
-          color: #012970; /* Biru Tua agar kontras */
+          color: #012970; 
           font-weight: 600;
       }
 
-      /* --- 2. KONFIGURASI LOGO BESAR --- */
       .logo img {
           max-height: 50px;
           
       }
       
-
-      /* --- 3. KONFIGURASI BACKGROUND HERO --- */
       #hero {
           width: 100%;
-          height: 100vh; /* Full layar */
+          height: 100vh;
           background: url('FlexStart/assets/img/hero-pic.jpg') top center;
           background-size: cover;
           position: relative;
           padding: 0;
-          margin-bottom: 0; /* Hapus margin bawah default */
+          margin-bottom: 0;
       }
 
-      /* Overlay Putih Transparan agar teks terbaca */
       #hero:before {
           content: "";
-          background: rgba(255, 255, 255, 0.6); /* Putih transparansi 60% */
+          background: rgba(255, 255, 255, 0.6);
           position: absolute;
           bottom: 0;
           top: 0;
@@ -83,34 +76,32 @@
           right: 0;
       }
 
-      /* Agar konten berada di atas overlay */
       #hero .container {
           position: relative;
           z-index: 2;
-          padding-top: 80px; /* Jarak dari atas karena navbar fixed */
+          padding-top: 80px;
       }
       
-      /* Jarak section lowongan */
       #lowongan {
           padding-top: 80px;
       }
 
       .dev-alert-container {
         position: fixed;
-        bottom: 20px;          /* Jarak dari bawah */
+        bottom: 20px;  
         left: 50%;
-        transform: translateX(-50%); /* Posisi tengah */
-        z-index: 99999;        /* Pastikan di atas semua elemen */
+        transform: translateX(-50%);
+        z-index: 99999; 
         width: 90%;
         max-width: 600px;
         animation: slideUp 0.5s ease-out;
     }
 
     .dev-alert-content {
-        background-color: #fff3cd; /* Warna Kuning Soft */
-        color: #856404;            /* Warna Teks Coklat Gelap */
+        background-color: #fff3cd;
+        color: #856404;          
         border: 1px solid #ffeeba;
-        border-left: 5px solid #ffc107; /* Aksen Kuning Tebal */
+        border-left: 5px solid #ffc107;
         padding: 15px 20px;
         border-radius: 8px;
         box-shadow: 0 5px 20px rgba(0,0,0,0.15);
@@ -142,13 +133,11 @@
         opacity: 1;
     }
 
-    /* Animasi Muncul */
     @keyframes slideUp {
         from { bottom: -100px; opacity: 0; }
         to { bottom: 20px; opacity: 1; }
     }
 
-    /* Responsif untuk HP */
     @media (max-width: 600px) {
         .dev-alert-container {
             width: 95%;
@@ -226,10 +215,10 @@
               <?php 
                 $countOpen = 0;
                 foreach ($lowongan as $i => $l): 
-                    // FILTER: Hanya tampilkan yang OPEN dan Belum Lewat Tanggal Selesai
+                    
                     $today = date('Y-m-d');
                     if ($l['status'] !== 'open' || $l['tanggal_selesai'] < $today) {
-                        continue; // Skip loop ini (jangan tampilkan)
+                        continue;
                     }
                     $countOpen++;
 
@@ -402,6 +391,7 @@
     // }
 </script>
 
+<!-- JS alert untuk sukses/gagal lamar -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
       <?php if (session()->getFlashdata('success')) : ?>

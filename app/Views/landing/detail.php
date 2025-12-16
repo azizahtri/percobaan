@@ -19,11 +19,15 @@
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 
   <style>
-      /* Global Style */
-      body { background-color: #f6f9ff; font-family: 'Nunito', sans-serif; }
-      .page-content { padding-top: 130px; min-height: 85vh; }
+      body { 
+        background-color: #f6f9ff; 
+        font-family: 'Nunito', sans-serif; 
+    }
+      .page-content { 
+        padding-top: 130px; 
+        min-height: 85vh; 
+    }
 
-      /* Navbar Style */
       #header {
           background:  rgba(255, 255, 255, 0.95);
           padding: 20px 0;
@@ -35,46 +39,72 @@
           margin-top: 5px;
       }
 
-      /* Class ini akan ditambahkan via JS saat scroll */
       #header.header-scrolled {
           background:  rgba(255, 255, 255, 0.95);
           padding: 20px 0;
           box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
           border-radius: 50px;  
-          padding: 12px 30px;                    /* Padding Besar (Awal) */
-          max-width: 90%;                        /* Lebar Awal */
+          padding: 12px 30px; 
+          max-width: 90%; 
           margin: 0 auto;
           margin-top: 5px;
       }
 
-      /* Warna Teks Menu */
       .navmenu a, .navmenu a:focus {
-          color: #012970; /* Biru Tua agar kontras */
+          color: #012970;
           font-weight: 600;
       }
 
-      /* --- 2. KONFIGURASI LOGO BESAR --- */
       .logo img {
           max-height: 50px;
           
       }
 
-      .logo img { max-height: 50px; }
+      .logo img { 
+        max-height: 50px; 
+    }
       
-      /* Menu & Mobile Nav */
-      .navmenu ul { margin: 0; padding: 0; display: flex; list-style: none; align-items: center; }
+      .navmenu ul { 
+        margin: 0; 
+        padding: 0; 
+        display: flex; 
+        list-style: none; 
+        align-items: center; 
+    }
       
       @media (max-width: 991px) {
-          .mobile-nav-toggle { display: block; }
-          #header .container-fluid { max-width: 95% !important; padding: 10px 20px; }
+          .mobile-nav-toggle { 
+            display: block; 
+        }
+          #header .container-fluid { 
+            max-width: 95% !important; 
+            padding: 10px 20px; 
+        }
       }
 
-      /* Card & Form Styles */
-      .card-job { border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(1, 41, 112, 0.08); background: #fff; }
-      .modal-content { border: none; border-radius: 15px; overflow: hidden; }
-      .modal-header { border-bottom: 1px solid #eee; background-color: #f9fafb; }
-      .form-control:focus, .form-select:focus { box-shadow: none; border-color: #4154f1; }
-      .hover-scale:hover { transform: scale(1.02); transition: 0.3s; }
+      .card-job { 
+        border: none; 
+        border-radius: 15px; 
+        box-shadow: 0 10px 30px rgba(1, 41, 112, 0.08); 
+        background: #fff; 
+    }
+      .modal-content { 
+        border: none; 
+        border-radius: 15px; 
+        overflow: hidden; 
+    }
+      .modal-header { 
+        border-bottom: 1px solid #eee; 
+        background-color: #f9fafb; 
+    }
+      .form-control:focus, .form-select:focus { 
+        box-shadow: none; 
+        border-color: #4154f1; 
+    }
+      .hover-scale:hover { 
+        transform: scale(1.02); 
+        transition: 0.3s; 
+    }
   </style>
 </head>
 

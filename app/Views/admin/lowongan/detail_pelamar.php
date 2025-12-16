@@ -43,7 +43,12 @@
       <div class="card shadow-sm border-0 h-100">
         <div class="card-header bg-white border-bottom pt-4 pb-3 text-center">
             <?php if (!empty($data['foto_profil'])): ?>
-                <img src="<?= base_url('uploads/berkas/' . $data['foto_profil']) ?>" class="avatar-lg rounded-circle mx-auto mb-3 shadow-sm border p-1" style="width: 100px; height: 100px; object-fit: cover;">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalFoto">
+                    <img src="<?= base_url('uploads/berkas/' . $data['foto_profil']) ?>" 
+                         class="avatar-lg rounded-circle mx-auto mb-3 shadow-sm border p-1 hover-scale" 
+                         style="width: 100px; height: 100px; object-fit: cover; cursor: pointer;"
+                         title="Klik untuk memperbesar">
+                </a>
             <?php else: ?>
                 <div class="avatar-lg bg-primary-subtle text-primary rounded-circle mx-auto d-flex align-items-center justify-content-center fw-bold fs-3 mb-3" style="width: 80px; height: 80px;">
                     <?= strtoupper(substr($data['nama_lengkap'], 0, 1)) ?>
@@ -328,4 +333,18 @@
     </div>
 </div>
 
+<!-- modal foto -->
+<?php if (!empty($data['foto_profil'])): ?>
+<div class="modal fade" id="modalFoto" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-transparent border-0 shadow-none">
+            <div class="modal-body p-0 text-center position-relative">
+                <button type="button" class="btn-close btn-close-black position-absolute top-0 end-0 m-3 p-2 bg-white rounded-circle opacity-75" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+                <img src="<?= base_url('uploads/berkas/' . $data['foto_profil']) ?>" class="img-fluid rounded shadow-lg" style="max-height: 85vh;">
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
 <?= $this->endSection() ?>
